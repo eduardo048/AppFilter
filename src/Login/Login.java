@@ -7,7 +7,15 @@ package Login;
 import Conexion.AppSesion;
 import Conexion.ConexionBBDD;
 import Inicio.PantallaInicio;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
+import java.awt.Shape;
+import java.awt.geom.Area;
+import java.awt.geom.Rectangle2D;
+import java.awt.geom.RoundRectangle2D;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -40,8 +48,8 @@ public class Login extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         jPasswordContratxt = new javax.swing.JPasswordField();
-        panelRound1 = new Inicio.PanelRound();
-        jLabelLoginIniciar1 = new javax.swing.JLabel();
+        jPanel2 = new PanelRound();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -133,39 +141,22 @@ public class Login extends javax.swing.JFrame {
         });
         jPanel1.add(jPasswordContratxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 320, 30));
 
-        panelRound1.setBackground(new java.awt.Color(16, 152, 193));
-        panelRound1.setRoundBottomLeft(50);
-        panelRound1.setRoundBottomRight(50);
-        panelRound1.setRoundTopLeft(50);
-        panelRound1.setRoundTopRight(50);
+        jPanel2.setBackground(new java.awt.Color(15, 150, 189));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelLoginIniciar1.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        jLabelLoginIniciar1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabelLoginIniciar1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelLoginIniciar1.setText("INICIAR");
-        jLabelLoginIniciar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabelLoginIniciar1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabel5.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("INICIAR");
+        jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelLoginIniciar1MouseClicked(evt);
+                jLabel5MouseClicked(evt);
             }
         });
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 50));
 
-        javax.swing.GroupLayout panelRound1Layout = new javax.swing.GroupLayout(panelRound1);
-        panelRound1.setLayout(panelRound1Layout);
-        panelRound1Layout.setHorizontalGroup(
-            panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabelLoginIniciar1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        panelRound1Layout.setVerticalGroup(
-            panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabelLoginIniciar1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        jPanel1.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, 120, 40));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, 120, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -216,7 +207,7 @@ public class Login extends javax.swing.JFrame {
         }       
     }//GEN-LAST:event_jPasswordContratxtMousePressed
 
-    private void jLabelLoginIniciar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelLoginIniciar1MouseClicked
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         String usuario = jTextFieldUserTxt.getText();
         String contraseña = new String(jPasswordContratxt.getPassword());
         int intentos = 0;
@@ -236,7 +227,7 @@ public class Login extends javax.swing.JFrame {
                             jPasswordContratxt.setText("********");
                         }
                 }
-    }//GEN-LAST:event_jLabelLoginIniciar1MouseClicked
+    }//GEN-LAST:event_jLabel5MouseClicked
 
     /**
      * @param args the command line arguments
@@ -278,14 +269,128 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabelLoginIniciar1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPasswordField jPasswordContratxt;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextField jTextFieldUserTxt;
-    private Inicio.PanelRound panelRound1;
     // End of variables declaration//GEN-END:variables
 }
+// Clase auxiliar agregada directamente al final de Login.java
+
+class PanelRound extends JPanel {
+
+    private int roundTopLeft = 50;
+    private int roundTopRight = 50;
+    private int roundBottomLeft = 50;
+    private int roundBottomRight = 50;
+
+    public PanelRound() {
+        setOpaque(false);
+    }
+
+    public int getRoundTopLeft() {
+        return roundTopLeft;
+    }
+
+    public void setRoundTopLeft(int roundTopLeft) {
+        this.roundTopLeft = roundTopLeft;
+        repaint();
+    }
+
+    public int getRoundTopRight() {
+        return roundTopRight;
+    }
+
+    public void setRoundTopRight(int roundTopRight) {
+        this.roundTopRight = roundTopRight;
+        repaint();
+    }
+
+    public int getRoundBottomLeft() {
+        return roundBottomLeft;
+    }
+
+    public void setRoundBottomLeft(int roundBottomLeft) {
+        this.roundBottomLeft = roundBottomLeft;
+        repaint();
+    }
+
+    public int getRoundBottomRight() {
+        return roundBottomRight;
+    }
+
+    public void setRoundBottomRight(int roundBottomRight) {
+        this.roundBottomRight = roundBottomRight;
+        repaint();
+    }
+
+    @Override
+    protected void paintComponent(Graphics grphcs) {
+        Graphics2D g2 = (Graphics2D) grphcs.create();
+        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g2.setColor(getBackground());
+        Area area = new Area(createRoundTopLeft());
+        if (roundTopRight > 0) {
+            area.intersect(new Area(createRoundTopRight()));
+        }
+        if (roundBottomLeft > 0) {
+            area.intersect(new Area(createRoundBottomLeft()));
+        }
+        if (roundBottomRight > 0) {
+            area.intersect(new Area(createRoundBottomRight()));
+        }
+        g2.fill(area);
+        g2.dispose();
+        super.paintComponent(grphcs);
+    }
+
+    private Shape createRoundTopLeft() {
+        int width = getWidth();
+        int height = getHeight();
+        int roundX = Math.min(width, roundTopLeft);
+        int roundY = Math.min(height, roundTopLeft);
+        Area area = new Area(new RoundRectangle2D.Double(0, 0, width, height, roundX, roundY));
+        area.add(new Area(new Rectangle2D.Double(roundX / 2, 0, width - roundX / 2, height)));
+        area.add(new Area(new Rectangle2D.Double(0, roundY / 2, width, height - roundY / 2)));
+        return area;
+    }
+
+    private Shape createRoundTopRight() {
+        int width = getWidth();
+        int height = getHeight();
+        int roundX = Math.min(width, roundTopRight);
+        int roundY = Math.min(height, roundTopRight);
+        Area area = new Area(new RoundRectangle2D.Double(0, 0, width, height, roundX, roundY));
+        area.add(new Area(new Rectangle2D.Double(0, 0, width - roundX / 2, height)));
+        area.add(new Area(new Rectangle2D.Double(0, roundY / 2, width, height - roundY / 2)));
+        return area;
+    }
+
+    private Shape createRoundBottomLeft() {
+        int width = getWidth();
+        int height = getHeight();
+        int roundX = Math.min(width, roundBottomLeft);
+        int roundY = Math.min(height, roundBottomLeft);
+        Area area = new Area(new RoundRectangle2D.Double(0, 0, width, height, roundX, roundY));
+        area.add(new Area(new Rectangle2D.Double(roundX / 2, 0, width - roundX / 2, height)));
+        area.add(new Area(new Rectangle2D.Double(0, 0, width, height - roundY / 2)));
+        return area;
+    }
+
+    private Shape createRoundBottomRight() {
+        int width = getWidth();
+        int height = getHeight();
+        int roundX = Math.min(width, roundBottomRight);
+        int roundY = Math.min(height, roundBottomRight);
+        Area area = new Area(new RoundRectangle2D.Double(0, 0, width, height, roundX, roundY));
+        area.add(new Area(new Rectangle2D.Double(0, 0, width - roundX / 2, height)));
+        area.add(new Area(new Rectangle2D.Double(0, 0, width, height - roundY / 2)));
+        return area;
+    }
+}
+
