@@ -24,7 +24,7 @@ public class ConexionBBDD {
     private boolean conectado;
     
     public ConexionBBDD(){
-        String url = "jdbc:oracle:thin:@//10.147.20.17:1521/XEPDB1";
+        String url = "jdbc:oracle:thin:@//192.168.1.158:1521/XEPDB1";
         String usuario = AppSesion.getUsuario();
         String contraseña = AppSesion.getContraseña();
         try{

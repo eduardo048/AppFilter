@@ -4,17 +4,32 @@
  */
 package Inicio;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
+import java.awt.Shape;
+import java.awt.geom.Area;
+import java.awt.geom.Rectangle2D;
+import java.awt.geom.RoundRectangle2D;
+import javax.swing.JPanel;
+
 /**
  *
  * @author PC
  */
 public class PantallaInicio extends javax.swing.JFrame {
 
-    /**
-     * Creates new form PantallaInicio
-     */
+    int xMouse, yMouse;
     public PantallaInicio() {
         initComponents();
+        PanelInicio panelInicio = new PanelInicio();
+        jPanelFondoPantallaInicio.setLayout(new BorderLayout());
+        jPanelFondoPantallaInicio.removeAll();
+        jPanelFondoPantallaInicio.add(panelInicio, BorderLayout.CENTER);
+        jPanelFondoPantallaInicio.revalidate();
+        jPanelFondoPantallaInicio.repaint();
     }
 
     /**
@@ -27,53 +42,474 @@ public class PantallaInicio extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jPanelInicioMenu = new PanelRound();
+        jLabelInicioMenu = new javax.swing.JLabel();
+        jPanelAñadirMenu = new PanelRound();
+        jLabelAñadirMenu = new javax.swing.JLabel();
+        jPanelModificarMenu = new PanelRound();
+        jLabelModificarMenu = new javax.swing.JLabel();
+        jPanelEliminarMenu = new PanelRound();
+        jLabelEliminarMenu = new javax.swing.JLabel();
+        jPanelFiltrarEmpresasMenu = new PanelRound();
+        jLabelFiltrarEmpresaMenu = new javax.swing.JLabel();
+        jPanelVerEmpresasMenu = new PanelRound();
+        jLabelVerEmpresasMenu = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jPanelFondoPantallaInicio = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 500));
+        setLocationByPlatform(true);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(15, 150, 189));
+        jPanel3.setBackground(new java.awt.Color(51, 51, 51));
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("X");
+        jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel6MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 132, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 40));
+
+        jPanel2.setBackground(new java.awt.Color(51, 51, 51));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setBackground(new java.awt.Color(15, 150, 189));
-        jButton1.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("INICIO");
-        jButton1.setBorder(null);
-        jButton1.setBorderPainted(false);
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 120, 38));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/imagenInicio (1).png"))); // NOI18N
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, -1));
 
-        jButton2.setText("jButton1");
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 120, 38));
+        jPanelInicioMenu.setBackground(new java.awt.Color(51, 51, 51));
 
-        jButton3.setText("jButton1");
-        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 120, 38));
+        jLabelInicioMenu.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        jLabelInicioMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelInicioMenu.setText("INICIO");
+        jLabelInicioMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelInicioMenuMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabelInicioMenuMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabelInicioMenuMouseExited(evt);
+            }
+        });
 
-        jButton4.setText("jButton1");
-        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 120, 38));
+        javax.swing.GroupLayout jPanelInicioMenuLayout = new javax.swing.GroupLayout(jPanelInicioMenu);
+        jPanelInicioMenu.setLayout(jPanelInicioMenuLayout);
+        jPanelInicioMenuLayout.setHorizontalGroup(
+            jPanelInicioMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelInicioMenuLayout.createSequentialGroup()
+                .addComponent(jLabelInicioMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanelInicioMenuLayout.setVerticalGroup(
+            jPanelInicioMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelInicioMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 500));
+        jPanel2.add(jPanelInicioMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 170, 50));
+
+        jPanelAñadirMenu.setBackground(new java.awt.Color(51, 51, 51));
+
+        jLabelAñadirMenu.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        jLabelAñadirMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelAñadirMenu.setText("AÑADIR");
+        jLabelAñadirMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelAñadirMenuMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabelAñadirMenuMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabelAñadirMenuMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelAñadirMenuLayout = new javax.swing.GroupLayout(jPanelAñadirMenu);
+        jPanelAñadirMenu.setLayout(jPanelAñadirMenuLayout);
+        jPanelAñadirMenuLayout.setHorizontalGroup(
+            jPanelAñadirMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelAñadirMenuLayout.createSequentialGroup()
+                .addComponent(jLabelAñadirMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanelAñadirMenuLayout.setVerticalGroup(
+            jPanelAñadirMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelAñadirMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+
+        jPanel2.add(jPanelAñadirMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, -1, -1));
+
+        jPanelModificarMenu.setBackground(new java.awt.Color(51, 51, 51));
+
+        jLabelModificarMenu.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        jLabelModificarMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelModificarMenu.setText("MODIFICAR");
+        jLabelModificarMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelModificarMenuMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabelModificarMenuMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabelModificarMenuMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelModificarMenuLayout = new javax.swing.GroupLayout(jPanelModificarMenu);
+        jPanelModificarMenu.setLayout(jPanelModificarMenuLayout);
+        jPanelModificarMenuLayout.setHorizontalGroup(
+            jPanelModificarMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelModificarMenuLayout.createSequentialGroup()
+                .addComponent(jLabelModificarMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanelModificarMenuLayout.setVerticalGroup(
+            jPanelModificarMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelModificarMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+
+        jPanel2.add(jPanelModificarMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, -1, -1));
+
+        jPanelEliminarMenu.setBackground(new java.awt.Color(51, 51, 51));
+
+        jLabelEliminarMenu.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        jLabelEliminarMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelEliminarMenu.setText("ELIMINAR");
+        jLabelEliminarMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelEliminarMenuMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabelEliminarMenuMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabelEliminarMenuMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelEliminarMenuLayout = new javax.swing.GroupLayout(jPanelEliminarMenu);
+        jPanelEliminarMenu.setLayout(jPanelEliminarMenuLayout);
+        jPanelEliminarMenuLayout.setHorizontalGroup(
+            jPanelEliminarMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelEliminarMenuLayout.createSequentialGroup()
+                .addComponent(jLabelEliminarMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanelEliminarMenuLayout.setVerticalGroup(
+            jPanelEliminarMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelEliminarMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+
+        jPanel2.add(jPanelEliminarMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, -1, -1));
+
+        jPanelFiltrarEmpresasMenu.setBackground(new java.awt.Color(51, 51, 51));
+
+        jLabelFiltrarEmpresaMenu.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        jLabelFiltrarEmpresaMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelFiltrarEmpresaMenu.setText("FILTRAR EMPRESAS");
+        jLabelFiltrarEmpresaMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelFiltrarEmpresaMenuMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabelFiltrarEmpresaMenuMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabelFiltrarEmpresaMenuMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelFiltrarEmpresasMenuLayout = new javax.swing.GroupLayout(jPanelFiltrarEmpresasMenu);
+        jPanelFiltrarEmpresasMenu.setLayout(jPanelFiltrarEmpresasMenuLayout);
+        jPanelFiltrarEmpresasMenuLayout.setHorizontalGroup(
+            jPanelFiltrarEmpresasMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelFiltrarEmpresasMenuLayout.createSequentialGroup()
+                .addComponent(jLabelFiltrarEmpresaMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanelFiltrarEmpresasMenuLayout.setVerticalGroup(
+            jPanelFiltrarEmpresasMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelFiltrarEmpresaMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+
+        jPanel2.add(jPanelFiltrarEmpresasMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, -1, -1));
+
+        jPanelVerEmpresasMenu.setBackground(new java.awt.Color(51, 51, 51));
+
+        jLabelVerEmpresasMenu.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        jLabelVerEmpresasMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelVerEmpresasMenu.setText("VER EMPRESAS");
+        jLabelVerEmpresasMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelVerEmpresasMenuMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabelVerEmpresasMenuMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabelVerEmpresasMenuMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelVerEmpresasMenuLayout = new javax.swing.GroupLayout(jPanelVerEmpresasMenu);
+        jPanelVerEmpresasMenu.setLayout(jPanelVerEmpresasMenuLayout);
+        jPanelVerEmpresasMenuLayout.setHorizontalGroup(
+            jPanelVerEmpresasMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelVerEmpresasMenuLayout.createSequentialGroup()
+                .addComponent(jLabelVerEmpresasMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanelVerEmpresasMenuLayout.setVerticalGroup(
+            jPanelVerEmpresasMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelVerEmpresasMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+
+        jPanel2.add(jPanelVerEmpresasMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 470, -1, -1));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 690));
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jPanel4MouseDragged(evt);
+            }
+        });
+        jPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jPanel4MousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1060, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 1060, 30));
+
+        javax.swing.GroupLayout jPanelFondoPantallaInicioLayout = new javax.swing.GroupLayout(jPanelFondoPantallaInicio);
+        jPanelFondoPantallaInicio.setLayout(jPanelFondoPantallaInicioLayout);
+        jPanelFondoPantallaInicioLayout.setHorizontalGroup(
+            jPanelFondoPantallaInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 940, Short.MAX_VALUE)
+        );
+        jPanelFondoPantallaInicioLayout.setVerticalGroup(
+            jPanelFondoPantallaInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 660, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanelFondoPantallaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 940, 660));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_jLabel6MouseClicked
+
+    private void jPanel4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MousePressed
+        xMouse = evt.getX();
+        yMouse = evt.getY();  
+    }//GEN-LAST:event_jPanel4MousePressed
+
+    private void jPanel4MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseDragged
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x - xMouse ,y - yMouse);
+                                    
+    }//GEN-LAST:event_jPanel4MouseDragged
+
+    private void jLabelInicioMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelInicioMenuMouseEntered
+        jPanelInicioMenu.setBackground(Color.WHITE);
+        jLabelInicioMenu.setForeground(new Color(51, 51, 51));
+    }//GEN-LAST:event_jLabelInicioMenuMouseEntered
+
+    private void jLabelInicioMenuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelInicioMenuMouseExited
+        jPanelInicioMenu.setBackground(new Color(51, 51, 51));
+        jLabelInicioMenu.setForeground(Color.WHITE);
+    }//GEN-LAST:event_jLabelInicioMenuMouseExited
+
+    private void jLabelInicioMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelInicioMenuMouseClicked
+        // 1. Crea una instancia del nuevo panel
+        PanelInicio panelInicio = new PanelInicio();
+
+        // 2. Limpia el panel central (jPanel5) y agrega el nuevo panel
+        jPanelFondoPantallaInicio.removeAll();
+        jPanelFondoPantallaInicio.setLayout(new BorderLayout()); // asegúrate de tener layout correcto
+        jPanelFondoPantallaInicio.add(panelInicio, BorderLayout.CENTER);
+
+        // 3. Refresca visualmente
+        jPanelFondoPantallaInicio.revalidate();
+        jPanelFondoPantallaInicio.repaint();
+    }//GEN-LAST:event_jLabelInicioMenuMouseClicked
+
+    private void jLabelAñadirMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelAñadirMenuMouseClicked
+        // 1. Crea una instancia del nuevo panel
+        PanelAñadir panelAñadir = new PanelAñadir();
+
+        // 2. Limpia el panel central (jPanel5) y agrega el nuevo panel
+        jPanelFondoPantallaInicio.removeAll();
+        jPanelFondoPantallaInicio.setLayout(new BorderLayout()); // asegúrate de tener layout correcto
+        jPanelFondoPantallaInicio.add(panelAñadir, BorderLayout.CENTER);
+
+        // 3. Refresca visualmente
+        jPanelFondoPantallaInicio.revalidate();
+        jPanelFondoPantallaInicio.repaint();
+    }//GEN-LAST:event_jLabelAñadirMenuMouseClicked
+
+    private void jLabelAñadirMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelAñadirMenuMouseEntered
+        jPanelAñadirMenu.setBackground(Color.WHITE);
+        jLabelAñadirMenu.setForeground(new Color(51, 51, 51));
+    }//GEN-LAST:event_jLabelAñadirMenuMouseEntered
+
+    private void jLabelAñadirMenuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelAñadirMenuMouseExited
+        jPanelAñadirMenu.setBackground(new Color(51, 51, 51));
+        jLabelAñadirMenu.setForeground(Color.WHITE);
+    }//GEN-LAST:event_jLabelAñadirMenuMouseExited
+
+    private void jLabelModificarMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelModificarMenuMouseClicked
+        // 1. Crea una instancia del nuevo panel
+        PanelModificar panelModificar = new PanelModificar();
+
+        // 2. Limpia el panel central (jPanel5) y agrega el nuevo panel
+        jPanelFondoPantallaInicio.removeAll();
+        jPanelFondoPantallaInicio.setLayout(new BorderLayout()); // asegúrate de tener layout correcto
+        jPanelFondoPantallaInicio.add(panelModificar, BorderLayout.CENTER);
+
+        // 3. Refresca visualmente
+        jPanelFondoPantallaInicio.revalidate();
+        jPanelFondoPantallaInicio.repaint();
+    }//GEN-LAST:event_jLabelModificarMenuMouseClicked
+
+    private void jLabelModificarMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelModificarMenuMouseEntered
+        jPanelModificarMenu.setBackground(Color.WHITE);
+        jLabelModificarMenu.setForeground(new Color(51, 51, 51));
+    }//GEN-LAST:event_jLabelModificarMenuMouseEntered
+
+    private void jLabelModificarMenuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelModificarMenuMouseExited
+        jPanelModificarMenu.setBackground(new Color(51, 51, 51));
+        jLabelModificarMenu.setForeground(Color.WHITE);
+    }//GEN-LAST:event_jLabelModificarMenuMouseExited
+
+    private void jLabelEliminarMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelEliminarMenuMouseClicked
+        // 1. Crea una instancia del nuevo panel
+        PanelEliminar panelEliminar = new PanelEliminar();
+
+        // 2. Limpia el panel central (jPanel5) y agrega el nuevo panel
+        jPanelFondoPantallaInicio.removeAll();
+        jPanelFondoPantallaInicio.setLayout(new BorderLayout()); // asegúrate de tener layout correcto
+        jPanelFondoPantallaInicio.add(panelEliminar, BorderLayout.CENTER);
+
+        // 3. Refresca visualmente
+        jPanelFondoPantallaInicio.revalidate();
+        jPanelFondoPantallaInicio.repaint();
+    }//GEN-LAST:event_jLabelEliminarMenuMouseClicked
+
+    private void jLabelEliminarMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelEliminarMenuMouseEntered
+       jPanelEliminarMenu.setBackground(Color.WHITE);
+       jLabelEliminarMenu.setForeground(new Color(51, 51, 51));
+    }//GEN-LAST:event_jLabelEliminarMenuMouseEntered
+
+    private void jLabelEliminarMenuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelEliminarMenuMouseExited
+        jPanelEliminarMenu.setBackground(new Color(51, 51, 51));
+        jLabelEliminarMenu.setForeground(Color.WHITE);
+    }//GEN-LAST:event_jLabelEliminarMenuMouseExited
+
+    private void jLabelFiltrarEmpresaMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelFiltrarEmpresaMenuMouseClicked
+        // 1. Crea una instancia del nuevo panel
+        PanelFiltrar panelFiltrar = new PanelFiltrar();
+
+        // 2. Limpia el panel central (jPanel5) y agrega el nuevo panel
+        jPanelFondoPantallaInicio.removeAll();
+        jPanelFondoPantallaInicio.setLayout(new BorderLayout()); // asegúrate de tener layout correcto
+        jPanelFondoPantallaInicio.add(panelFiltrar, BorderLayout.CENTER);
+
+        // 3. Refresca visualmente
+        jPanelFondoPantallaInicio.revalidate();
+        jPanelFondoPantallaInicio.repaint();
+    }//GEN-LAST:event_jLabelFiltrarEmpresaMenuMouseClicked
+
+    private void jLabelFiltrarEmpresaMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelFiltrarEmpresaMenuMouseEntered
+        jPanelFiltrarEmpresasMenu.setBackground(Color.WHITE);
+        jLabelFiltrarEmpresaMenu.setForeground(new Color(51, 51, 51));
+    }//GEN-LAST:event_jLabelFiltrarEmpresaMenuMouseEntered
+
+    private void jLabelFiltrarEmpresaMenuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelFiltrarEmpresaMenuMouseExited
+        jPanelFiltrarEmpresasMenu.setBackground(new Color(51, 51, 51));
+        jLabelFiltrarEmpresaMenu.setForeground(Color.WHITE);
+    }//GEN-LAST:event_jLabelFiltrarEmpresaMenuMouseExited
+
+    private void jLabelVerEmpresasMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelVerEmpresasMenuMouseClicked
+        // 1. Crea una instancia del nuevo panel
+        PanelVerTodasLasEmpresas panelVerEmpresas = new PanelVerTodasLasEmpresas();
+
+        // 2. Limpia el panel central (jPanel5) y agrega el nuevo panel
+        jPanelFondoPantallaInicio.removeAll();
+        jPanelFondoPantallaInicio.setLayout(new BorderLayout()); // asegúrate de tener layout correcto
+        jPanelFondoPantallaInicio.add(panelVerEmpresas, BorderLayout.CENTER);
+
+        // 3. Refresca visualmente
+        jPanelFondoPantallaInicio.revalidate();
+        jPanelFondoPantallaInicio.repaint();
+    }//GEN-LAST:event_jLabelVerEmpresasMenuMouseClicked
+
+    private void jLabelVerEmpresasMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelVerEmpresasMenuMouseEntered
+        jPanelVerEmpresasMenu.setBackground(Color.WHITE);
+        jLabelVerEmpresasMenu.setForeground(new Color(51, 51, 51));
+    }//GEN-LAST:event_jLabelVerEmpresasMenuMouseEntered
+
+    private void jLabelVerEmpresasMenuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelVerEmpresasMenuMouseExited
+        jPanelVerEmpresasMenu.setBackground(new Color(51, 51, 51));
+        jLabelVerEmpresasMenu.setForeground(Color.WHITE);
+    }//GEN-LAST:event_jLabelVerEmpresasMenuMouseExited
 
     /**
      * @param args the command line arguments
@@ -112,11 +548,138 @@ public class PantallaInicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabelAñadirMenu;
+    private javax.swing.JLabel jLabelEliminarMenu;
+    private javax.swing.JLabel jLabelFiltrarEmpresaMenu;
+    private javax.swing.JLabel jLabelInicioMenu;
+    private javax.swing.JLabel jLabelModificarMenu;
+    private javax.swing.JLabel jLabelVerEmpresasMenu;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanelAñadirMenu;
+    private javax.swing.JPanel jPanelEliminarMenu;
+    private javax.swing.JPanel jPanelFiltrarEmpresasMenu;
+    private javax.swing.JPanel jPanelFondoPantallaInicio;
+    private javax.swing.JPanel jPanelInicioMenu;
+    private javax.swing.JPanel jPanelModificarMenu;
+    private javax.swing.JPanel jPanelVerEmpresasMenu;
     // End of variables declaration//GEN-END:variables
+}
+
+// Clase auxiliar agregada directamente al final de Login.java
+
+class PanelRound extends JPanel {
+
+    private int roundTopLeft = 50;
+    private int roundTopRight = 50;
+    private int roundBottomLeft = 50;
+    private int roundBottomRight = 50;
+
+    public PanelRound() {
+        setOpaque(false);
+    }
+
+    public int getRoundTopLeft() {
+        return roundTopLeft;
+    }
+
+    public void setRoundTopLeft(int roundTopLeft) {
+        this.roundTopLeft = roundTopLeft;
+        repaint();
+    }
+
+    public int getRoundTopRight() {
+        return roundTopRight;
+    }
+
+    public void setRoundTopRight(int roundTopRight) {
+        this.roundTopRight = roundTopRight;
+        repaint();
+    }
+
+    public int getRoundBottomLeft() {
+        return roundBottomLeft;
+    }
+
+    public void setRoundBottomLeft(int roundBottomLeft) {
+        this.roundBottomLeft = roundBottomLeft;
+        repaint();
+    }
+
+    public int getRoundBottomRight() {
+        return roundBottomRight;
+    }
+
+    public void setRoundBottomRight(int roundBottomRight) {
+        this.roundBottomRight = roundBottomRight;
+        repaint();
+    }
+
+    @Override
+    protected void paintComponent(Graphics grphcs) {
+        Graphics2D g2 = (Graphics2D) grphcs.create();
+        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g2.setColor(getBackground());
+        Area area = new Area(createRoundTopLeft());
+        if (roundTopRight > 0) {
+            area.intersect(new Area(createRoundTopRight()));
+        }
+        if (roundBottomLeft > 0) {
+            area.intersect(new Area(createRoundBottomLeft()));
+        }
+        if (roundBottomRight > 0) {
+            area.intersect(new Area(createRoundBottomRight()));
+        }
+        g2.fill(area);
+        g2.dispose();
+        super.paintComponent(grphcs);
+    }
+
+    private Shape createRoundTopLeft() {
+        int width = getWidth();
+        int height = getHeight();
+        int roundX = Math.min(width, roundTopLeft);
+        int roundY = Math.min(height, roundTopLeft);
+        Area area = new Area(new RoundRectangle2D.Double(0, 0, width, height, roundX, roundY));
+        area.add(new Area(new Rectangle2D.Double(roundX / 2, 0, width - roundX / 2, height)));
+        area.add(new Area(new Rectangle2D.Double(0, roundY / 2, width, height - roundY / 2)));
+        return area;
+    }
+
+    private Shape createRoundTopRight() {
+        int width = getWidth();
+        int height = getHeight();
+        int roundX = Math.min(width, roundTopRight);
+        int roundY = Math.min(height, roundTopRight);
+        Area area = new Area(new RoundRectangle2D.Double(0, 0, width, height, roundX, roundY));
+        area.add(new Area(new Rectangle2D.Double(0, 0, width - roundX / 2, height)));
+        area.add(new Area(new Rectangle2D.Double(0, roundY / 2, width, height - roundY / 2)));
+        return area;
+    }
+
+    private Shape createRoundBottomLeft() {
+        int width = getWidth();
+        int height = getHeight();
+        int roundX = Math.min(width, roundBottomLeft);
+        int roundY = Math.min(height, roundBottomLeft);
+        Area area = new Area(new RoundRectangle2D.Double(0, 0, width, height, roundX, roundY));
+        area.add(new Area(new Rectangle2D.Double(roundX / 2, 0, width - roundX / 2, height)));
+        area.add(new Area(new Rectangle2D.Double(0, 0, width, height - roundY / 2)));
+        return area;
+    }
+
+    private Shape createRoundBottomRight() {
+        int width = getWidth();
+        int height = getHeight();
+        int roundX = Math.min(width, roundBottomRight);
+        int roundY = Math.min(height, roundBottomRight);
+        Area area = new Area(new RoundRectangle2D.Double(0, 0, width, height, roundX, roundY));
+        area.add(new Area(new Rectangle2D.Double(0, 0, width - roundX / 2, height)));
+        area.add(new Area(new Rectangle2D.Double(0, 0, width, height - roundY / 2)));
+        return area;
+    }
 }
