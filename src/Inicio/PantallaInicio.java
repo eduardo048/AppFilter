@@ -41,10 +41,10 @@ public class PantallaInicio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        jPanelPrincipalPantallaInicio = new javax.swing.JPanel();
+        jPanelParaSalirInicio = new javax.swing.JPanel();
+        jLabelParaSalirInicio = new javax.swing.JLabel();
+        jPanelMenuIzqInicio = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanelInicioMenu = new PanelRound();
         jLabelInicioMenu = new javax.swing.JLabel();
@@ -58,52 +58,52 @@ public class PantallaInicio extends javax.swing.JFrame {
         jLabelFiltrarEmpresaMenu = new javax.swing.JLabel();
         jPanelVerEmpresasMenu = new PanelRound();
         jLabelVerEmpresasMenu = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
+        jPanelArrastrarPantalla = new javax.swing.JPanel();
         jPanelFondoPantallaInicio = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelPrincipalPantallaInicio.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelPrincipalPantallaInicio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel3.setBackground(new java.awt.Color(51, 51, 51));
+        jPanelParaSalirInicio.setBackground(new java.awt.Color(51, 51, 51));
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("X");
-        jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabelParaSalirInicio.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabelParaSalirInicio.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelParaSalirInicio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelParaSalirInicio.setText("X");
+        jLabelParaSalirInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabelParaSalirInicio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel6MouseClicked(evt);
+                jLabelParaSalirInicioMouseClicked(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+        javax.swing.GroupLayout jPanelParaSalirInicioLayout = new javax.swing.GroupLayout(jPanelParaSalirInicio);
+        jPanelParaSalirInicio.setLayout(jPanelParaSalirInicioLayout);
+        jPanelParaSalirInicioLayout.setHorizontalGroup(
+            jPanelParaSalirInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelParaSalirInicioLayout.createSequentialGroup()
+                .addComponent(jLabelParaSalirInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 132, Short.MAX_VALUE))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+        jPanelParaSalirInicioLayout.setVerticalGroup(
+            jPanelParaSalirInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelParaSalirInicioLayout.createSequentialGroup()
+                .addComponent(jLabelParaSalirInicio, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 40));
+        jPanelPrincipalPantallaInicio.add(jPanelParaSalirInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 40));
 
-        jPanel2.setBackground(new java.awt.Color(51, 51, 51));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelMenuIzqInicio.setBackground(new java.awt.Color(51, 51, 51));
+        jPanelMenuIzqInicio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/imagenInicio (1).png"))); // NOI18N
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, -1));
+        jPanelMenuIzqInicio.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, -1));
 
         jPanelInicioMenu.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -135,7 +135,7 @@ public class PantallaInicio extends javax.swing.JFrame {
             .addComponent(jLabelInicioMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        jPanel2.add(jPanelInicioMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 170, 50));
+        jPanelMenuIzqInicio.add(jPanelInicioMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 170, 50));
 
         jPanelAñadirMenu.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -167,7 +167,7 @@ public class PantallaInicio extends javax.swing.JFrame {
             .addComponent(jLabelAñadirMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        jPanel2.add(jPanelAñadirMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, -1, -1));
+        jPanelMenuIzqInicio.add(jPanelAñadirMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, -1, -1));
 
         jPanelModificarMenu.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -199,7 +199,7 @@ public class PantallaInicio extends javax.swing.JFrame {
             .addComponent(jLabelModificarMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        jPanel2.add(jPanelModificarMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, -1, -1));
+        jPanelMenuIzqInicio.add(jPanelModificarMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, -1, -1));
 
         jPanelEliminarMenu.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -231,7 +231,7 @@ public class PantallaInicio extends javax.swing.JFrame {
             .addComponent(jLabelEliminarMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        jPanel2.add(jPanelEliminarMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, -1, -1));
+        jPanelMenuIzqInicio.add(jPanelEliminarMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, -1, -1));
 
         jPanelFiltrarEmpresasMenu.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -263,7 +263,7 @@ public class PantallaInicio extends javax.swing.JFrame {
             .addComponent(jLabelFiltrarEmpresaMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        jPanel2.add(jPanelFiltrarEmpresasMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, -1, -1));
+        jPanelMenuIzqInicio.add(jPanelFiltrarEmpresasMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, -1, -1));
 
         jPanelVerEmpresasMenu.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -295,34 +295,34 @@ public class PantallaInicio extends javax.swing.JFrame {
             .addComponent(jLabelVerEmpresasMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        jPanel2.add(jPanelVerEmpresasMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 470, -1, -1));
+        jPanelMenuIzqInicio.add(jPanelVerEmpresasMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 470, -1, -1));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 690));
+        jPanelPrincipalPantallaInicio.add(jPanelMenuIzqInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 690));
 
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel4.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        jPanelArrastrarPantalla.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelArrastrarPantalla.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
-                jPanel4MouseDragged(evt);
+                jPanelArrastrarPantallaMouseDragged(evt);
             }
         });
-        jPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
+        jPanelArrastrarPantalla.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jPanel4MousePressed(evt);
+                jPanelArrastrarPantallaMousePressed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jPanelArrastrarPantallaLayout = new javax.swing.GroupLayout(jPanelArrastrarPantalla);
+        jPanelArrastrarPantalla.setLayout(jPanelArrastrarPantallaLayout);
+        jPanelArrastrarPantallaLayout.setHorizontalGroup(
+            jPanelArrastrarPantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1060, Short.MAX_VALUE)
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jPanelArrastrarPantallaLayout.setVerticalGroup(
+            jPanelArrastrarPantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 30, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 1060, 30));
+        jPanelPrincipalPantallaInicio.add(jPanelArrastrarPantalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 1060, 30));
 
         javax.swing.GroupLayout jPanelFondoPantallaInicioLayout = new javax.swing.GroupLayout(jPanelFondoPantallaInicio);
         jPanelFondoPantallaInicio.setLayout(jPanelFondoPantallaInicioLayout);
@@ -335,37 +335,37 @@ public class PantallaInicio extends javax.swing.JFrame {
             .addGap(0, 660, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanelFondoPantallaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 940, 660));
+        jPanelPrincipalPantallaInicio.add(jPanelFondoPantallaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 940, 660));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelPrincipalPantallaInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelPrincipalPantallaInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+    private void jLabelParaSalirInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelParaSalirInicioMouseClicked
         System.exit(0);
-    }//GEN-LAST:event_jLabel6MouseClicked
+    }//GEN-LAST:event_jLabelParaSalirInicioMouseClicked
 
-    private void jPanel4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MousePressed
+    private void jPanelArrastrarPantallaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelArrastrarPantallaMousePressed
         xMouse = evt.getX();
         yMouse = evt.getY();  
-    }//GEN-LAST:event_jPanel4MousePressed
+    }//GEN-LAST:event_jPanelArrastrarPantallaMousePressed
 
-    private void jPanel4MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseDragged
+    private void jPanelArrastrarPantallaMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelArrastrarPantallaMouseDragged
         int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
         this.setLocation(x - xMouse ,y - yMouse);
                                     
-    }//GEN-LAST:event_jPanel4MouseDragged
+    }//GEN-LAST:event_jPanelArrastrarPantallaMouseDragged
 
     private void jLabelInicioMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelInicioMenuMouseEntered
         jPanelInicioMenu.setBackground(Color.WHITE);
@@ -511,61 +511,25 @@ public class PantallaInicio extends javax.swing.JFrame {
         jLabelVerEmpresasMenu.setForeground(Color.WHITE);
     }//GEN-LAST:event_jLabelVerEmpresasMenuMouseExited
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PantallaInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PantallaInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PantallaInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PantallaInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new PantallaInicio().setVisible(true);
-            }
-        });
-        
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabelAñadirMenu;
     private javax.swing.JLabel jLabelEliminarMenu;
     private javax.swing.JLabel jLabelFiltrarEmpresaMenu;
     private javax.swing.JLabel jLabelInicioMenu;
     private javax.swing.JLabel jLabelModificarMenu;
+    private javax.swing.JLabel jLabelParaSalirInicio;
     private javax.swing.JLabel jLabelVerEmpresasMenu;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanelArrastrarPantalla;
     private javax.swing.JPanel jPanelAñadirMenu;
     private javax.swing.JPanel jPanelEliminarMenu;
     private javax.swing.JPanel jPanelFiltrarEmpresasMenu;
     private javax.swing.JPanel jPanelFondoPantallaInicio;
     private javax.swing.JPanel jPanelInicioMenu;
+    private javax.swing.JPanel jPanelMenuIzqInicio;
     private javax.swing.JPanel jPanelModificarMenu;
+    private javax.swing.JPanel jPanelParaSalirInicio;
+    private javax.swing.JPanel jPanelPrincipalPantallaInicio;
     private javax.swing.JPanel jPanelVerEmpresasMenu;
     // End of variables declaration//GEN-END:variables
 }
