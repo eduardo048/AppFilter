@@ -9,19 +9,19 @@ import com.formdev.flatlaf.ui.FlatComboBoxUI;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
-import java.util.ArrayList;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
 public class PanelAñadir extends javax.swing.JPanel {
-
-    private final JComboBox<String> comboComunidades = new JComboBox<>();
-    private final JComboBox<String> comboProvincias = new JComboBox<>();
+    private final PantallaInicio contro;
+    private JComboBox<String> comboComunidades = new JComboBox<>();
+    private JComboBox<String> comboProvincias = new JComboBox<>();
     
-    public PanelAñadir() {
+    public PanelAñadir(PantallaInicio contro) {
+        this.contro = contro;
         initComponents();
+        contro.cargarComunidadesEn(jComboBoxComunidadAñadir);
         aplicarFlatLafSoloCombosEnContenedir(this);
-
     
     }
 
@@ -104,7 +104,7 @@ public class PanelAñadir extends javax.swing.JPanel {
 
         jTextFieldNombreEmpresaAñadir.setBackground(new java.awt.Color(90, 90, 90));
         jTextFieldNombreEmpresaAñadir.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        jTextFieldNombreEmpresaAñadir.setBorder(null);
+        jTextFieldNombreEmpresaAñadir.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(5, 8, 5, 8), null));
         jTextFieldNombreEmpresaAñadir.setMinimumSize(new java.awt.Dimension(64, 20));
         add(jTextFieldNombreEmpresaAñadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 250, 25));
         add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 500, 260, 10));
@@ -169,67 +169,67 @@ public class PanelAñadir extends javax.swing.JPanel {
 
         jTextFieldActividadAñadir.setBackground(new java.awt.Color(90, 90, 90));
         jTextFieldActividadAñadir.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        jTextFieldActividadAñadir.setBorder(null);
+        jTextFieldActividadAñadir.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(5, 8, 5, 8), null));
         jTextFieldActividadAñadir.setMinimumSize(new java.awt.Dimension(64, 20));
         add(jTextFieldActividadAñadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 250, 25));
 
         jTextFieldSectorAñadir.setBackground(new java.awt.Color(90, 90, 90));
         jTextFieldSectorAñadir.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        jTextFieldSectorAñadir.setBorder(null);
+        jTextFieldSectorAñadir.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(5, 8, 5, 8), null));
         jTextFieldSectorAñadir.setMinimumSize(new java.awt.Dimension(64, 20));
         add(jTextFieldSectorAñadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 320, 250, 25));
 
         jTextFieldEmailAñadir.setBackground(new java.awt.Color(90, 90, 90));
         jTextFieldEmailAñadir.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        jTextFieldEmailAñadir.setBorder(null);
+        jTextFieldEmailAñadir.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(5, 8, 5, 8), null));
         jTextFieldEmailAñadir.setMinimumSize(new java.awt.Dimension(64, 20));
         add(jTextFieldEmailAñadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 400, 250, 25));
 
         jTextFieldFaxAñadir.setBackground(new java.awt.Color(90, 90, 90));
         jTextFieldFaxAñadir.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        jTextFieldFaxAñadir.setBorder(null);
+        jTextFieldFaxAñadir.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(5, 8, 5, 8), null));
         jTextFieldFaxAñadir.setMinimumSize(new java.awt.Dimension(64, 20));
         add(jTextFieldFaxAñadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 470, 250, 25));
 
         jTextFieldTelefonoAñadir.setBackground(new java.awt.Color(90, 90, 90));
         jTextFieldTelefonoAñadir.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        jTextFieldTelefonoAñadir.setBorder(null);
+        jTextFieldTelefonoAñadir.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(5, 8, 5, 8), null));
         jTextFieldTelefonoAñadir.setMinimumSize(new java.awt.Dimension(64, 20));
         add(jTextFieldTelefonoAñadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 540, 250, 25));
 
         jTextFieldDireccionAñadir.setBackground(new java.awt.Color(90, 90, 90));
         jTextFieldDireccionAñadir.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        jTextFieldDireccionAñadir.setBorder(null);
+        jTextFieldDireccionAñadir.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(5, 8, 5, 8), null));
         jTextFieldDireccionAñadir.setMinimumSize(new java.awt.Dimension(64, 20));
         add(jTextFieldDireccionAñadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 100, 250, 25));
 
         jTextFieldCodigoPostalAñadir.setBackground(new java.awt.Color(90, 90, 90));
         jTextFieldCodigoPostalAñadir.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        jTextFieldCodigoPostalAñadir.setBorder(null);
+        jTextFieldCodigoPostalAñadir.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(5, 8, 5, 8), null));
         jTextFieldCodigoPostalAñadir.setMinimumSize(new java.awt.Dimension(64, 20));
         add(jTextFieldCodigoPostalAñadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 170, 250, 25));
 
         jTextFieldPoblacionAñadir.setBackground(new java.awt.Color(90, 90, 90));
         jTextFieldPoblacionAñadir.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        jTextFieldPoblacionAñadir.setBorder(null);
+        jTextFieldPoblacionAñadir.setBorder(javax.swing.BorderFactory.createCompoundBorder(null, javax.swing.BorderFactory.createEmptyBorder(5, 8, 5, 8)));
         jTextFieldPoblacionAñadir.setMinimumSize(new java.awt.Dimension(64, 20));
         add(jTextFieldPoblacionAñadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 400, 250, 25));
 
         jTextFieldEmailTestAñadir.setBackground(new java.awt.Color(90, 90, 90));
         jTextFieldEmailTestAñadir.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        jTextFieldEmailTestAñadir.setBorder(null);
+        jTextFieldEmailTestAñadir.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(5, 8, 5, 8), null));
         jTextFieldEmailTestAñadir.setMinimumSize(new java.awt.Dimension(64, 20));
         add(jTextFieldEmailTestAñadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 470, 250, 25));
 
         jTextFieldWebAñadir.setBackground(new java.awt.Color(90, 90, 90));
         jTextFieldWebAñadir.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        jTextFieldWebAñadir.setBorder(null);
+        jTextFieldWebAñadir.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(5, 8, 5, 8), null));
         jTextFieldWebAñadir.setMinimumSize(new java.awt.Dimension(64, 20));
         add(jTextFieldWebAñadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 540, 250, 25));
 
         jTextFieldIdEmpresaAñadir.setBackground(new java.awt.Color(90, 90, 90));
         jTextFieldIdEmpresaAñadir.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        jTextFieldIdEmpresaAñadir.setBorder(null);
+        jTextFieldIdEmpresaAñadir.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(5, 8, 5, 8), null));
         jTextFieldIdEmpresaAñadir.setMinimumSize(new java.awt.Dimension(64, 20));
         add(jTextFieldIdEmpresaAñadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 130, 25));
 
@@ -401,7 +401,7 @@ public class PanelAñadir extends javax.swing.JPanel {
     }//GEN-LAST:event_jLabelTextoAñadirMouseExited
 
     private void jComboBoxComunidadAñadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxComunidadAñadirActionPerformed
-        
+        contro.cargarProvincias(jComboBoxComunidadAñadir, jComboBoxProvinciaAñadir);
     }//GEN-LAST:event_jComboBoxComunidadAñadirActionPerformed
     
 

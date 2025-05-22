@@ -25,7 +25,7 @@ public class ConexionBBDD {
     private boolean conectado;
     
     public ConexionBBDD(){
-        String url = "jdbc:oracle:thin:@//10.147.20.17:1521/XEPDB1";
+        String url = "jdbc:oracle:thin:@//192.168.1.158:1521/XEPDB1";
         String usuario = AppSesion.getUsuario();
         String contraseña = AppSesion.getContraseña();
         try{
@@ -76,7 +76,7 @@ public class ConexionBBDD {
                                    String comunidad, String telefono, String fax,
                                    String email, String emailTest, String web, JLabel estado){
     
-        String sql = "INSERT INTO EMPRESAS (ID, EMPRESA, ACTIVIDAD, SECTOR, DIRECCIOM, CP, POBLACION, PROVINCIA, COMUNIDAD, TELEFONO, FAX, EMAIL, EMAIL_TEST, WEB" +
+        String sql = "INSERT INTO EMPRESAS (ID, EMPRESA, ACTIVIDAD, SECTOR, DIRECCION, CP, POBLACION, PROVINCIA, COMUNIDAD, TELEFONO, FAX, EMAIL, EMAIL_TEST, WEB)" +
                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         
         try{

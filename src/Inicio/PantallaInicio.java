@@ -15,7 +15,6 @@ import java.awt.geom.Rectangle2D;
 import java.awt.geom.RoundRectangle2D;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Set;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 
@@ -403,7 +402,7 @@ public class PantallaInicio extends javax.swing.JFrame {
 
     private void jLabelAñadirMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelAñadirMenuMouseClicked
         // 1. Crea una instancia del nuevo panel
-        PanelAñadir panelAñadir = new PanelAñadir();
+        PanelAñadir panelAñadir = new PanelAñadir(this);
 
         // 2. Limpia el panel central (jPanel5) y agrega el nuevo panel
         jPanelFondoPantallaInicio.removeAll();
