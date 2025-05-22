@@ -88,6 +88,12 @@ public class PantallaInicio extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelParaSalirInicioMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabelParaSalirInicioMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabelParaSalirInicioMouseExited(evt);
+            }
         });
 
         javax.swing.GroupLayout jPanelParaSalirInicioLayout = new javax.swing.GroupLayout(jPanelParaSalirInicio);
@@ -96,16 +102,14 @@ public class PantallaInicio extends javax.swing.JFrame {
             jPanelParaSalirInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelParaSalirInicioLayout.createSequentialGroup()
                 .addComponent(jLabelParaSalirInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 132, Short.MAX_VALUE))
+                .addGap(0, 2, Short.MAX_VALUE))
         );
         jPanelParaSalirInicioLayout.setVerticalGroup(
             jPanelParaSalirInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelParaSalirInicioLayout.createSequentialGroup()
-                .addComponent(jLabelParaSalirInicio, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jLabelParaSalirInicio, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        jPanelPrincipalPantallaInicio.add(jPanelParaSalirInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 40));
+        jPanelPrincipalPantallaInicio.add(jPanelParaSalirInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 30));
 
         jPanelMenuIzqInicio.setBackground(new java.awt.Color(51, 51, 51));
         jPanelMenuIzqInicio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -519,6 +523,15 @@ public class PantallaInicio extends javax.swing.JFrame {
         jPanelVerEmpresasMenu.setBackground(new Color(51, 51, 51));
         jLabelVerEmpresasMenu.setForeground(Color.BLACK);
     }//GEN-LAST:event_jLabelVerEmpresasMenuMouseExited
+
+    private void jLabelParaSalirInicioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelParaSalirInicioMouseEntered
+        jPanelParaSalirInicio.setBackground(Color.RED);
+        
+    }//GEN-LAST:event_jLabelParaSalirInicioMouseEntered
+
+    private void jLabelParaSalirInicioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelParaSalirInicioMouseExited
+        jPanelParaSalirInicio.setBackground(new Color(51,51,51));
+    }//GEN-LAST:event_jLabelParaSalirInicioMouseExited
     
     public void cargarComunidadesEn(JComboBox<String> combo) {
         combo.removeAllItems();

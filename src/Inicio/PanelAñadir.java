@@ -405,8 +405,6 @@ public class PanelAñadir extends javax.swing.JPanel {
     }//GEN-LAST:event_jComboBoxComunidadAñadirActionPerformed
     
 
-    
-   
     private void aplicarFlatLafSoloCombosEnContenedir(Container container){
         for(Component c : container.getComponents()){
             if(c instanceof JComboBox){

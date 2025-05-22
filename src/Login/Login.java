@@ -4,6 +4,7 @@ package Login;
 import Conexion.AppSesion;
 import Conexion.ConexionBBDD;
 import Inicio.PantallaInicio;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
@@ -33,7 +34,6 @@ public class Login extends javax.swing.JFrame {
         jPanelPrincipalLogin = new javax.swing.JPanel();
         jLabelFotoLogin = new javax.swing.JLabel();
         jPanelArrastrarLogin = new javax.swing.JPanel();
-        jLabelSalirLogin = new javax.swing.JLabel();
         jLabelTextoInicialSesionLogin = new javax.swing.JLabel();
         jLabelTextoUsuarioLogin = new javax.swing.JLabel();
         jTextFieldIngresaUsuarioLogin = new javax.swing.JTextField();
@@ -43,6 +43,8 @@ public class Login extends javax.swing.JFrame {
         jPasswordIngresaContraseñaLogin = new javax.swing.JPasswordField();
         jPanelIniciarSesionLogin = new PanelRound();
         jLabelTextoIniciarLogin = new javax.swing.JLabel();
+        jPanelSalirLogin = new javax.swing.JPanel();
+        jLabelSalirLogin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -67,33 +69,18 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        jLabelSalirLogin.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        jLabelSalirLogin.setForeground(new java.awt.Color(0, 0, 0));
-        jLabelSalirLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelSalirLogin.setText("X");
-        jLabelSalirLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabelSalirLogin.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelSalirLoginMouseClicked(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanelArrastrarLoginLayout = new javax.swing.GroupLayout(jPanelArrastrarLogin);
         jPanelArrastrarLogin.setLayout(jPanelArrastrarLoginLayout);
         jPanelArrastrarLoginLayout.setHorizontalGroup(
             jPanelArrastrarLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelArrastrarLoginLayout.createSequentialGroup()
-                .addComponent(jLabelSalirLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 764, Short.MAX_VALUE))
+            .addGap(0, 760, Short.MAX_VALUE)
         );
         jPanelArrastrarLoginLayout.setVerticalGroup(
             jPanelArrastrarLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelArrastrarLoginLayout.createSequentialGroup()
-                .addComponent(jLabelSalirLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 5, Short.MAX_VALUE))
+            .addGap(0, 30, Short.MAX_VALUE)
         );
 
-        jPanelPrincipalLogin.add(jPanelArrastrarLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 30));
+        jPanelPrincipalLogin.add(jPanelArrastrarLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 760, 30));
 
         jLabelTextoInicialSesionLogin.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabelTextoInicialSesionLogin.setForeground(new java.awt.Color(0, 0, 0));
@@ -150,6 +137,43 @@ public class Login extends javax.swing.JFrame {
         jPanelIniciarSesionLogin.add(jLabelTextoIniciarLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 50));
 
         jPanelPrincipalLogin.add(jPanelIniciarSesionLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, 120, 50));
+
+        jPanelSalirLogin.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabelSalirLogin.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelSalirLogin.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabelSalirLogin.setForeground(new java.awt.Color(51, 51, 51));
+        jLabelSalirLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelSalirLogin.setText("X");
+        jLabelSalirLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabelSalirLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelSalirLoginMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabelSalirLoginMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabelSalirLoginMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelSalirLoginLayout = new javax.swing.GroupLayout(jPanelSalirLogin);
+        jPanelSalirLogin.setLayout(jPanelSalirLoginLayout);
+        jPanelSalirLoginLayout.setHorizontalGroup(
+            jPanelSalirLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSalirLoginLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabelSalirLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanelSalirLoginLayout.setVerticalGroup(
+            jPanelSalirLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSalirLoginLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabelSalirLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanelPrincipalLogin.add(jPanelSalirLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -222,6 +246,14 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jLabelTextoIniciarLoginMouseClicked
 
+    private void jLabelSalirLoginMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSalirLoginMouseEntered
+        jPanelSalirLogin.setBackground(Color.RED);
+    }//GEN-LAST:event_jLabelSalirLoginMouseEntered
+
+    private void jLabelSalirLoginMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSalirLoginMouseExited
+        jPanelSalirLogin.setBackground(new Color(255,255,255));
+    }//GEN-LAST:event_jLabelSalirLoginMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -267,6 +299,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelArrastrarLogin;
     private javax.swing.JPanel jPanelIniciarSesionLogin;
     private javax.swing.JPanel jPanelPrincipalLogin;
+    private javax.swing.JPanel jPanelSalirLogin;
     private javax.swing.JPasswordField jPasswordIngresaContraseñaLogin;
     private javax.swing.JSeparator jSeparatorLogin;
     private javax.swing.JSeparator jSeparatorLogin2;

@@ -4,6 +4,11 @@
  */
 package Inicio;
 
+import com.formdev.flatlaf.ui.FlatComboBoxUI;
+import java.awt.Component;
+import java.awt.Container;
+import javax.swing.JComboBox;
+
 /**
  *
  * @author eduar
@@ -15,6 +20,7 @@ public class PanelEliminar extends javax.swing.JPanel {
      */
     public PanelEliminar() {
         initComponents();
+        aplicarFlatLafSoloCombosEnContenedir(this);
     }
 
     /**
@@ -26,21 +32,371 @@ public class PanelEliminar extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setBackground(new java.awt.Color(0, 204, 51));
+        jLabelTextoTituloEliminar = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabelTextoNombresEncontradosEliminar = new javax.swing.JLabel();
+        jTextFieldEscribaNombreEmpresaEliminar = new javax.swing.JTextField();
+        jPanelCargarDatosEliminar = new PanelRound();
+        jLabelTextoCargarDatosEliminar = new javax.swing.JLabel();
+        jLabelTextoTelefonoEliminar = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabelTextoIdEmpresaEliminar = new javax.swing.JLabel();
+        jTextFieldNombreEmpresaEliminar = new javax.swing.JTextField();
+        jSeparator3 = new javax.swing.JSeparator();
+        jLabelTextoNombreEmpresaEliminar = new javax.swing.JLabel();
+        jLabelTextoActividadEliminar = new javax.swing.JLabel();
+        jSeparator5 = new javax.swing.JSeparator();
+        jLabelTextoSectorEliminar = new javax.swing.JLabel();
+        jSeparator6 = new javax.swing.JSeparator();
+        jLabelTextoFaxEliminar = new javax.swing.JLabel();
+        jSeparator7 = new javax.swing.JSeparator();
+        jSeparator14 = new javax.swing.JSeparator();
+        jLabelTextoDireccionEliminar = new javax.swing.JLabel();
+        jSeparator15 = new javax.swing.JSeparator();
+        jLabelTextoCodigoPostalEliminar = new javax.swing.JLabel();
+        jSeparator16 = new javax.swing.JSeparator();
+        jLabelTextoComunidadEliminar = new javax.swing.JLabel();
+        jSeparator17 = new javax.swing.JSeparator();
+        jLabelTextoProvinciaEliminar = new javax.swing.JLabel();
+        jSeparator18 = new javax.swing.JSeparator();
+        jLabelTextoPoblacionEliminar = new javax.swing.JLabel();
+        jSeparator19 = new javax.swing.JSeparator();
+        jLabelTextoEmailTestEliminar = new javax.swing.JLabel();
+        jLabelTextoWebEliminar = new javax.swing.JLabel();
+        jSeparator20 = new javax.swing.JSeparator();
+        jTextFieldActividadAñadir = new javax.swing.JTextField();
+        jTextFieldSectorEliminar = new javax.swing.JTextField();
+        jTextFieldEmailEliminar = new javax.swing.JTextField();
+        jTextFieldFaxEliminar = new javax.swing.JTextField();
+        jTextFieldTelefonoAñadir = new javax.swing.JTextField();
+        jTextFieldDireccionEliminar = new javax.swing.JTextField();
+        jTextFieldProvinciaEliminar = new javax.swing.JTextField();
+        jTextFieldPoblacionEliminar = new javax.swing.JTextField();
+        jTextFieldEmailTestEliminar = new javax.swing.JTextField();
+        jTextFieldWebEliminar = new javax.swing.JTextField();
+        jTextFieldIdEmpresaEliminar = new javax.swing.JTextField();
+        jLabelTextoEmailEliminar = new javax.swing.JLabel();
+        jTextFieldCodigoPostalEliminar = new javax.swing.JTextField();
+        jTextFieldComunidadEliminar = new javax.swing.JTextField();
+        jLabelTextoEacribaNombreEmpresaEliminar = new javax.swing.JLabel();
+        jComboBoxNombresEncontradosEliminar = new javax.swing.JComboBox<>();
+        jPanelAñadir = new PanelRound();
+        jLabelTextoAñadir = new javax.swing.JLabel();
+        jLabelImagenEliminar = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 940, Short.MAX_VALUE)
+        setBackground(new java.awt.Color(41, 41, 41));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelTextoTituloEliminar.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelTextoTituloEliminar.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
+        jLabelTextoTituloEliminar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelTextoTituloEliminar.setText("ELIMINE UNA EMPRESA");
+        add(jLabelTextoTituloEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, -1, -1));
+        add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 50, 300, 10));
+
+        jLabelTextoNombresEncontradosEliminar.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelTextoNombresEncontradosEliminar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabelTextoNombresEncontradosEliminar.setText("Nombres Encontrados");
+        add(jLabelTextoNombresEncontradosEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 60, -1, -1));
+
+        jTextFieldEscribaNombreEmpresaEliminar.setBackground(new java.awt.Color(90, 90, 90));
+        jTextFieldEscribaNombreEmpresaEliminar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jTextFieldEscribaNombreEmpresaEliminar.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(5, 8, 5, 8), null));
+        jTextFieldEscribaNombreEmpresaEliminar.setMinimumSize(new java.awt.Dimension(64, 20));
+        add(jTextFieldEscribaNombreEmpresaEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 240, 25));
+
+        jLabelTextoCargarDatosEliminar.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelTextoCargarDatosEliminar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabelTextoCargarDatosEliminar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelTextoCargarDatosEliminar.setText("Cargar Datos");
+
+        javax.swing.GroupLayout jPanelCargarDatosEliminarLayout = new javax.swing.GroupLayout(jPanelCargarDatosEliminar);
+        jPanelCargarDatosEliminar.setLayout(jPanelCargarDatosEliminarLayout);
+        jPanelCargarDatosEliminarLayout.setHorizontalGroup(
+            jPanelCargarDatosEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelCargarDatosEliminarLayout.createSequentialGroup()
+                .addComponent(jLabelTextoCargarDatosEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 660, Short.MAX_VALUE)
+        jPanelCargarDatosEliminarLayout.setVerticalGroup(
+            jPanelCargarDatosEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelCargarDatosEliminarLayout.createSequentialGroup()
+                .addComponent(jLabelTextoCargarDatosEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 6, Short.MAX_VALUE))
         );
+
+        add(jPanelCargarDatosEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 110, 30));
+
+        jLabelTextoTelefonoEliminar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabelTextoTelefonoEliminar.setText("TELEFONO");
+        add(jLabelTextoTelefonoEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 560, -1, -1));
+        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 260, 10));
+
+        jLabelTextoIdEmpresaEliminar.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelTextoIdEmpresaEliminar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabelTextoIdEmpresaEliminar.setText("ID EMPRESA");
+        add(jLabelTextoIdEmpresaEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, -1, -1));
+
+        jTextFieldNombreEmpresaEliminar.setEditable(false);
+        jTextFieldNombreEmpresaEliminar.setBackground(new java.awt.Color(90, 90, 90));
+        jTextFieldNombreEmpresaEliminar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jTextFieldNombreEmpresaEliminar.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(5, 8, 5, 8), null));
+        jTextFieldNombreEmpresaEliminar.setMinimumSize(new java.awt.Dimension(64, 20));
+        add(jTextFieldNombreEmpresaEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 250, 25));
+        add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 540, 260, 10));
+
+        jLabelTextoNombreEmpresaEliminar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabelTextoNombreEmpresaEliminar.setText("NOMBRE EMPRESA");
+        add(jLabelTextoNombreEmpresaEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, -1, -1));
+
+        jLabelTextoActividadEliminar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabelTextoActividadEliminar.setText("ACTIVIDAD");
+        add(jLabelTextoActividadEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, -1, -1));
+        add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 260, 10));
+
+        jLabelTextoSectorEliminar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabelTextoSectorEliminar.setText("SECTOR");
+        add(jLabelTextoSectorEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, -1, -1));
+        add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 400, 260, 10));
+
+        jLabelTextoFaxEliminar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabelTextoFaxEliminar.setText("FAX");
+        add(jLabelTextoFaxEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 490, -1, -1));
+        add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 470, 260, 10));
+        add(jSeparator14, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 190, 260, -1));
+
+        jLabelTextoDireccionEliminar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabelTextoDireccionEliminar.setText("DIRECCIÓN");
+        add(jLabelTextoDireccionEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 140, -1, -1));
+        add(jSeparator15, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 540, 260, 10));
+
+        jLabelTextoCodigoPostalEliminar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabelTextoCodigoPostalEliminar.setText("CODIGO POSTAL");
+        add(jLabelTextoCodigoPostalEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 210, -1, -1));
+        add(jSeparator16, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 260, 260, 10));
+
+        jLabelTextoComunidadEliminar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabelTextoComunidadEliminar.setText("COMUNIDAD");
+        add(jLabelTextoComunidadEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 280, -1, -1));
+        add(jSeparator17, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 330, 260, 10));
+
+        jLabelTextoProvinciaEliminar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabelTextoProvinciaEliminar.setText("PROVINCIA");
+        add(jLabelTextoProvinciaEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 350, -1, -1));
+        add(jSeparator18, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 400, 260, 10));
+
+        jLabelTextoPoblacionEliminar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabelTextoPoblacionEliminar.setText("POBLACIÓN");
+        add(jLabelTextoPoblacionEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 420, -1, -1));
+        add(jSeparator19, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 470, 260, 10));
+
+        jLabelTextoEmailTestEliminar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabelTextoEmailTestEliminar.setText("EMAIL_TEST");
+        add(jLabelTextoEmailTestEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 490, -1, -1));
+
+        jLabelTextoWebEliminar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabelTextoWebEliminar.setText("WEB");
+        add(jLabelTextoWebEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(558, 560, 30, -1));
+        add(jSeparator20, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, 260, 10));
+
+        jTextFieldActividadAñadir.setEditable(false);
+        jTextFieldActividadAñadir.setBackground(new java.awt.Color(90, 90, 90));
+        jTextFieldActividadAñadir.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jTextFieldActividadAñadir.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(5, 8, 5, 8), null));
+        jTextFieldActividadAñadir.setMinimumSize(new java.awt.Dimension(64, 20));
+        add(jTextFieldActividadAñadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 300, 250, 25));
+
+        jTextFieldSectorEliminar.setEditable(false);
+        jTextFieldSectorEliminar.setBackground(new java.awt.Color(90, 90, 90));
+        jTextFieldSectorEliminar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jTextFieldSectorEliminar.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(5, 8, 5, 8), null));
+        jTextFieldSectorEliminar.setMinimumSize(new java.awt.Dimension(64, 20));
+        add(jTextFieldSectorEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, 250, 25));
+
+        jTextFieldEmailEliminar.setEditable(false);
+        jTextFieldEmailEliminar.setBackground(new java.awt.Color(90, 90, 90));
+        jTextFieldEmailEliminar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jTextFieldEmailEliminar.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(5, 8, 5, 8), null));
+        jTextFieldEmailEliminar.setMinimumSize(new java.awt.Dimension(64, 20));
+        add(jTextFieldEmailEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 440, 250, 25));
+
+        jTextFieldFaxEliminar.setEditable(false);
+        jTextFieldFaxEliminar.setBackground(new java.awt.Color(90, 90, 90));
+        jTextFieldFaxEliminar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jTextFieldFaxEliminar.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(5, 8, 5, 8), null));
+        jTextFieldFaxEliminar.setMinimumSize(new java.awt.Dimension(64, 20));
+        add(jTextFieldFaxEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 510, 250, 25));
+
+        jTextFieldTelefonoAñadir.setEditable(false);
+        jTextFieldTelefonoAñadir.setBackground(new java.awt.Color(90, 90, 90));
+        jTextFieldTelefonoAñadir.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jTextFieldTelefonoAñadir.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(5, 8, 5, 8), null));
+        jTextFieldTelefonoAñadir.setMinimumSize(new java.awt.Dimension(64, 20));
+        add(jTextFieldTelefonoAñadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 580, 250, 25));
+
+        jTextFieldDireccionEliminar.setEditable(false);
+        jTextFieldDireccionEliminar.setBackground(new java.awt.Color(90, 90, 90));
+        jTextFieldDireccionEliminar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jTextFieldDireccionEliminar.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(5, 8, 5, 8), null));
+        jTextFieldDireccionEliminar.setMinimumSize(new java.awt.Dimension(64, 20));
+        add(jTextFieldDireccionEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 160, 250, 25));
+
+        jTextFieldProvinciaEliminar.setEditable(false);
+        jTextFieldProvinciaEliminar.setBackground(new java.awt.Color(90, 90, 90));
+        jTextFieldProvinciaEliminar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jTextFieldProvinciaEliminar.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(5, 8, 5, 8), null));
+        jTextFieldProvinciaEliminar.setMinimumSize(new java.awt.Dimension(64, 20));
+        add(jTextFieldProvinciaEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 370, 250, 25));
+
+        jTextFieldPoblacionEliminar.setEditable(false);
+        jTextFieldPoblacionEliminar.setBackground(new java.awt.Color(90, 90, 90));
+        jTextFieldPoblacionEliminar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jTextFieldPoblacionEliminar.setBorder(javax.swing.BorderFactory.createCompoundBorder(null, javax.swing.BorderFactory.createEmptyBorder(5, 8, 5, 8)));
+        jTextFieldPoblacionEliminar.setMinimumSize(new java.awt.Dimension(64, 20));
+        add(jTextFieldPoblacionEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 440, 250, 25));
+
+        jTextFieldEmailTestEliminar.setEditable(false);
+        jTextFieldEmailTestEliminar.setBackground(new java.awt.Color(90, 90, 90));
+        jTextFieldEmailTestEliminar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jTextFieldEmailTestEliminar.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(5, 8, 5, 8), null));
+        jTextFieldEmailTestEliminar.setMinimumSize(new java.awt.Dimension(64, 20));
+        add(jTextFieldEmailTestEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 510, 250, 25));
+
+        jTextFieldWebEliminar.setEditable(false);
+        jTextFieldWebEliminar.setBackground(new java.awt.Color(90, 90, 90));
+        jTextFieldWebEliminar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jTextFieldWebEliminar.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(5, 8, 5, 8), null));
+        jTextFieldWebEliminar.setMinimumSize(new java.awt.Dimension(64, 20));
+        add(jTextFieldWebEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 580, 250, 25));
+
+        jTextFieldIdEmpresaEliminar.setEditable(false);
+        jTextFieldIdEmpresaEliminar.setBackground(new java.awt.Color(90, 90, 90));
+        jTextFieldIdEmpresaEliminar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jTextFieldIdEmpresaEliminar.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(5, 8, 5, 8), null));
+        jTextFieldIdEmpresaEliminar.setMinimumSize(new java.awt.Dimension(64, 20));
+        add(jTextFieldIdEmpresaEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 130, 25));
+
+        jLabelTextoEmailEliminar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabelTextoEmailEliminar.setText("EMAIL");
+        add(jLabelTextoEmailEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 420, -1, -1));
+
+        jTextFieldCodigoPostalEliminar.setEditable(false);
+        jTextFieldCodigoPostalEliminar.setBackground(new java.awt.Color(90, 90, 90));
+        jTextFieldCodigoPostalEliminar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jTextFieldCodigoPostalEliminar.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(5, 8, 5, 8), null));
+        jTextFieldCodigoPostalEliminar.setMinimumSize(new java.awt.Dimension(64, 20));
+        add(jTextFieldCodigoPostalEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 230, 250, 25));
+
+        jTextFieldComunidadEliminar.setEditable(false);
+        jTextFieldComunidadEliminar.setBackground(new java.awt.Color(90, 90, 90));
+        jTextFieldComunidadEliminar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jTextFieldComunidadEliminar.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(5, 8, 5, 8), null));
+        jTextFieldComunidadEliminar.setMinimumSize(new java.awt.Dimension(64, 20));
+        add(jTextFieldComunidadEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 300, 250, 25));
+
+        jLabelTextoEacribaNombreEmpresaEliminar.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelTextoEacribaNombreEmpresaEliminar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabelTextoEacribaNombreEmpresaEliminar.setText("Escriba el nombre de la empresa");
+        add(jLabelTextoEacribaNombreEmpresaEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, -1, -1));
+
+        jComboBoxNombresEncontradosEliminar.setBackground(new java.awt.Color(90, 90, 90));
+        jComboBoxNombresEncontradosEliminar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        add(jComboBoxNombresEncontradosEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 80, 250, 25));
+
+        jPanelAñadir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jLabelTextoAñadir.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabelTextoAñadir.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelTextoAñadir.setText("ELIMINAR");
+
+        javax.swing.GroupLayout jPanelAñadirLayout = new javax.swing.GroupLayout(jPanelAñadir);
+        jPanelAñadir.setLayout(jPanelAñadirLayout);
+        jPanelAñadirLayout.setHorizontalGroup(
+            jPanelAñadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 120, Short.MAX_VALUE)
+            .addGroup(jPanelAñadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelAñadirLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabelTextoAñadir, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jPanelAñadirLayout.setVerticalGroup(
+            jPanelAñadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+            .addGroup(jPanelAñadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelAñadirLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabelTextoAñadir, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        add(jPanelAñadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 610, 120, 40));
+
+        jLabelImagenEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/imagenFondo.png"))); // NOI18N
+        add(jLabelImagenEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, 660));
     }// </editor-fold>//GEN-END:initComponents
 
-
+    private void aplicarFlatLafSoloCombosEnContenedir(Container container){
+        for(Component c : container.getComponents()){
+            if(c instanceof JComboBox){
+                ((JComboBox<?>) c).setUI(new FlatComboBoxUI());
+            }else if ( c instanceof Container){
+                aplicarFlatLafSoloCombosEnContenedir((Container) c);
+            }
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> jComboBoxNombresEncontradosEliminar;
+    private javax.swing.JLabel jLabelImagenEliminar;
+    private javax.swing.JLabel jLabelTextoActividadEliminar;
+    private javax.swing.JLabel jLabelTextoAñadir;
+    private javax.swing.JLabel jLabelTextoCargarDatosEliminar;
+    private javax.swing.JLabel jLabelTextoCodigoPostalEliminar;
+    private javax.swing.JLabel jLabelTextoComunidadEliminar;
+    private javax.swing.JLabel jLabelTextoDireccionEliminar;
+    private javax.swing.JLabel jLabelTextoEacribaNombreEmpresaEliminar;
+    private javax.swing.JLabel jLabelTextoEmailEliminar;
+    private javax.swing.JLabel jLabelTextoEmailTestEliminar;
+    private javax.swing.JLabel jLabelTextoFaxEliminar;
+    private javax.swing.JLabel jLabelTextoIdEmpresaEliminar;
+    private javax.swing.JLabel jLabelTextoNombreEmpresaEliminar;
+    private javax.swing.JLabel jLabelTextoNombresEncontradosEliminar;
+    private javax.swing.JLabel jLabelTextoPoblacionEliminar;
+    private javax.swing.JLabel jLabelTextoProvinciaEliminar;
+    private javax.swing.JLabel jLabelTextoSectorEliminar;
+    private javax.swing.JLabel jLabelTextoTelefonoEliminar;
+    private javax.swing.JLabel jLabelTextoTituloEliminar;
+    private javax.swing.JLabel jLabelTextoWebEliminar;
+    private javax.swing.JPanel jPanelAñadir;
+    private javax.swing.JPanel jPanelCargarDatosEliminar;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator14;
+    private javax.swing.JSeparator jSeparator15;
+    private javax.swing.JSeparator jSeparator16;
+    private javax.swing.JSeparator jSeparator17;
+    private javax.swing.JSeparator jSeparator18;
+    private javax.swing.JSeparator jSeparator19;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator20;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JSeparator jSeparator7;
+    private javax.swing.JTextField jTextFieldActividadAñadir;
+    private javax.swing.JTextField jTextFieldCodigoPostalEliminar;
+    private javax.swing.JTextField jTextFieldComunidadEliminar;
+    private javax.swing.JTextField jTextFieldDireccionEliminar;
+    private javax.swing.JTextField jTextFieldEmailEliminar;
+    private javax.swing.JTextField jTextFieldEmailTestEliminar;
+    private javax.swing.JTextField jTextFieldEscribaNombreEmpresaEliminar;
+    private javax.swing.JTextField jTextFieldFaxEliminar;
+    private javax.swing.JTextField jTextFieldIdEmpresaEliminar;
+    private javax.swing.JTextField jTextFieldNombreEmpresaEliminar;
+    private javax.swing.JTextField jTextFieldPoblacionEliminar;
+    private javax.swing.JTextField jTextFieldProvinciaEliminar;
+    private javax.swing.JTextField jTextFieldSectorEliminar;
+    private javax.swing.JTextField jTextFieldTelefonoAñadir;
+    private javax.swing.JTextField jTextFieldWebEliminar;
     // End of variables declaration//GEN-END:variables
 }
