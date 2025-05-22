@@ -4,10 +4,7 @@
  */
 package Inicio;
 
-/**
- *
- * @author eduar
- */
+
 public class PanelAñadir extends javax.swing.JPanel {
 
     /**
@@ -26,21 +23,314 @@ public class PanelAñadir extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setBackground(new java.awt.Color(204, 51, 255));
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel3 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jSeparator3 = new javax.swing.JSeparator();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jSeparator5 = new javax.swing.JSeparator();
+        jLabel6 = new javax.swing.JLabel();
+        jSeparator6 = new javax.swing.JSeparator();
+        jLabel7 = new javax.swing.JLabel();
+        jSeparator7 = new javax.swing.JSeparator();
+        jLabel8 = new javax.swing.JLabel();
+        jSeparator14 = new javax.swing.JSeparator();
+        jLabel17 = new javax.swing.JLabel();
+        jSeparator15 = new javax.swing.JSeparator();
+        jLabel18 = new javax.swing.JLabel();
+        jSeparator16 = new javax.swing.JSeparator();
+        jLabel19 = new javax.swing.JLabel();
+        jSeparator17 = new javax.swing.JSeparator();
+        jLabel20 = new javax.swing.JLabel();
+        jSeparator18 = new javax.swing.JSeparator();
+        jLabel21 = new javax.swing.JLabel();
+        jSeparator19 = new javax.swing.JSeparator();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jSeparator20 = new javax.swing.JSeparator();
+        jTextField9 = new javax.swing.JTextField();
+        jTextField10 = new javax.swing.JTextField();
+        jTextField11 = new javax.swing.JTextField();
+        jTextField12 = new javax.swing.JTextField();
+        jTextField13 = new javax.swing.JTextField();
+        jTextField14 = new javax.swing.JTextField();
+        jTextField22 = new javax.swing.JTextField();
+        jTextField25 = new javax.swing.JTextField();
+        jTextField26 = new javax.swing.JTextField();
+        jTextField27 = new javax.swing.JTextField();
+        jTextField28 = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jPanel1 = new PanelRound();
+        jLabel16 = new javax.swing.JLabel();
+        jPanel2 = new PanelRound();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 940, Short.MAX_VALUE)
+        setBackground(new java.awt.Color(51, 51, 51));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("AÑADA UNA EMPRESA");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabel2.setText("TELEFONO");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 520, -1, -1));
+        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, 260, 10));
+        add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 50, 290, 10));
+
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabel3.setText("ID EMPRESA");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, -1, -1));
+
+        jTextField2.setBackground(new java.awt.Color(90, 90, 90));
+        jTextField2.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jTextField2.setBorder(null);
+        jTextField2.setMinimumSize(new java.awt.Dimension(64, 20));
+        add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 250, 25));
+        add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 500, 260, 10));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabel4.setText("NOMBRE EMPRESA");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabel5.setText("ACTIVIDAD");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, -1, -1));
+        add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 260, 10));
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabel6.setText("SECTOR");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, -1, -1));
+        add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 350, 260, 10));
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabel7.setText("EMAIL");
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 380, -1, -1));
+        add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 430, 260, 10));
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabel8.setText("FAX");
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 450, -1, -1));
+        add(jSeparator14, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 130, 260, -1));
+
+        jLabel17.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabel17.setText("DIRECCIÓN");
+        add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 80, -1, -1));
+        add(jSeparator15, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 500, 260, 10));
+
+        jLabel18.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabel18.setText("CODIGO POSTAL");
+        add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 150, -1, -1));
+        add(jSeparator16, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 200, 260, 10));
+
+        jLabel19.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabel19.setText("COMUNIDAD");
+        add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 220, -1, -1));
+        add(jSeparator17, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 270, 260, 10));
+
+        jLabel20.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabel20.setText("PROVINCIA");
+        add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 300, -1, -1));
+        add(jSeparator18, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 350, 260, 10));
+
+        jLabel21.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabel21.setText("POBLACIÓN");
+        add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 380, -1, -1));
+        add(jSeparator19, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 430, 260, 10));
+
+        jLabel22.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabel22.setText("EMAIL_TEST");
+        add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 450, -1, -1));
+
+        jLabel23.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabel23.setText("WEB");
+        add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 520, -1, -1));
+        add(jSeparator20, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 260, 10));
+
+        jTextField9.setBackground(new java.awt.Color(90, 90, 90));
+        jTextField9.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jTextField9.setBorder(null);
+        jTextField9.setMinimumSize(new java.awt.Dimension(64, 20));
+        add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 250, 25));
+
+        jTextField10.setBackground(new java.awt.Color(90, 90, 90));
+        jTextField10.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jTextField10.setBorder(null);
+        jTextField10.setMinimumSize(new java.awt.Dimension(64, 20));
+        add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 320, 250, 25));
+
+        jTextField11.setBackground(new java.awt.Color(90, 90, 90));
+        jTextField11.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jTextField11.setBorder(null);
+        jTextField11.setMinimumSize(new java.awt.Dimension(64, 20));
+        add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 400, 250, 25));
+
+        jTextField12.setBackground(new java.awt.Color(90, 90, 90));
+        jTextField12.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jTextField12.setBorder(null);
+        jTextField12.setMinimumSize(new java.awt.Dimension(64, 20));
+        add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 470, 250, 25));
+
+        jTextField13.setBackground(new java.awt.Color(90, 90, 90));
+        jTextField13.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jTextField13.setBorder(null);
+        jTextField13.setMinimumSize(new java.awt.Dimension(64, 20));
+        add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 540, 250, 25));
+
+        jTextField14.setBackground(new java.awt.Color(90, 90, 90));
+        jTextField14.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jTextField14.setBorder(null);
+        jTextField14.setMinimumSize(new java.awt.Dimension(64, 20));
+        add(jTextField14, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 100, 250, 25));
+
+        jTextField22.setBackground(new java.awt.Color(90, 90, 90));
+        jTextField22.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jTextField22.setBorder(null);
+        jTextField22.setMinimumSize(new java.awt.Dimension(64, 20));
+        add(jTextField22, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 170, 250, 25));
+
+        jTextField25.setBackground(new java.awt.Color(90, 90, 90));
+        jTextField25.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jTextField25.setBorder(null);
+        jTextField25.setMinimumSize(new java.awt.Dimension(64, 20));
+        add(jTextField25, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 400, 250, 25));
+
+        jTextField26.setBackground(new java.awt.Color(90, 90, 90));
+        jTextField26.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jTextField26.setBorder(null);
+        jTextField26.setMinimumSize(new java.awt.Dimension(64, 20));
+        add(jTextField26, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 470, 250, 25));
+
+        jTextField27.setBackground(new java.awt.Color(90, 90, 90));
+        jTextField27.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jTextField27.setBorder(null);
+        jTextField27.setMinimumSize(new java.awt.Dimension(64, 20));
+        add(jTextField27, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 540, 250, 25));
+
+        jTextField28.setBackground(new java.awt.Color(90, 90, 90));
+        jTextField28.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jTextField28.setBorder(null);
+        jTextField28.setMinimumSize(new java.awt.Dimension(64, 20));
+        add(jTextField28, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 130, 25));
+
+        jComboBox1.setBackground(new java.awt.Color(90, 90, 90));
+        add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 320, 250, 25));
+
+        jComboBox2.setBackground(new java.awt.Color(90, 90, 90));
+        jComboBox2.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jComboBox2.setForeground(new java.awt.Color(90, 90, 90));
+        add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 240, 250, 25));
+
+        jLabel16.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel16.setText("AÑADIR");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 660, Short.MAX_VALUE)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
+
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 590, 120, 40));
+
+        jPanel2.setBackground(new java.awt.Color(51, 51, 51));
+
+        jLabel10.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel10.setFont(new java.awt.Font("Segoe UI Black", 0, 10)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("ID ALEATORIO");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 110, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel10)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 34, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 110, 34));
+
+        jLabel9.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/imagenFondo.png"))); // NOI18N
+        jLabel9.setText("jLabel9");
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, 660));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator14;
+    private javax.swing.JSeparator jSeparator15;
+    private javax.swing.JSeparator jSeparator16;
+    private javax.swing.JSeparator jSeparator17;
+    private javax.swing.JSeparator jSeparator18;
+    private javax.swing.JSeparator jSeparator19;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator20;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JSeparator jSeparator7;
+    private javax.swing.JTextField jTextField10;
+    private javax.swing.JTextField jTextField11;
+    private javax.swing.JTextField jTextField12;
+    private javax.swing.JTextField jTextField13;
+    private javax.swing.JTextField jTextField14;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField22;
+    private javax.swing.JTextField jTextField25;
+    private javax.swing.JTextField jTextField26;
+    private javax.swing.JTextField jTextField27;
+    private javax.swing.JTextField jTextField28;
+    private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
 }

@@ -102,7 +102,7 @@ public class PantallaInicio extends javax.swing.JFrame {
         jPanelMenuIzqInicio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/imagenInicio (1).png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ImagenPantallaInicio.png"))); // NOI18N
         jPanelMenuIzqInicio.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, -1));
 
         jPanelInicioMenu.setBackground(new java.awt.Color(51, 51, 51));
