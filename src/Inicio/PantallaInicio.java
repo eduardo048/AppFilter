@@ -13,6 +13,10 @@ import java.awt.Shape;
 import java.awt.geom.Area;
 import java.awt.geom.Rectangle2D;
 import java.awt.geom.RoundRectangle2D;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Set;
+import javax.swing.JComboBox;
 import javax.swing.JPanel;
 
 /**
@@ -22,8 +26,14 @@ import javax.swing.JPanel;
 public class PantallaInicio extends javax.swing.JFrame {
 
     int xMouse, yMouse;
+    private final HashMap<String, ArrayList<String>> comunidadesProvincias ;
+    private final HashMap<String, String> equivalenciasComunidades = new HashMap<>();
+    private final HashMap<String, String> equivalenciasProvincias = new HashMap<>();
     public PantallaInicio() {
+        this.comunidadesProvincias = new HashMap<>();
         initComponents();
+        inicializarEquivalencias();
+        cargarComunidades();
         PanelInicio panelInicio = new PanelInicio();
         jPanelFondoPantallaInicio.setLayout(new BorderLayout());
         jPanelFondoPantallaInicio.removeAll();
@@ -374,7 +384,7 @@ public class PantallaInicio extends javax.swing.JFrame {
 
     private void jLabelInicioMenuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelInicioMenuMouseExited
         jPanelInicioMenu.setBackground(new Color(51, 51, 51));
-        jLabelInicioMenu.setForeground(Color.WHITE);
+        jLabelInicioMenu.setForeground(Color.BLACK);
     }//GEN-LAST:event_jLabelInicioMenuMouseExited
 
     private void jLabelInicioMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelInicioMenuMouseClicked
@@ -412,7 +422,7 @@ public class PantallaInicio extends javax.swing.JFrame {
 
     private void jLabelAñadirMenuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelAñadirMenuMouseExited
         jPanelAñadirMenu.setBackground(new Color(51, 51, 51));
-        jLabelAñadirMenu.setForeground(Color.WHITE);
+        jLabelAñadirMenu.setForeground(Color.BLACK);
     }//GEN-LAST:event_jLabelAñadirMenuMouseExited
 
     private void jLabelModificarMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelModificarMenuMouseClicked
@@ -436,7 +446,7 @@ public class PantallaInicio extends javax.swing.JFrame {
 
     private void jLabelModificarMenuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelModificarMenuMouseExited
         jPanelModificarMenu.setBackground(new Color(51, 51, 51));
-        jLabelModificarMenu.setForeground(Color.WHITE);
+        jLabelModificarMenu.setForeground(Color.BLACK);
     }//GEN-LAST:event_jLabelModificarMenuMouseExited
 
     private void jLabelEliminarMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelEliminarMenuMouseClicked
@@ -460,7 +470,7 @@ public class PantallaInicio extends javax.swing.JFrame {
 
     private void jLabelEliminarMenuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelEliminarMenuMouseExited
         jPanelEliminarMenu.setBackground(new Color(51, 51, 51));
-        jLabelEliminarMenu.setForeground(Color.WHITE);
+        jLabelEliminarMenu.setForeground(Color.BLACK);
     }//GEN-LAST:event_jLabelEliminarMenuMouseExited
 
     private void jLabelFiltrarEmpresaMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelFiltrarEmpresaMenuMouseClicked
@@ -484,7 +494,7 @@ public class PantallaInicio extends javax.swing.JFrame {
 
     private void jLabelFiltrarEmpresaMenuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelFiltrarEmpresaMenuMouseExited
         jPanelFiltrarEmpresasMenu.setBackground(new Color(51, 51, 51));
-        jLabelFiltrarEmpresaMenu.setForeground(Color.WHITE);
+        jLabelFiltrarEmpresaMenu.setForeground(Color.BLACK);
     }//GEN-LAST:event_jLabelFiltrarEmpresaMenuMouseExited
 
     private void jLabelVerEmpresasMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelVerEmpresasMenuMouseClicked
@@ -508,8 +518,328 @@ public class PantallaInicio extends javax.swing.JFrame {
 
     private void jLabelVerEmpresasMenuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelVerEmpresasMenuMouseExited
         jPanelVerEmpresasMenu.setBackground(new Color(51, 51, 51));
-        jLabelVerEmpresasMenu.setForeground(Color.WHITE);
+        jLabelVerEmpresasMenu.setForeground(Color.BLACK);
     }//GEN-LAST:event_jLabelVerEmpresasMenuMouseExited
+    
+    public void cargarComunidadesEn(JComboBox<String> combo) {
+        combo.removeAllItems();
+        combo.addItem("");
+        for (String comunidad : comunidadesProvincias.keySet()) {
+            combo.addItem(comunidad);
+        }
+    }
+    
+    public void cargarProvincias(JComboBox<String> comboComunidad, JComboBox<String> comboProvincias) {
+        comboProvincias.removeAllItems();
+        String comunidad = (String) comboComunidad.getSelectedItem();
+
+        if (comunidad != null && comunidadesProvincias.containsKey(comunidad)) {
+            ArrayList<String> provincias = comunidadesProvincias.get(comunidad);
+            for (String provincia : provincias) {
+                comboProvincias.addItem(provincia);
+            }
+        }
+    }
+    
+    private void cargarComunidades() {
+        comunidadesProvincias.clear();
+
+        ArrayList<String> andalucia = new ArrayList<>();
+        andalucia.add("Almería");
+        andalucia.add("Cádiz");
+        andalucia.add("Córdoba");
+        andalucia.add("Granada");
+        andalucia.add("Huelva");
+        andalucia.add("Jaén");
+        andalucia.add("Málaga");
+        andalucia.add("Sevilla");
+        comunidadesProvincias.put("Andalucia", andalucia);
+
+        ArrayList<String> aragon = new ArrayList<>();
+        aragon.add("Huesca");
+        aragon.add("Teruel");
+        aragon.add("Zaragoza");
+        comunidadesProvincias.put("Aragon", aragon);
+
+        ArrayList<String> asturias = new ArrayList<>();
+        asturias.add("Asturias");
+        comunidadesProvincias.put("Asturias", asturias);
+
+        ArrayList<String> baleares = new ArrayList<>();
+        baleares.add("Islas Baleares");
+        comunidadesProvincias.put("Baleares", baleares);
+
+        ArrayList<String> canarias = new ArrayList<>();
+        canarias.add("Las Palmas");
+        canarias.add("Santa Cruz de Tenerife");
+        comunidadesProvincias.put("Canarias", canarias);
+
+        ArrayList<String> cantabria = new ArrayList<>();
+        cantabria.add("Cantabria");
+        comunidadesProvincias.put("Cantabria", cantabria);
+
+        ArrayList<String> castillaLaMancha = new ArrayList<>();
+        castillaLaMancha.add("Albacete");
+        castillaLaMancha.add("Ciudad Real");
+        castillaLaMancha.add("Cuenca");
+        castillaLaMancha.add("Guadalajara");
+        castillaLaMancha.add("Toledo");
+        comunidadesProvincias.put("Castilla La Mancha", castillaLaMancha);
+
+        ArrayList<String> castillaLeon = new ArrayList<>();
+        castillaLeon.add("Ávila");
+        castillaLeon.add("Burgos");
+        castillaLeon.add("León");
+        castillaLeon.add("Palencia");
+        castillaLeon.add("Salamanca");
+        castillaLeon.add("Segovia");
+        castillaLeon.add("Soria");
+        castillaLeon.add("Valladolid");
+        castillaLeon.add("Zamora");
+        comunidadesProvincias.put("Castilla Leon", castillaLeon);
+
+        ArrayList<String> catalunya = new ArrayList<>();
+        catalunya.add("Barcelona");
+        catalunya.add("Girona");
+        catalunya.add("Lleida");
+        catalunya.add("Tarragona");
+        comunidadesProvincias.put("Cataluña", catalunya);
+
+        ArrayList<String> extremadura = new ArrayList<>();
+        extremadura.add("Badajoz");
+        extremadura.add("Cáceres");
+        comunidadesProvincias.put("Extremadura", extremadura);
+
+        ArrayList<String> galicia = new ArrayList<>();
+        galicia.add("A Coruña");
+        galicia.add("Lugo");
+        galicia.add("Ourense");
+        galicia.add("Pontevedra");
+        comunidadesProvincias.put("Galicia", galicia);
+
+        ArrayList<String> madrid = new ArrayList<>();
+        madrid.add("Madrid");
+        comunidadesProvincias.put("Madrid", madrid);
+
+        ArrayList<String> murcia = new ArrayList<>();
+        murcia.add("Murcia");
+        comunidadesProvincias.put("Murcia", murcia);
+
+        ArrayList<String> navarra = new ArrayList<>();
+        navarra.add("Navarra");
+        comunidadesProvincias.put("Navarra", navarra);
+
+        ArrayList<String> paisVasco = new ArrayList<>();
+        paisVasco.add("Álava");
+        paisVasco.add("Guipúzcoa");
+        paisVasco.add("Vizcaya");
+        comunidadesProvincias.put("Euskadi", paisVasco);
+
+        ArrayList<String> rioja = new ArrayList<>();
+        rioja.add("La Rioja");
+        comunidadesProvincias.put("La Rioja", rioja);
+
+        ArrayList<String> valencia = new ArrayList<>();
+        valencia.add("Alicante");
+        valencia.add("Castellón");
+        valencia.add("Valencia");
+        comunidadesProvincias.put("Com. Valenciana", valencia);
+
+        ArrayList<String> ceuta = new ArrayList<>();
+        ceuta.add("Ceuta");
+        comunidadesProvincias.put("Ceuta", ceuta);
+
+        ArrayList<String> melilla = new ArrayList<>();
+        melilla.add("Melilla");
+        comunidadesProvincias.put("Melilla", melilla);       
+    }
+    
+    private void inicializarEquivalencias() {
+        inicializarEquivalenciasComunidades();
+        inicializarEquivalenciasProvincias();
+    }
+    private void inicializarEquivalenciasComunidades(){
+        
+        equivalenciasComunidades.put("ANDALUCIA", "Andalucia");
+        equivalenciasComunidades.put("ANDALUCÍA", "Andalucia");
+
+        equivalenciasComunidades.put("ARAGON", "Aragon");
+        equivalenciasComunidades.put("ARAGÓN", "Aragon");
+
+        equivalenciasComunidades.put("ASTURIAS", "Asturias");
+
+        equivalenciasComunidades.put("BALEARES", "Baleares");
+        equivalenciasComunidades.put("ISLAS BALEARES", "Baleares");
+
+        equivalenciasComunidades.put("CANARIAS", "Canarias");
+        equivalenciasComunidades.put("ISLAS CANARIAS", "Canarias");
+
+        equivalenciasComunidades.put("CANTABRIA", "Cantabria");
+
+        equivalenciasComunidades.put("CASTILLA-LA MANCHA", "Castilla La Mancha");
+        equivalenciasComunidades.put("CASTILLA LA MANCHA", "Castilla La Mancha");
+        equivalenciasComunidades.put("C. LA MANCHA", "Castilla La Mancha");
+
+        equivalenciasComunidades.put("CASTILLA LEON", "Castilla Leon");
+        equivalenciasComunidades.put("CASTILLA LEÓN", "Castilla Leon");
+
+        equivalenciasComunidades.put("CATALUÑA", "Cataluña");
+        equivalenciasComunidades.put("CATALUNYA", "Cataluña");
+
+        equivalenciasComunidades.put("CEUTA", "Ceuta");
+        equivalenciasComunidades.put("MELILLA", "Melilla");
+
+        equivalenciasComunidades.put("EXTREMADURA", "Extremadura");
+
+        equivalenciasComunidades.put("GALICIA", "Galicia");
+
+        equivalenciasComunidades.put("MADRID", "Madrid");
+        equivalenciasComunidades.put("C. MADRID", "Madrid");
+        equivalenciasComunidades.put("COM. MADRID", "Madrid");
+
+        equivalenciasComunidades.put("MURCIA", "Murcia");
+
+        equivalenciasComunidades.put("NAVARRA", "Navarra");
+
+        equivalenciasComunidades.put("PAIS VASCO", "Euskadi");
+        equivalenciasComunidades.put("PAÍS VASCO", "Euskadi");
+        equivalenciasComunidades.put("EUSKADI", "Euskadi");
+
+        equivalenciasComunidades.put("LA RIOJA", "La Rioja");
+        equivalenciasComunidades.put("LA-RIOJA", "La Rioja");
+
+        equivalenciasComunidades.put("C. VALENCIANA", "Com. Valenciana");
+        equivalenciasComunidades.put("COM. VALENCIA", "Com. Valenciana");
+        equivalenciasComunidades.put("VALENCIA", "Com. Valenciana");
+        equivalenciasComunidades.put("COMUNIDAD VALENCIANA", "Com. Valenciana");
+    }
+    
+    //Inicializa equivalencias entre variantes de nombres de provincias
+    private void inicializarEquivalenciasProvincias() {
+       
+        // Comunidad Valenciana
+        equivalenciasProvincias.put("VALENCIA", "Valencia");
+        equivalenciasProvincias.put("CASTELLON", "Castellón");
+        equivalenciasProvincias.put("CASTELLÓN", "Castellón");
+        equivalenciasProvincias.put("ALICANTE", "Alicante");
+
+        // Cataluña
+        equivalenciasProvincias.put("BARCELONA", "Barcelona");
+        equivalenciasProvincias.put("TARRAGONA", "Tarragona");
+        equivalenciasProvincias.put("LLEIDA", "Lleida");
+        equivalenciasProvincias.put("LERIDA", "Lleida");
+        equivalenciasProvincias.put("GIRONA", "Girona");
+        equivalenciasProvincias.put("GERONA", "Girona");
+
+        // País Vasco
+        equivalenciasProvincias.put("ALAVA", "Álava");
+        equivalenciasProvincias.put("ÁLAVA", "Álava");
+        equivalenciasProvincias.put("GUIPUZCOA", "Guipuzcoa");
+        equivalenciasProvincias.put("GUIPÚZCOA", "Guipuzcoa");
+        equivalenciasProvincias.put("VIZCAYA", "Vizcaya");
+        equivalenciasProvincias.put("BIZKAIA", "Vizcaya");
+
+        // Castilla y León
+        equivalenciasProvincias.put("AVILA", "Ávila");
+        equivalenciasProvincias.put("ÁVILA", "Ávila");
+        equivalenciasProvincias.put("BURGOS", "Burgos");
+        equivalenciasProvincias.put("LEON", "León");
+        equivalenciasProvincias.put("PALENCIA", "Palencia");
+        equivalenciasProvincias.put("SALAMANCA", "Salamanca");
+        equivalenciasProvincias.put("SEGOVIA", "Segovia");
+        equivalenciasProvincias.put("SORIA", "Soria");
+        equivalenciasProvincias.put("VALLADOLID", "Valladolid");
+        equivalenciasProvincias.put("ZAMORA", "Zamora");
+
+        // Castilla-La Mancha
+        equivalenciasProvincias.put("ALBACETE", "Albacete");
+        equivalenciasProvincias.put("CIUDAD REAL", "Ciudad Real");
+        equivalenciasProvincias.put("CUENCA", "Cuenca");
+        equivalenciasProvincias.put("GUADALAJARA", "Guadalajara");
+        equivalenciasProvincias.put("TOLEDO", "Toledo");
+
+        // Andalucía
+        equivalenciasProvincias.put("ALMERIA", "Almería");
+        equivalenciasProvincias.put("ALMERÍA", "Almería");
+        equivalenciasProvincias.put("CADIZ", "Cádiz");
+        equivalenciasProvincias.put("CÁDIZ", "Cádiz");
+        equivalenciasProvincias.put("CORDOBA", "Córdoba");
+        equivalenciasProvincias.put("CÓRDOBA", "Córdoba");
+        equivalenciasProvincias.put("GRANADA", "Granada");
+        equivalenciasProvincias.put("HUELVA", "Huelva");
+        equivalenciasProvincias.put("JAEN", "Jaén");
+        equivalenciasProvincias.put("JAÉN", "Jaén");
+        equivalenciasProvincias.put("MALAGA", "Málaga");
+        equivalenciasProvincias.put("MÁLAGA", "Málaga");
+        equivalenciasProvincias.put("SEVILLA", "Sevilla");
+
+        // Aragón
+        equivalenciasProvincias.put("HUESCA", "Huesca");
+        equivalenciasProvincias.put("TERUEL", "Teruel");
+        equivalenciasProvincias.put("ZARAGOZA", "Zaragoza");
+
+        // Galicia
+        equivalenciasProvincias.put("A CORUNA", "A Coruña");
+        equivalenciasProvincias.put("A CORUÑA", "A Coruña");
+        equivalenciasProvincias.put("LUGO", "Lugo");
+        equivalenciasProvincias.put("OURENSE", "Ourense");
+        equivalenciasProvincias.put("ORENSE", "Ourense");
+        equivalenciasProvincias.put("PONTEVEDRA", "Pontevedra");
+
+        // Extremadura
+        equivalenciasProvincias.put("BADAJOZ", "Badajoz");
+        equivalenciasProvincias.put("CACERES", "Cáceres");
+        equivalenciasProvincias.put("CÁCERES", "Cáceres");
+
+        // Madrid
+        equivalenciasProvincias.put("MADRID", "Madrid");
+
+        // Murcia
+        equivalenciasProvincias.put("MURCIA", "Murcia");
+
+        // Navarra
+        equivalenciasProvincias.put("NAVARRA", "Navarra");
+
+        // Asturias
+        equivalenciasProvincias.put("ASTURIAS", "Asturias");
+
+        // Cantabria
+        equivalenciasProvincias.put("CANTABRIA", "Cantabria");
+
+        // La Rioja
+        equivalenciasProvincias.put("LA RIOJA", "La Rioja");
+
+        // Baleares
+        equivalenciasProvincias.put("BALEARES", "Islas Baleares");
+        equivalenciasProvincias.put("ISLAS BALEARES", "Islas Baleares");
+
+        // Canarias
+        equivalenciasProvincias.put("LAS PALMAS", "Las Palmas");
+        equivalenciasProvincias.put("SANTA CRUZ DE TENERIFE", "Santa Cruz de Tenerife");
+
+        // Ceuta y Melilla
+        equivalenciasProvincias.put("CEUTA", "Ceuta");
+        equivalenciasProvincias.put("MELILLA", "Melilla");
+    }
+    
+    private String normalizarNombreComunidad(String comunidad) {
+        if (comunidad == null || comunidad.trim().isEmpty()){ 
+            return "";
+        }
+        String comunidadClave = comunidad.trim().toUpperCase();
+        return equivalenciasComunidades.getOrDefault(comunidadClave, comunidad);
+    }
+    
+    //Normaliza el nombre de una provincia utilizando las equivalencias definidas
+    private String mormalizarNombreProvincia(String provincia) {
+        if (provincia == null || provincia.trim().isEmpty()){
+            return "";
+        }
+        String provinciaClave = provincia.trim().toUpperCase();
+        return equivalenciasProvincias.getOrDefault(provinciaClave, provincia);
+    }
+
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel2;

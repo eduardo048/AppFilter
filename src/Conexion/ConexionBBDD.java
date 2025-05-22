@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JLabel;
 
 /**
  *
@@ -42,6 +43,68 @@ public class ConexionBBDD {
     
     public boolean estaConectado(){
         return conectado;
+    }
+    
+    public void cerrarConexion(){
+        try{
+           if( resultado != null ) resultado.close(); 
+           if( sentenciaPreparada !=null ) sentenciaPreparada.close();
+           if( sentencia !=null ) sentencia.close();
+           if( conexion != null ) conexion.close();
+        }catch(SQLException e){
+            e.printStackTrace();
+        }       
+    }
+    
+    public boolean empresaExiste(String id){
+        String sql = "SELECT COUNT(*) FROM EMPRESAS WHERE ID = ?";
+        try{
+            sentenciaPreparada = conexion.prepareStatement(sql);
+            sentenciaPreparada.setString(1, sql);
+            resultado = sentenciaPreparada.executeQuery();
+            if(resultado.next()){
+                return resultado.getInt(1) > 0;
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return true;
+    }
+    
+    public boolean insertarEmpresa(String id, String empresa, String actividad, String sector,
+                                   String direccion, String cp, String poblacion, String provincia,
+                                   String comunidad, String telefono, String fax,
+                                   String email, String emailTest, String web, JLabel estado){
+    
+        String sql = "INSERT INTO EMPRESAS (ID, EMPRESA, ACTIVIDAD, SECTOR, DIRECCIOM, CP, POBLACION, PROVINCIA, COMUNIDAD, TELEFONO, FAX, EMAIL, EMAIL_TEST, WEB" +
+                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        
+        try{
+            sentenciaPreparada = conexion.prepareStatement(sql);
+            sentenciaPreparada.setString(1, id);
+            sentenciaPreparada.setString(2, empresa);
+            sentenciaPreparada.setString(3, actividad);
+            sentenciaPreparada.setString(4, sector);
+            sentenciaPreparada.setString(5, direccion);
+            sentenciaPreparada.setString(6, cp);
+            sentenciaPreparada.setString(7, poblacion);
+            sentenciaPreparada.setString(8, provincia);
+            sentenciaPreparada.setString(9, comunidad);
+            sentenciaPreparada.setString(10, telefono);
+            sentenciaPreparada.setString(11, fax);
+            sentenciaPreparada.setString(12, email);
+            sentenciaPreparada.setString(13, emailTest);
+            sentenciaPreparada.setString(14, web);
+            
+            int filas = sentenciaPreparada.executeUpdate();
+            if(filas > 0){
+                return true;
+            }
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }
+        return false;
+    
     }
     
     
