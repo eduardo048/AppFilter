@@ -305,10 +305,10 @@ public class PantallaInicio extends javax.swing.JFrame {
         );
         jPanelVerEmpresasMenuLayout.setVerticalGroup(
             jPanelVerEmpresasMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelVerEmpresasMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+            .addComponent(jLabelVerEmpresasMenu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        jPanelMenuIzqInicio.add(jPanelVerEmpresasMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 470, -1, -1));
+        jPanelMenuIzqInicio.add(jPanelVerEmpresasMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, -1, -1));
 
         jPanelPrincipalPantallaInicio.add(jPanelMenuIzqInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 690));
 
@@ -430,7 +430,7 @@ public class PantallaInicio extends javax.swing.JFrame {
 
     private void jLabelModificarMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelModificarMenuMouseClicked
         // 1. Crea una instancia del nuevo panel
-        PanelModificar panelModificar = new PanelModificar();
+        PanelModificar panelModificar = new PanelModificar(this);
 
         // 2. Limpia el panel central (jPanel5) y agrega el nuevo panel
         jPanelFondoPantallaInicio.removeAll();

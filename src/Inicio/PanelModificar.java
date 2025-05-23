@@ -4,17 +4,33 @@
  */
 package Inicio;
 
+import Conexion.ConexionBBDD;
+import com.formdev.flatlaf.ui.FlatComboBoxUI;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Container;
+import java.util.ArrayList;
+import java.util.HashMap;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author eduar
  */
 public class PanelModificar extends javax.swing.JPanel {
 
-    /**
-     * Creates new form PanelModificar
-     */
-    public PanelModificar() {
+    private ConexionBBDD conexionBBDD;
+    private final PantallaInicio contro;
+    private JComboBox<String> comboComunidades = new JComboBox<>();
+    private JComboBox<String> comboProvincias = new JComboBox<>();
+    
+    public PanelModificar(PantallaInicio contro) {
+        this.contro = contro;
+        conexionBBDD = new ConexionBBDD();
         initComponents();
+        contro.cargarComunidadesEn(jComboBoxComunidadModificar);
+        aplicarFlatLafSoloCombosEnContenedir(this);
     }
 
     /**
@@ -26,21 +42,505 @@ public class PanelModificar extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setBackground(new java.awt.Color(102, 51, 255));
+        jLabelTextoTituloModificar = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabelTextoNombresEncontradosModificar = new javax.swing.JLabel();
+        jTextFieldEscribaNombreEmpresaModificar = new javax.swing.JTextField();
+        jPanelCargarDatosModificar = new PanelRound();
+        jLabelTextoBuscarDatosModificar = new javax.swing.JLabel();
+        jLabelTextoTelefonoModificar = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabelTextoIdEmpresaModificar = new javax.swing.JLabel();
+        jTextFieldNombreEmpresaModificar = new javax.swing.JTextField();
+        jSeparator3 = new javax.swing.JSeparator();
+        jLabelTextoNombreEmpresaModificar = new javax.swing.JLabel();
+        jLabelTextoActividadModificar = new javax.swing.JLabel();
+        jSeparator5 = new javax.swing.JSeparator();
+        jLabelTextoSectorModificar = new javax.swing.JLabel();
+        jSeparator6 = new javax.swing.JSeparator();
+        jSeparator7 = new javax.swing.JSeparator();
+        jSeparator14 = new javax.swing.JSeparator();
+        jLabelTextoDireccionModificar = new javax.swing.JLabel();
+        jSeparator15 = new javax.swing.JSeparator();
+        jLabelTextoCodigoPostalModificar = new javax.swing.JLabel();
+        jSeparator16 = new javax.swing.JSeparator();
+        jLabelTextoComunidadModificar = new javax.swing.JLabel();
+        jSeparator17 = new javax.swing.JSeparator();
+        jLabelTextoProvinciaModificar = new javax.swing.JLabel();
+        jSeparator18 = new javax.swing.JSeparator();
+        jLabelTextoPoblacionModificar = new javax.swing.JLabel();
+        jSeparator19 = new javax.swing.JSeparator();
+        jLabelTextoEmailTestModificar = new javax.swing.JLabel();
+        jLabelTextoWebModificar = new javax.swing.JLabel();
+        jSeparator20 = new javax.swing.JSeparator();
+        jTextFieldActividadModificar = new javax.swing.JTextField();
+        jTextFieldSectorModificar = new javax.swing.JTextField();
+        jTextFieldEmailModificar = new javax.swing.JTextField();
+        jTextFieldFaxModificar = new javax.swing.JTextField();
+        jTextFieldTelefonoModificar = new javax.swing.JTextField();
+        jTextFieldDireccionModificar = new javax.swing.JTextField();
+        jTextFieldPoblacionModificar = new javax.swing.JTextField();
+        jTextFieldEmailTestModificar = new javax.swing.JTextField();
+        jTextFieldWebModificar = new javax.swing.JTextField();
+        jTextFieldIdEmpresaModificar = new javax.swing.JTextField();
+        jLabelTextoFaxModificar = new javax.swing.JLabel();
+        jTextFieldCodigoPostalModificar = new javax.swing.JTextField();
+        jLabelTextoEacribaNombreEmpresaModificar = new javax.swing.JLabel();
+        jComboBoxNombresEncontradosModificar = new javax.swing.JComboBox<>();
+        jPanelModificar = new PanelRound();
+        jLabelTextoModificar = new javax.swing.JLabel();
+        jLabelTextoEmailModificar = new javax.swing.JLabel();
+        jComboBoxProvinciaModificar = new javax.swing.JComboBox<>();
+        jComboBoxComunidadModificar = new javax.swing.JComboBox<>();
+        jLabelImagen = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 940, Short.MAX_VALUE)
+        setBackground(new java.awt.Color(41, 41, 41));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelTextoTituloModificar.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelTextoTituloModificar.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
+        jLabelTextoTituloModificar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelTextoTituloModificar.setText("MODIFIQUE UNA EMPRESA");
+        add(jLabelTextoTituloModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, -1, -1));
+        add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 50, 340, 10));
+
+        jLabelTextoNombresEncontradosModificar.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelTextoNombresEncontradosModificar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabelTextoNombresEncontradosModificar.setText("Nombres Encontrados");
+        add(jLabelTextoNombresEncontradosModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 60, -1, -1));
+
+        jTextFieldEscribaNombreEmpresaModificar.setBackground(new java.awt.Color(90, 90, 90));
+        jTextFieldEscribaNombreEmpresaModificar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jTextFieldEscribaNombreEmpresaModificar.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(5, 8, 5, 8), null));
+        jTextFieldEscribaNombreEmpresaModificar.setMinimumSize(new java.awt.Dimension(64, 20));
+        add(jTextFieldEscribaNombreEmpresaModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 240, 25));
+
+        jLabelTextoBuscarDatosModificar.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelTextoBuscarDatosModificar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabelTextoBuscarDatosModificar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelTextoBuscarDatosModificar.setText("Buscar");
+        jLabelTextoBuscarDatosModificar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelTextoBuscarDatosModificarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabelTextoBuscarDatosModificarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabelTextoBuscarDatosModificarMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelCargarDatosModificarLayout = new javax.swing.GroupLayout(jPanelCargarDatosModificar);
+        jPanelCargarDatosModificar.setLayout(jPanelCargarDatosModificarLayout);
+        jPanelCargarDatosModificarLayout.setHorizontalGroup(
+            jPanelCargarDatosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelCargarDatosModificarLayout.createSequentialGroup()
+                .addComponent(jLabelTextoBuscarDatosModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 660, Short.MAX_VALUE)
+        jPanelCargarDatosModificarLayout.setVerticalGroup(
+            jPanelCargarDatosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelTextoBuscarDatosModificar, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
+
+        add(jPanelCargarDatosModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 110, 30));
+
+        jLabelTextoTelefonoModificar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabelTextoTelefonoModificar.setText("TELEFONO");
+        add(jLabelTextoTelefonoModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 560, -1, -1));
+        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 260, 10));
+
+        jLabelTextoIdEmpresaModificar.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelTextoIdEmpresaModificar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabelTextoIdEmpresaModificar.setText("ID EMPRESA");
+        add(jLabelTextoIdEmpresaModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, -1, -1));
+
+        jTextFieldNombreEmpresaModificar.setBackground(new java.awt.Color(90, 90, 90));
+        jTextFieldNombreEmpresaModificar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jTextFieldNombreEmpresaModificar.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(5, 8, 5, 8), null));
+        jTextFieldNombreEmpresaModificar.setMinimumSize(new java.awt.Dimension(64, 20));
+        add(jTextFieldNombreEmpresaModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 250, 25));
+        add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 540, 260, 10));
+
+        jLabelTextoNombreEmpresaModificar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabelTextoNombreEmpresaModificar.setText("NOMBRE EMPRESA");
+        add(jLabelTextoNombreEmpresaModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, -1, -1));
+
+        jLabelTextoActividadModificar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabelTextoActividadModificar.setText("ACTIVIDAD");
+        add(jLabelTextoActividadModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, -1, -1));
+        add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 260, 10));
+
+        jLabelTextoSectorModificar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabelTextoSectorModificar.setText("SECTOR");
+        add(jLabelTextoSectorModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, -1, -1));
+        add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 400, 260, 10));
+        add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 470, 260, 10));
+        add(jSeparator14, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 190, 260, -1));
+
+        jLabelTextoDireccionModificar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabelTextoDireccionModificar.setText("DIRECCIÓN");
+        add(jLabelTextoDireccionModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 140, -1, -1));
+        add(jSeparator15, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 540, 260, 10));
+
+        jLabelTextoCodigoPostalModificar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabelTextoCodigoPostalModificar.setText("CODIGO POSTAL");
+        add(jLabelTextoCodigoPostalModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 210, -1, -1));
+        add(jSeparator16, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 260, 260, 10));
+
+        jLabelTextoComunidadModificar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabelTextoComunidadModificar.setText("COMUNIDAD");
+        add(jLabelTextoComunidadModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 280, -1, -1));
+        add(jSeparator17, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 330, 260, 10));
+
+        jLabelTextoProvinciaModificar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabelTextoProvinciaModificar.setText("PROVINCIA");
+        add(jLabelTextoProvinciaModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 350, -1, -1));
+        add(jSeparator18, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 400, 260, 10));
+
+        jLabelTextoPoblacionModificar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabelTextoPoblacionModificar.setText("POBLACIÓN");
+        add(jLabelTextoPoblacionModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 420, -1, -1));
+        add(jSeparator19, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 470, 260, 10));
+
+        jLabelTextoEmailTestModificar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabelTextoEmailTestModificar.setText("EMAIL_TEST");
+        add(jLabelTextoEmailTestModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 490, -1, -1));
+
+        jLabelTextoWebModificar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabelTextoWebModificar.setText("WEB");
+        add(jLabelTextoWebModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(558, 560, 30, -1));
+        add(jSeparator20, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, 260, 10));
+
+        jTextFieldActividadModificar.setBackground(new java.awt.Color(90, 90, 90));
+        jTextFieldActividadModificar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jTextFieldActividadModificar.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(5, 8, 5, 8), null));
+        jTextFieldActividadModificar.setMinimumSize(new java.awt.Dimension(64, 20));
+        add(jTextFieldActividadModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 300, 250, 25));
+
+        jTextFieldSectorModificar.setBackground(new java.awt.Color(90, 90, 90));
+        jTextFieldSectorModificar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jTextFieldSectorModificar.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(5, 8, 5, 8), null));
+        jTextFieldSectorModificar.setMinimumSize(new java.awt.Dimension(64, 20));
+        add(jTextFieldSectorModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, 250, 25));
+
+        jTextFieldEmailModificar.setBackground(new java.awt.Color(90, 90, 90));
+        jTextFieldEmailModificar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jTextFieldEmailModificar.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(5, 8, 5, 8), null));
+        jTextFieldEmailModificar.setMinimumSize(new java.awt.Dimension(64, 20));
+        add(jTextFieldEmailModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 440, 250, 25));
+
+        jTextFieldFaxModificar.setBackground(new java.awt.Color(90, 90, 90));
+        jTextFieldFaxModificar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jTextFieldFaxModificar.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(5, 8, 5, 8), null));
+        jTextFieldFaxModificar.setMinimumSize(new java.awt.Dimension(64, 20));
+        add(jTextFieldFaxModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 510, 250, 25));
+
+        jTextFieldTelefonoModificar.setBackground(new java.awt.Color(90, 90, 90));
+        jTextFieldTelefonoModificar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jTextFieldTelefonoModificar.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(5, 8, 5, 8), null));
+        jTextFieldTelefonoModificar.setMinimumSize(new java.awt.Dimension(64, 20));
+        add(jTextFieldTelefonoModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 580, 250, 25));
+
+        jTextFieldDireccionModificar.setBackground(new java.awt.Color(90, 90, 90));
+        jTextFieldDireccionModificar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jTextFieldDireccionModificar.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(5, 8, 5, 8), null));
+        jTextFieldDireccionModificar.setMinimumSize(new java.awt.Dimension(64, 20));
+        add(jTextFieldDireccionModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 160, 250, 25));
+
+        jTextFieldPoblacionModificar.setBackground(new java.awt.Color(90, 90, 90));
+        jTextFieldPoblacionModificar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jTextFieldPoblacionModificar.setBorder(javax.swing.BorderFactory.createCompoundBorder(null, javax.swing.BorderFactory.createEmptyBorder(5, 8, 5, 8)));
+        jTextFieldPoblacionModificar.setMinimumSize(new java.awt.Dimension(64, 20));
+        add(jTextFieldPoblacionModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 440, 250, 25));
+
+        jTextFieldEmailTestModificar.setBackground(new java.awt.Color(90, 90, 90));
+        jTextFieldEmailTestModificar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jTextFieldEmailTestModificar.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(5, 8, 5, 8), null));
+        jTextFieldEmailTestModificar.setMinimumSize(new java.awt.Dimension(64, 20));
+        add(jTextFieldEmailTestModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 510, 250, 25));
+
+        jTextFieldWebModificar.setBackground(new java.awt.Color(90, 90, 90));
+        jTextFieldWebModificar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jTextFieldWebModificar.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(5, 8, 5, 8), null));
+        jTextFieldWebModificar.setMinimumSize(new java.awt.Dimension(64, 20));
+        add(jTextFieldWebModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 580, 250, 25));
+
+        jTextFieldIdEmpresaModificar.setEditable(false);
+        jTextFieldIdEmpresaModificar.setBackground(new java.awt.Color(90, 90, 90));
+        jTextFieldIdEmpresaModificar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jTextFieldIdEmpresaModificar.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(5, 8, 5, 8), null));
+        jTextFieldIdEmpresaModificar.setMinimumSize(new java.awt.Dimension(64, 20));
+        add(jTextFieldIdEmpresaModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 130, 25));
+
+        jLabelTextoFaxModificar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabelTextoFaxModificar.setText("FAX");
+        add(jLabelTextoFaxModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 490, -1, -1));
+
+        jTextFieldCodigoPostalModificar.setBackground(new java.awt.Color(90, 90, 90));
+        jTextFieldCodigoPostalModificar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jTextFieldCodigoPostalModificar.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(5, 8, 5, 8), null));
+        jTextFieldCodigoPostalModificar.setMinimumSize(new java.awt.Dimension(64, 20));
+        add(jTextFieldCodigoPostalModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 230, 250, 25));
+
+        jLabelTextoEacribaNombreEmpresaModificar.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelTextoEacribaNombreEmpresaModificar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabelTextoEacribaNombreEmpresaModificar.setText("Escriba el nombre de la empresa");
+        add(jLabelTextoEacribaNombreEmpresaModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, -1, -1));
+
+        jComboBoxNombresEncontradosModificar.setBackground(new java.awt.Color(90, 90, 90));
+        jComboBoxNombresEncontradosModificar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jComboBoxNombresEncontradosModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxNombresEncontradosModificarActionPerformed(evt);
+            }
+        });
+        add(jComboBoxNombresEncontradosModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 80, 250, 25));
+
+        jPanelModificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jLabelTextoModificar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabelTextoModificar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelTextoModificar.setText("MODIFICAR");
+        jLabelTextoModificar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelTextoModificarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabelTextoModificarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabelTextoModificarMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelModificarLayout = new javax.swing.GroupLayout(jPanelModificar);
+        jPanelModificar.setLayout(jPanelModificarLayout);
+        jPanelModificarLayout.setHorizontalGroup(
+            jPanelModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 120, Short.MAX_VALUE)
+            .addGroup(jPanelModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelModificarLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabelTextoModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jPanelModificarLayout.setVerticalGroup(
+            jPanelModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+            .addGroup(jPanelModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelModificarLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabelTextoModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        add(jPanelModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 610, 120, 40));
+
+        jLabelTextoEmailModificar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabelTextoEmailModificar.setText("EMAIL");
+        add(jLabelTextoEmailModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 420, -1, -1));
+
+        jComboBoxProvinciaModificar.setBackground(new java.awt.Color(90, 90, 90));
+        jComboBoxProvinciaModificar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        add(jComboBoxProvinciaModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 370, 250, 25));
+
+        jComboBoxComunidadModificar.setBackground(new java.awt.Color(90, 90, 90));
+        jComboBoxComunidadModificar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jComboBoxComunidadModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxComunidadModificarActionPerformed(evt);
+            }
+        });
+        add(jComboBoxComunidadModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 300, 250, 25));
+
+        jLabelImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ImagenModificar.png"))); // NOI18N
+        add(jLabelImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, 660));
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jLabelTextoBuscarDatosModificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoBuscarDatosModificarMouseClicked
+        String textoBusqueda = jTextFieldEscribaNombreEmpresaModificar.getText().trim();
+        
+        if(!textoBusqueda.isEmpty()){
+            ArrayList<String> resultados = conexionBBDD.buscarEmpresaPorNombreParcial(textoBusqueda);
+            jComboBoxNombresEncontradosModificar.removeAllItems();
+            
+            for(String nombreEmpresa : resultados){
+                jComboBoxNombresEncontradosModificar.addItem(nombreEmpresa);
+            }
+            
+            if(resultados.isEmpty()){
+                JOptionPane.showMessageDialog(null, "No se encontraron empresas.");
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Introduce al menos una parte del nombre.");
+        }
+    }//GEN-LAST:event_jLabelTextoBuscarDatosModificarMouseClicked
+
+    private void jLabelTextoBuscarDatosModificarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoBuscarDatosModificarMouseEntered
+        jPanelCargarDatosModificar.setBackground(new Color(51, 51, 51));
+        jLabelTextoBuscarDatosModificar.setForeground(Color.WHITE);
+    }//GEN-LAST:event_jLabelTextoBuscarDatosModificarMouseEntered
+
+    private void jLabelTextoBuscarDatosModificarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoBuscarDatosModificarMouseExited
+        jPanelCargarDatosModificar.setBackground(Color.WHITE);
+        jLabelTextoBuscarDatosModificar.setForeground(new Color(51, 51, 51));
+    }//GEN-LAST:event_jLabelTextoBuscarDatosModificarMouseExited
+
+    private void jComboBoxNombresEncontradosModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxNombresEncontradosModificarActionPerformed
+        String nombreSeleccionado = (String) jComboBoxNombresEncontradosModificar.getSelectedItem();
+        
+        if(nombreSeleccionado != null){
+            HashMap<String, String> datos = conexionBBDD.buscarEmpresaPorNombreEntero(nombreSeleccionado);
+            
+            if(datos != null){
+                jTextFieldIdEmpresaModificar.setText(datos.get("id"));
+                jTextFieldNombreEmpresaModificar.setText(datos.get("nombre"));
+                jTextFieldActividadModificar.setText(datos.get("actividad"));
+                jTextFieldSectorModificar.setText(datos.get("sector"));
+                jTextFieldEmailModificar.setText(datos.get("email"));
+                jTextFieldFaxModificar.setText(datos.get("fax"));
+                jTextFieldTelefonoModificar.setText(datos.get("telefono"));
+                jTextFieldDireccionModificar.setText(datos.get("direccion"));
+                jTextFieldCodigoPostalModificar.setText(datos.get("cp"));
+                jComboBoxComunidadModificar.setSelectedItem(datos.get("comunidad"));
+                jComboBoxComunidadModificar.setSelectedItem(datos.get("provincia"));
+                jTextFieldPoblacionModificar.setText(datos.get("poblacion"));
+                jTextFieldEmailTestModificar.setText(datos.get("emailTest"));
+                jTextFieldWebModificar.setText(datos.get("web"));
+            }
+        }
+    }//GEN-LAST:event_jComboBoxNombresEncontradosModificarActionPerformed
+
+    private void jLabelTextoModificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoModificarMouseClicked
+        String id = jTextFieldIdEmpresaModificar.getText().trim();
+        String nombreOriginal = (String) jComboBoxNombresEncontradosModificar.getSelectedItem();
+        String nuevoNombre = jTextFieldNombreEmpresaModificar.getText().trim();
+
+        if (id.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Selecciona primero una empresa válida.");
+            return;
+        }
+
+        int confirmacion = JOptionPane.showConfirmDialog(null,
+            "¿Estás seguro de que deseas modificar la empresa con ID: " + id + "?",
+            "Confirmar modificación", JOptionPane.YES_NO_OPTION);
+
+        if (confirmacion == JOptionPane.YES_OPTION) {
+            HashMap<String, String> nuevosDatos = new HashMap<>();
+
+            nuevosDatos.put("empresa", nuevoNombre);
+            nuevosDatos.put("actividad", jTextFieldActividadModificar.getText().trim());
+            nuevosDatos.put("sector", jTextFieldSectorModificar.getText().trim());
+            nuevosDatos.put("direccion", jTextFieldDireccionModificar.getText().trim());
+            nuevosDatos.put("cp", jTextFieldCodigoPostalModificar.getText().trim());
+            nuevosDatos.put("poblacion", jTextFieldPoblacionModificar.getText().trim());
+            
+            String comunidad = (String) jComboBoxComunidadModificar.getSelectedItem();
+            String provincia = (String) jComboBoxProvinciaModificar.getSelectedItem();
+            
+            nuevosDatos.put("comunidad", comunidad !=null ? comunidad.trim() : "");
+            nuevosDatos.put("provincia",provincia !=null ? provincia.trim() : "");
+            nuevosDatos.put("telefono", jTextFieldTelefonoModificar.getText().trim());
+            nuevosDatos.put("fax", jTextFieldFaxModificar.getText().trim());
+            nuevosDatos.put("email", jTextFieldEmailModificar.getText().trim());
+            nuevosDatos.put("emailTest", jTextFieldEmailTestModificar.getText().trim());
+            nuevosDatos.put("web", jTextFieldWebModificar.getText().trim());
+
+            boolean modificado = conexionBBDD.modificarEmpresaPorId(id, nuevosDatos);
+
+            if (modificado) {
+                JOptionPane.showMessageDialog(null, "Empresa modificada correctamente.");
+
+                if (!nuevoNombre.equalsIgnoreCase(nombreOriginal)) {
+                    int indexSeleccionado = jComboBoxNombresEncontradosModificar.getSelectedIndex();
+                    jComboBoxNombresEncontradosModificar.insertItemAt(nuevoNombre, indexSeleccionado);
+                    jComboBoxNombresEncontradosModificar.removeItemAt(indexSeleccionado + 1);
+                    jComboBoxNombresEncontradosModificar.setSelectedIndex(indexSeleccionado);
+                }
+
+            } else {
+                JOptionPane.showMessageDialog(null, "No se pudo modificar la empresa.");
+            }
+        }
+    }//GEN-LAST:event_jLabelTextoModificarMouseClicked
+
+    private void jLabelTextoModificarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoModificarMouseEntered
+        jPanelModificar.setBackground(new Color(51, 51, 51));
+        jLabelTextoModificar.setForeground(Color.WHITE);
+    }//GEN-LAST:event_jLabelTextoModificarMouseEntered
+
+    private void jLabelTextoModificarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoModificarMouseExited
+        jPanelModificar.setBackground(Color.WHITE);
+        jLabelTextoModificar.setForeground(new Color(51, 51, 51));
+    }//GEN-LAST:event_jLabelTextoModificarMouseExited
+
+    private void jComboBoxComunidadModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxComunidadModificarActionPerformed
+        contro.cargarProvincias(jComboBoxComunidadModificar, jComboBoxProvinciaModificar);
+    }//GEN-LAST:event_jComboBoxComunidadModificarActionPerformed
+    
+    private void aplicarFlatLafSoloCombosEnContenedir(Container container){
+        for(Component c : container.getComponents()){
+            if(c instanceof JComboBox){
+                ((JComboBox<?>) c).setUI(new FlatComboBoxUI());
+            }else if ( c instanceof Container){
+                aplicarFlatLafSoloCombosEnContenedir((Container) c);
+            }
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> jComboBoxComunidadModificar;
+    private javax.swing.JComboBox<String> jComboBoxNombresEncontradosModificar;
+    private javax.swing.JComboBox<String> jComboBoxProvinciaModificar;
+    private javax.swing.JLabel jLabelImagen;
+    private javax.swing.JLabel jLabelTextoActividadModificar;
+    private javax.swing.JLabel jLabelTextoBuscarDatosModificar;
+    private javax.swing.JLabel jLabelTextoCodigoPostalModificar;
+    private javax.swing.JLabel jLabelTextoComunidadModificar;
+    private javax.swing.JLabel jLabelTextoDireccionModificar;
+    private javax.swing.JLabel jLabelTextoEacribaNombreEmpresaModificar;
+    private javax.swing.JLabel jLabelTextoEmailModificar;
+    private javax.swing.JLabel jLabelTextoEmailTestModificar;
+    private javax.swing.JLabel jLabelTextoFaxModificar;
+    private javax.swing.JLabel jLabelTextoIdEmpresaModificar;
+    private javax.swing.JLabel jLabelTextoModificar;
+    private javax.swing.JLabel jLabelTextoNombreEmpresaModificar;
+    private javax.swing.JLabel jLabelTextoNombresEncontradosModificar;
+    private javax.swing.JLabel jLabelTextoPoblacionModificar;
+    private javax.swing.JLabel jLabelTextoProvinciaModificar;
+    private javax.swing.JLabel jLabelTextoSectorModificar;
+    private javax.swing.JLabel jLabelTextoTelefonoModificar;
+    private javax.swing.JLabel jLabelTextoTituloModificar;
+    private javax.swing.JLabel jLabelTextoWebModificar;
+    private javax.swing.JPanel jPanelCargarDatosModificar;
+    private javax.swing.JPanel jPanelModificar;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator14;
+    private javax.swing.JSeparator jSeparator15;
+    private javax.swing.JSeparator jSeparator16;
+    private javax.swing.JSeparator jSeparator17;
+    private javax.swing.JSeparator jSeparator18;
+    private javax.swing.JSeparator jSeparator19;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator20;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JSeparator jSeparator7;
+    private javax.swing.JTextField jTextFieldActividadModificar;
+    private javax.swing.JTextField jTextFieldCodigoPostalModificar;
+    private javax.swing.JTextField jTextFieldDireccionModificar;
+    private javax.swing.JTextField jTextFieldEmailModificar;
+    private javax.swing.JTextField jTextFieldEmailTestModificar;
+    private javax.swing.JTextField jTextFieldEscribaNombreEmpresaModificar;
+    private javax.swing.JTextField jTextFieldFaxModificar;
+    private javax.swing.JTextField jTextFieldIdEmpresaModificar;
+    private javax.swing.JTextField jTextFieldNombreEmpresaModificar;
+    private javax.swing.JTextField jTextFieldPoblacionModificar;
+    private javax.swing.JTextField jTextFieldSectorModificar;
+    private javax.swing.JTextField jTextFieldTelefonoModificar;
+    private javax.swing.JTextField jTextFieldWebModificar;
     // End of variables declaration//GEN-END:variables
 }

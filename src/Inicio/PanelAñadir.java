@@ -404,7 +404,6 @@ public class PanelAñadir extends javax.swing.JPanel {
         contro.cargarProvincias(jComboBoxComunidadAñadir, jComboBoxProvinciaAñadir);
     }//GEN-LAST:event_jComboBoxComunidadAñadirActionPerformed
     
-
     private void aplicarFlatLafSoloCombosEnContenedir(Container container){
         for(Component c : container.getComponents()){
             if(c instanceof JComboBox){
@@ -426,6 +425,7 @@ public class PanelAñadir extends javax.swing.JPanel {
             return nuevoId;
 
     }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> jComboBoxComunidadAñadir;
     private javax.swing.JComboBox<String> jComboBoxProvinciaAñadir;

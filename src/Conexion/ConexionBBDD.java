@@ -11,6 +11,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.HashMap;
 import javax.swing.JLabel;
 
 /**
@@ -103,11 +105,128 @@ public class ConexionBBDD {
         }catch(SQLException ex){
             ex.printStackTrace();
         }
-        return false;
-    
+        return false;   
     }
     
+    public ArrayList<String> buscarEmpresaPorNombreParcial(String nombrePar){
+        ArrayList<String> nombreEmpresas = new ArrayList<>();
+        
+        if(conexion == null){
+            return nombreEmpresas;
+        }
+        
+        String sql = "SELECT EMPRESA FROM EMPRESAS WHERE UPPER(EMPRESA) LIKE UPPER(?)";
+        try{
+            sentenciaPreparada = conexion.prepareStatement(sql);
+            sentenciaPreparada.setString(1, "%" + nombrePar + "%");
+            resultado = sentenciaPreparada.executeQuery();
+            
+            while(resultado.next()){
+                nombreEmpresas.add(resultado.getString("EMPRESA"));
+            }
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }
+        
+        return nombreEmpresas;
+    }
     
+    public HashMap<String, String> buscarEmpresaPorNombreEntero(String nombre){
+        HashMap<String, String> datos = new HashMap<>();
+        
+        if(conexion == null){
+            return null;
+        }
+        
+        String sql = "SELECT * FROM EMPRESAS WHERE UPPER(EMPRESA) = UPPER(?)";
+        try{
+            sentenciaPreparada = conexion.prepareStatement(sql);
+            sentenciaPreparada.setString(1, nombre);
+            resultado = sentenciaPreparada.executeQuery();
+            
+            if(resultado.next()){
+                datos.put("id", resultado.getString("ID"));
+                datos.put("nombre", resultado.getString("EMPRESA"));
+                datos.put("actividad", resultado.getString("ACTIVIDAD"));
+                datos.put("sector", resultado.getString("SECTOR"));
+                datos.put("direccion", resultado.getString("DIRECCION"));
+                datos.put("cp", resultado.getString("CP"));
+                datos.put("poblacion", resultado.getString("POBLACION"));
+                datos.put("provincia", resultado.getString("PROVINCIA"));
+                datos.put("comunidad", resultado.getString("COMUNIDAD"));
+                datos.put("telefono", resultado.getString("TELEFONO"));
+                datos.put("fax", resultado.getString("FAX"));
+                datos.put("email", resultado.getString("EMAIL"));
+                datos.put("emailTest", resultado.getString("EMAIL_TEST"));
+                datos.put("web", resultado.getString("WEB"));
+                return datos;
+            }
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }
+        return null;
+    }
+    
+    public boolean eliminarEmpresaPorId(String id){
+        if(conexion == null){
+            return false;
+        }
+        
+        String sql = "DELETE FROM EMPRESAS WHERE ID = ?";
+        
+        try{
+            sentenciaPreparada = conexion.prepareStatement(sql);
+            sentenciaPreparada.setString(1, id);
+            int filas = sentenciaPreparada.executeUpdate();
+            return filas > 0;
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }
+        return false;
+    }
+    
+    public boolean modificarEmpresaPorId(String id, HashMap<String, String> nuevosDatos) {
+        if (conexion == null || id == null || id.isEmpty()) {
+            return false;
+        }
+
+        StringBuilder sql = new StringBuilder("UPDATE EMPRESAS SET ");
+        ArrayList<String> campos = new ArrayList<>();
+        ArrayList<String> valores = new ArrayList<>();
+
+        for (String clave : nuevosDatos.keySet()) {
+            String valor = nuevosDatos.get(clave);
+            if (valor != null && !valor.isEmpty()) {
+                campos.add(clave.toUpperCase() + " = ?");
+                valores.add(valor);
+            }
+        }
+
+        if (campos.isEmpty()) {
+            return false;
+        }
+
+        sql.append(String.join(", ", campos));
+        sql.append(" WHERE ID = ?");
+
+        try {
+            sentenciaPreparada = conexion.prepareStatement(sql.toString());
+
+            int i = 1;
+            for (String valor : valores) {
+                sentenciaPreparada.setString(i++, valor);
+            }
+            sentenciaPreparada.setString(i, id);
+
+            int filas = sentenciaPreparada.executeUpdate();
+            return filas > 0;
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return false;
+    }
     
     
 }
