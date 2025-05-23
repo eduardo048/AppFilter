@@ -228,5 +228,52 @@ public class ConexionBBDD {
         return false;
     }
     
+    public ArrayList<String[]> obtenerTodasLasEmpresasComoArray() {
+        ArrayList<String[]> lista = new ArrayList<>();
+        String sql = "SELECT ID, EMPRESA, ACTIVIDAD, SECTOR, DIRECCION, CP, POBLACION, PROVINCIA, COMUNIDAD, TELEFONO, FAX, EMAIL, EMAIL_TEST, WEB FROM EMPRESAS";
+
+        try {
+            sentencia = conexion.createStatement();
+            resultado = sentencia.executeQuery(sql);
+
+            while (resultado.next()) {
+                String[] fila = new String[14];
+                for (int i = 0; i < 14; i++) {
+                    fila[i] = resultado.getString(i + 1);
+                }
+                lista.add(fila);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return lista;
+    }
+    
+    public ArrayList<String[]> buscarEmpresasPorNombreParcial(String texto) {
+        ArrayList<String[]> lista = new ArrayList<>();
+        String sql = "SELECT ID, EMPRESA, ACTIVIDAD, SECTOR, DIRECCION, CP, POBLACION, PROVINCIA, COMUNIDAD, TELEFONO, FAX, EMAIL, EMAIL_TEST, WEB FROM EMPRESAS WHERE UPPER(EMPRESA) LIKE ?";
+
+        try {
+            sentenciaPreparada = conexion.prepareStatement(sql);
+            sentenciaPreparada.setString(1, "%" + texto.toUpperCase() + "%");
+            resultado = sentenciaPreparada.executeQuery();
+
+            while (resultado.next()) {
+                String[] fila = new String[14];
+                for (int i = 0; i < 14; i++) {
+                    fila[i] = resultado.getString(i + 1);
+                }
+                lista.add(fila);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return lista;
+    }
+
+
+    
     
 }

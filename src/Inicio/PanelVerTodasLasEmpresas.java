@@ -10,11 +10,10 @@ package Inicio;
  */
 public class PanelVerTodasLasEmpresas extends javax.swing.JPanel {
 
-    /**
-     * Creates new form PanelVerTodasLasEmpresas
-     */
+    private final Conexion.ConexionBBDD conexion = new Conexion.ConexionBBDD();
     public PanelVerTodasLasEmpresas() {
         initComponents();
+        cargarTodasLasEmpresas();
     }
 
     /**
@@ -132,7 +131,14 @@ public class PanelVerTodasLasEmpresas extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabelTextoBuscarDatosModificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoBuscarDatosModificarMouseClicked
-       
+        String texto = jTextFieldEscribaNombreEmpresaModificar.getText().trim();
+
+        if (texto.isEmpty()) {
+            cargarTodasLasEmpresas();
+        } else {
+            java.util.List<String[]> empresasFiltradas = conexion.buscarEmpresasPorNombreParcial(texto);
+            mostrarEmpresasEnTextArea(empresasFiltradas);
+        }
     }//GEN-LAST:event_jLabelTextoBuscarDatosModificarMouseClicked
 
     private void jLabelTextoBuscarDatosModificarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoBuscarDatosModificarMouseEntered
@@ -144,7 +150,8 @@ public class PanelVerTodasLasEmpresas extends javax.swing.JPanel {
     }//GEN-LAST:event_jLabelTextoBuscarDatosModificarMouseExited
 
     private void jLabelTextoBuscarDatosModificar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoBuscarDatosModificar1MouseClicked
-        
+        jTextFieldEscribaNombreEmpresaModificar.setText("");
+        cargarTodasLasEmpresas();
     }//GEN-LAST:event_jLabelTextoBuscarDatosModificar1MouseClicked
 
     private void jLabelTextoBuscarDatosModificar1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoBuscarDatosModificar1MouseEntered
@@ -154,6 +161,25 @@ public class PanelVerTodasLasEmpresas extends javax.swing.JPanel {
     private void jLabelTextoBuscarDatosModificar1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoBuscarDatosModificar1MouseExited
 
     }//GEN-LAST:event_jLabelTextoBuscarDatosModificar1MouseExited
+    private void mostrarEmpresasEnTextArea(java.util.List<String[]> empresas) {
+        StringBuilder sb = new StringBuilder();
+
+        // Cabecera
+        sb.append("ID | EMPRESA | ACTIVIDAD | SECTOR | DIRECCIÓN | CP | POBLACIÓN | PROVINCIA | COMUNIDAD | TELÉFONO | FAX | EMAIL | EMAIL_TEST | WEB\n");
+        sb.append("-----------------------------------------------------------------------------------------------------------------------------\n");
+
+        // Datos
+        for (String[] fila : empresas) {
+            sb.append(String.join(" | ", fila)).append("\n");
+        }
+
+        jTextArea1.setText(sb.toString());
+    }
+    
+    private void cargarTodasLasEmpresas(){
+        java.util.ArrayList<String[]> empresas = conexion.obtenerTodasLasEmpresasComoArray();
+        mostrarEmpresasEnTextArea(empresas);
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
