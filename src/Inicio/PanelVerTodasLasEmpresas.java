@@ -26,21 +26,146 @@ public class PanelVerTodasLasEmpresas extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setBackground(new java.awt.Color(0, 102, 102));
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jLabelTextoTituloModificar = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabelTextoEacribaNombreEmpresaModificar = new javax.swing.JLabel();
+        jTextFieldEscribaNombreEmpresaModificar = new javax.swing.JTextField();
+        jPanelCargarDatosModificar = new PanelRound();
+        jLabelTextoBuscarDatosModificar1 = new javax.swing.JLabel();
+        jPanelCargarDatosModificar1 = new PanelRound();
+        jLabelTextoBuscarDatosModificar = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 940, Short.MAX_VALUE)
+        setBackground(new java.awt.Color(41, 41, 41));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 872, 500));
+
+        jLabelTextoTituloModificar.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelTextoTituloModificar.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
+        jLabelTextoTituloModificar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelTextoTituloModificar.setText(" VISTA EMPRESA");
+        add(jLabelTextoTituloModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, -1, -1));
+        add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, 210, 10));
+
+        jLabelTextoEacribaNombreEmpresaModificar.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelTextoEacribaNombreEmpresaModificar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabelTextoEacribaNombreEmpresaModificar.setText("Escriba el nombre de la empresa");
+        add(jLabelTextoEacribaNombreEmpresaModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, -1, -1));
+
+        jTextFieldEscribaNombreEmpresaModificar.setBackground(new java.awt.Color(90, 90, 90));
+        jTextFieldEscribaNombreEmpresaModificar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jTextFieldEscribaNombreEmpresaModificar.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(5, 8, 5, 8), null));
+        jTextFieldEscribaNombreEmpresaModificar.setMinimumSize(new java.awt.Dimension(64, 20));
+        add(jTextFieldEscribaNombreEmpresaModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, 240, 25));
+
+        jLabelTextoBuscarDatosModificar1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelTextoBuscarDatosModificar1.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabelTextoBuscarDatosModificar1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelTextoBuscarDatosModificar1.setText("Buscar");
+        jLabelTextoBuscarDatosModificar1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelTextoBuscarDatosModificar1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabelTextoBuscarDatosModificar1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabelTextoBuscarDatosModificar1MouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelCargarDatosModificarLayout = new javax.swing.GroupLayout(jPanelCargarDatosModificar);
+        jPanelCargarDatosModificar.setLayout(jPanelCargarDatosModificarLayout);
+        jPanelCargarDatosModificarLayout.setHorizontalGroup(
+            jPanelCargarDatosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCargarDatosModificarLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabelTextoBuscarDatosModificar1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 660, Short.MAX_VALUE)
+        jPanelCargarDatosModificarLayout.setVerticalGroup(
+            jPanelCargarDatosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCargarDatosModificarLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabelTextoBuscarDatosModificar1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+
+        add(jPanelCargarDatosModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 80, 110, 30));
+
+        jLabelTextoBuscarDatosModificar.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelTextoBuscarDatosModificar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabelTextoBuscarDatosModificar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelTextoBuscarDatosModificar.setText("CANCELAR");
+        jLabelTextoBuscarDatosModificar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelTextoBuscarDatosModificarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabelTextoBuscarDatosModificarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabelTextoBuscarDatosModificarMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelCargarDatosModificar1Layout = new javax.swing.GroupLayout(jPanelCargarDatosModificar1);
+        jPanelCargarDatosModificar1.setLayout(jPanelCargarDatosModificar1Layout);
+        jPanelCargarDatosModificar1Layout.setHorizontalGroup(
+            jPanelCargarDatosModificar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCargarDatosModificar1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabelTextoBuscarDatosModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanelCargarDatosModificar1Layout.setVerticalGroup(
+            jPanelCargarDatosModificar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCargarDatosModificar1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabelTextoBuscarDatosModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        add(jPanelCargarDatosModificar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jLabelTextoBuscarDatosModificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoBuscarDatosModificarMouseClicked
+       
+    }//GEN-LAST:event_jLabelTextoBuscarDatosModificarMouseClicked
+
+    private void jLabelTextoBuscarDatosModificarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoBuscarDatosModificarMouseEntered
+
+    }//GEN-LAST:event_jLabelTextoBuscarDatosModificarMouseEntered
+
+    private void jLabelTextoBuscarDatosModificarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoBuscarDatosModificarMouseExited
+
+    }//GEN-LAST:event_jLabelTextoBuscarDatosModificarMouseExited
+
+    private void jLabelTextoBuscarDatosModificar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoBuscarDatosModificar1MouseClicked
+        
+    }//GEN-LAST:event_jLabelTextoBuscarDatosModificar1MouseClicked
+
+    private void jLabelTextoBuscarDatosModificar1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoBuscarDatosModificar1MouseEntered
+
+    }//GEN-LAST:event_jLabelTextoBuscarDatosModificar1MouseEntered
+
+    private void jLabelTextoBuscarDatosModificar1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoBuscarDatosModificar1MouseExited
+
+    }//GEN-LAST:event_jLabelTextoBuscarDatosModificar1MouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabelTextoBuscarDatosModificar;
+    private javax.swing.JLabel jLabelTextoBuscarDatosModificar1;
+    private javax.swing.JLabel jLabelTextoEacribaNombreEmpresaModificar;
+    private javax.swing.JLabel jLabelTextoTituloModificar;
+    private javax.swing.JPanel jPanelCargarDatosModificar;
+    private javax.swing.JPanel jPanelCargarDatosModificar1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextField jTextFieldEscribaNombreEmpresaModificar;
     // End of variables declaration//GEN-END:variables
 }
