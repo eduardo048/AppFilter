@@ -1,24 +1,21 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
+
 package Inicio;
 
+
+import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author eduar
- */
 public class PanelVerTodasLasEmpresas extends javax.swing.JPanel {
 
     private final Conexion.ConexionBBDD conexion = new Conexion.ConexionBBDD();
     private int paginaActual = 1;
     private final int registrosPorPagina = 100;
+    
     public PanelVerTodasLasEmpresas() {
         initComponents();
         cargarPagina(paginaActual);
+        aplicarTextoBlnacoEnCampo();
     }
 
     /**
@@ -30,46 +27,40 @@ public class PanelVerTodasLasEmpresas extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextAreaVerVistaEmpresa = new javax.swing.JTextArea();
         jLabelTextoTituloVistaEmpresas = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         jLabelTextoEacribaNombreEmpresaVistaEmpresas = new javax.swing.JLabel();
         jTextFieldEscribaNombreEmpresaVistaEmpresa = new javax.swing.JTextField();
         jPanelCargarDatosVerEmpresas = new PanelRound();
         jLabelTextoBuscarDatosVistaEmpresa = new javax.swing.JLabel();
-        jPanelCVolverAtrasVistaEmpresas = new PanelRound();
+        jPanelCancelarVistaEmpresas = new PanelRound();
         jLabelTextoCancelarVistaEmpresa = new javax.swing.JLabel();
         jLabelSiguienteVistaEmpresa = new javax.swing.JLabel();
         jLabelAnteriorVistaEmpresas = new javax.swing.JLabel();
+        jTextAreaVerVistaEmpresa = new java.awt.TextArea();
+        jLabelImagen = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(41, 41, 41));
         setPreferredSize(new java.awt.Dimension(940, 660));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextAreaVerVistaEmpresa.setColumns(20);
-        jTextAreaVerVistaEmpresa.setRows(5);
-        jScrollPane1.setViewportView(jTextAreaVerVistaEmpresa);
-
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 850, 520));
-
         jLabelTextoTituloVistaEmpresas.setBackground(new java.awt.Color(255, 255, 255));
         jLabelTextoTituloVistaEmpresas.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
         jLabelTextoTituloVistaEmpresas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTextoTituloVistaEmpresas.setText(" VISTA EMPRESA");
-        add(jLabelTextoTituloVistaEmpresas, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, -1, -1));
-        add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, 210, 10));
+        add(jLabelTextoTituloVistaEmpresas, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, -1, -1));
+        add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, 210, 10));
 
         jLabelTextoEacribaNombreEmpresaVistaEmpresas.setBackground(new java.awt.Color(255, 255, 255));
         jLabelTextoEacribaNombreEmpresaVistaEmpresas.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jLabelTextoEacribaNombreEmpresaVistaEmpresas.setText("Escriba el nombre de la empresa");
-        add(jLabelTextoEacribaNombreEmpresaVistaEmpresas, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, -1, -1));
+        add(jLabelTextoEacribaNombreEmpresaVistaEmpresas, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, -1, -1));
 
         jTextFieldEscribaNombreEmpresaVistaEmpresa.setBackground(new java.awt.Color(90, 90, 90));
         jTextFieldEscribaNombreEmpresaVistaEmpresa.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jTextFieldEscribaNombreEmpresaVistaEmpresa.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(5, 8, 5, 8), null));
         jTextFieldEscribaNombreEmpresaVistaEmpresa.setMinimumSize(new java.awt.Dimension(64, 20));
-        add(jTextFieldEscribaNombreEmpresaVistaEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, 240, 25));
+        add(jTextFieldEscribaNombreEmpresaVistaEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, 240, 28));
 
         jLabelTextoBuscarDatosVistaEmpresa.setBackground(new java.awt.Color(255, 255, 255));
         jLabelTextoBuscarDatosVistaEmpresa.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
@@ -102,12 +93,12 @@ public class PanelVerTodasLasEmpresas extends javax.swing.JPanel {
                 .addComponent(jLabelTextoBuscarDatosVistaEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        add(jPanelCargarDatosVerEmpresas, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 80, 110, 30));
+        add(jPanelCargarDatosVerEmpresas, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 80, 110, 30));
 
         jLabelTextoCancelarVistaEmpresa.setBackground(new java.awt.Color(255, 255, 255));
         jLabelTextoCancelarVistaEmpresa.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jLabelTextoCancelarVistaEmpresa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTextoCancelarVistaEmpresa.setText("CANCELAR");
+        jLabelTextoCancelarVistaEmpresa.setText("Cancelar");
         jLabelTextoCancelarVistaEmpresa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelTextoCancelarVistaEmpresaMouseClicked(evt);
@@ -120,86 +111,117 @@ public class PanelVerTodasLasEmpresas extends javax.swing.JPanel {
             }
         });
 
-        javax.swing.GroupLayout jPanelCVolverAtrasVistaEmpresasLayout = new javax.swing.GroupLayout(jPanelCVolverAtrasVistaEmpresas);
-        jPanelCVolverAtrasVistaEmpresas.setLayout(jPanelCVolverAtrasVistaEmpresasLayout);
-        jPanelCVolverAtrasVistaEmpresasLayout.setHorizontalGroup(
-            jPanelCVolverAtrasVistaEmpresasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCVolverAtrasVistaEmpresasLayout.createSequentialGroup()
+        javax.swing.GroupLayout jPanelCancelarVistaEmpresasLayout = new javax.swing.GroupLayout(jPanelCancelarVistaEmpresas);
+        jPanelCancelarVistaEmpresas.setLayout(jPanelCancelarVistaEmpresasLayout);
+        jPanelCancelarVistaEmpresasLayout.setHorizontalGroup(
+            jPanelCancelarVistaEmpresasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCancelarVistaEmpresasLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabelTextoCancelarVistaEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-        jPanelCVolverAtrasVistaEmpresasLayout.setVerticalGroup(
-            jPanelCVolverAtrasVistaEmpresasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCVolverAtrasVistaEmpresasLayout.createSequentialGroup()
+        jPanelCancelarVistaEmpresasLayout.setVerticalGroup(
+            jPanelCancelarVistaEmpresasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCancelarVistaEmpresasLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabelTextoCancelarVistaEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        add(jPanelCVolverAtrasVistaEmpresas, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, -1, -1));
+        add(jPanelCancelarVistaEmpresas, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, -1, -1));
 
+        jLabelSiguienteVistaEmpresa.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         jLabelSiguienteVistaEmpresa.setText("Siguiente");
         jLabelSiguienteVistaEmpresa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelSiguienteVistaEmpresaMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabelSiguienteVistaEmpresaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabelSiguienteVistaEmpresaMouseExited(evt);
+            }
         });
-        add(jLabelSiguienteVistaEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 630, -1, -1));
+        add(jLabelSiguienteVistaEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 110, -1, -1));
 
+        jLabelAnteriorVistaEmpresas.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         jLabelAnteriorVistaEmpresas.setText("Anterior");
         jLabelAnteriorVistaEmpresas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelAnteriorVistaEmpresasMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabelAnteriorVistaEmpresasMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabelAnteriorVistaEmpresasMouseExited(evt);
+            }
         });
-        add(jLabelAnteriorVistaEmpresas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 630, -1, -1));
+        add(jLabelAnteriorVistaEmpresas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
+
+        jTextAreaVerVistaEmpresa.setBackground(new java.awt.Color(41, 41, 41));
+        jTextAreaVerVistaEmpresa.setEditable(false);
+        jTextAreaVerVistaEmpresa.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jTextAreaVerVistaEmpresa.setForeground(new java.awt.Color(255, 255, 255));
+        add(jTextAreaVerVistaEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 920, 520));
+
+        jLabelImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ImagenModificar.png"))); // NOI18N
+        add(jLabelImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, 660));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabelTextoCancelarVistaEmpresaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoCancelarVistaEmpresaMouseClicked
         jTextFieldEscribaNombreEmpresaVistaEmpresa.setText("");
-        jTextAreaVerVistaEmpresa.setText("");                   // Limpia los resultados mostrados
-        paginaActual = 1;                                       // Reinicia la paginación
+        jTextAreaVerVistaEmpresa.setText("");                   
+        paginaActual = 1;                                       
         cargarPagina(paginaActual);  
     }//GEN-LAST:event_jLabelTextoCancelarVistaEmpresaMouseClicked
 
     private void jLabelTextoCancelarVistaEmpresaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoCancelarVistaEmpresaMouseEntered
-
+        jPanelCancelarVistaEmpresas.setBackground(new Color(51, 51, 51));
+        jLabelTextoCancelarVistaEmpresa.setForeground(Color.WHITE);
     }//GEN-LAST:event_jLabelTextoCancelarVistaEmpresaMouseEntered
 
     private void jLabelTextoCancelarVistaEmpresaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoCancelarVistaEmpresaMouseExited
-
+        jPanelCancelarVistaEmpresas.setBackground(Color.WHITE);
+        jLabelTextoCancelarVistaEmpresa.setForeground(new Color(51, 51, 51));
     }//GEN-LAST:event_jLabelTextoCancelarVistaEmpresaMouseExited
 
     private void jLabelTextoBuscarDatosVistaEmpresaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoBuscarDatosVistaEmpresaMouseClicked
-         String texto = jTextFieldEscribaNombreEmpresaVistaEmpresa.getText().trim();
+        String texto = jTextFieldEscribaNombreEmpresaVistaEmpresa.getText().trim();
 
-        if (texto.isEmpty()) {
+        if(texto.isEmpty()){
             JOptionPane.showMessageDialog(this, "Por favor, escriba el nombre de la empresa a buscar.", 
-                    "Campo vacío", JOptionPane.WARNING_MESSAGE);
+                "Campo vacío", JOptionPane.WARNING_MESSAGE);
             return;
         }
-
-        try {
-            ArrayList<String[]> empresasFiltradas = conexion.buscarEmpresasPorNombreParcial(texto);
-
-            if (empresasFiltradas == null || empresasFiltradas.isEmpty()) {
-                jTextAreaVerVistaEmpresa.setText("No se encontraron resultados para: " + texto);
-            } else {
+        String textoNormalizado = normalizarTexto(texto);
+        try{
+            ArrayList<String[]> empresasFiltradas = conexion.buscarEmpresasPorNombreParcial(textoNormalizado);
+            if(empresasFiltradas == null || empresasFiltradas.isEmpty()){
+                jTextAreaVerVistaEmpresa.setText("No se encontraron resultados para: " + textoNormalizado);
+            }else{
                 mostrarEmpresasEnTextArea(empresasFiltradas);
             }
-
-        } catch (Exception ex) {
+            jTextAreaVerVistaEmpresa.setCaretPosition(0);
+        }catch(Exception ex){
             ex.printStackTrace();
             JOptionPane.showMessageDialog(this, "Error al buscar empresas:\n" + ex.getMessage(), 
-                    "Error de búsqueda", JOptionPane.ERROR_MESSAGE);
+                                          "Error de búsqueda", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jLabelTextoBuscarDatosVistaEmpresaMouseClicked
+    
+    private String normalizarTexto(String input) {
+        if (input == null) return "";
+        return input.toUpperCase().trim();
+    }
 
     private void jLabelTextoBuscarDatosVistaEmpresaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoBuscarDatosVistaEmpresaMouseEntered
-
+        jPanelCargarDatosVerEmpresas.setBackground(new Color(51, 51, 51));
+        jLabelTextoBuscarDatosVistaEmpresa.setForeground(Color.WHITE);
     }//GEN-LAST:event_jLabelTextoBuscarDatosVistaEmpresaMouseEntered
 
     private void jLabelTextoBuscarDatosVistaEmpresaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoBuscarDatosVistaEmpresaMouseExited
-
+        jPanelCargarDatosVerEmpresas.setBackground(Color.WHITE);
+        jLabelTextoBuscarDatosVistaEmpresa.setForeground(new Color(51, 51, 51));
     }//GEN-LAST:event_jLabelTextoBuscarDatosVistaEmpresaMouseExited
 
     private void jLabelSiguienteVistaEmpresaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSiguienteVistaEmpresaMouseClicked
@@ -215,38 +237,58 @@ public class PanelVerTodasLasEmpresas extends javax.swing.JPanel {
     
 
     }//GEN-LAST:event_jLabelAnteriorVistaEmpresasMouseClicked
+
+    private void jLabelSiguienteVistaEmpresaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSiguienteVistaEmpresaMouseEntered
+        jLabelSiguienteVistaEmpresa.setBackground(Color.BLUE);
+    }//GEN-LAST:event_jLabelSiguienteVistaEmpresaMouseEntered
+
+    private void jLabelSiguienteVistaEmpresaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSiguienteVistaEmpresaMouseExited
+        jLabelSiguienteVistaEmpresa.setBackground(Color.WHITE);
+    }//GEN-LAST:event_jLabelSiguienteVistaEmpresaMouseExited
+
+    private void jLabelAnteriorVistaEmpresasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelAnteriorVistaEmpresasMouseEntered
+        jLabelAnteriorVistaEmpresas.setBackground(Color.BLUE);
+    }//GEN-LAST:event_jLabelAnteriorVistaEmpresasMouseEntered
+
+    private void jLabelAnteriorVistaEmpresasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelAnteriorVistaEmpresasMouseExited
+        jLabelAnteriorVistaEmpresas.setBackground(Color.WHITE);
+    }//GEN-LAST:event_jLabelAnteriorVistaEmpresasMouseExited
     private void mostrarEmpresasEnTextArea(java.util.List<String[]> empresas) {
         StringBuilder sb = new StringBuilder();
 
-        // Definimos el formato de cada columna
-        String formatoFila = "%-5s %-30s %-20s %-15s %-25s %-6s %-15s %-15s %-15s %-12s %-12s %-25s %-25s %-30s%n";
+        String formatoFila = "%-10s %-50s %-40s %-40s %-50s %-6s %-15s %-15s %-15s %-12s %-12s %-35s %-15s %-40s%n";
 
-        // Cabecera
         sb.append(String.format(formatoFila,
                 "ID", "EMPRESA", "ACTIVIDAD", "SECTOR", "DIRECCIÓN", "CP", "POBLACIÓN", "PROVINCIA",
                 "COMUNIDAD", "TELÉFONO", "FAX", "EMAIL", "EMAIL_TEST", "WEB"));
-        sb.append("=".repeat(230)).append("\n");
-
-        // Datos
-        for (String[] fila : empresas) {
-            // Control de errores si alguna fila no tiene exactamente 14 columnas
+        sb.append("=".repeat(365)).append("\n");
+        
+        
+        for(String[] fila : empresas){
             if (fila.length < 14) continue;
-
+            
+            for(int i = 0; i < fila.length; i++){
+                fila[i] = cleanText(fila[i]);
+            }
+            
             sb.append(String.format(formatoFila,
-                    truncate(fila[0], 5),
-                    truncate(fila[1], 30),
-                    truncate(fila[2], 20),
-                    truncate(fila[3], 15),
-                    truncate(fila[4], 25),
-                    truncate(fila[5], 6),
-                    truncate(fila[6], 15),
-                    truncate(fila[7], 15),
-                    truncate(fila[8], 15),
-                    truncate(fila[9], 12),
-                    truncate(fila[10], 12),
-                    truncate(fila[11], 25),
-                    truncate(fila[12], 25),
-                    truncate(fila[13], 30)));
+                truncate(fila[0], 10),
+                truncate(fila[1], 50),
+                truncate(fila[2], 40),
+                truncate(fila[3], 40),
+                truncate(fila[4], 50),
+                truncate(fila[5], 6),
+                truncate(fila[6], 15),
+                truncate(fila[7], 15),
+                truncate(fila[8], 15),
+                truncate(fila[9], 12),
+                truncate(fila[10], 12),
+                truncate(fila[11], 35),
+                truncate(fila[12], 15),
+                truncate(fila[13], 40))
+            );
+            
+            sb.append("-".repeat(365)).append("\n");
         }
 
         jTextAreaVerVistaEmpresa.setFont(new java.awt.Font("Monospaced", java.awt.Font.PLAIN, 12));
@@ -254,37 +296,46 @@ public class PanelVerTodasLasEmpresas extends javax.swing.JPanel {
     }
     
     private String truncate(String text, int maxLength) {
-        if (text == null) return "";
-        return text.length() > maxLength ? text.substring(0, maxLength - 1) + "?" : text;
+        if(text == null) return "";
+        return text.length() > maxLength ? text.substring(0, maxLength - 3) + "..." : text;
     }
     
     private void cargarPagina(int pagina) {
-        int offset = (pagina - 1) * registrosPorPagina;
+        int offset = (pagina - 1) * registrosPorPagina;       
         java.util.List<String[]> empresas = conexion.obtenerEmpresasPaginado(offset, registrosPorPagina);
-
-        if (empresas.isEmpty() && pagina > 1) {
-            // No hay más datos, retrocede página
+        if(empresas.isEmpty() && pagina > 1){
             paginaActual--;
             return;
         }
-
         mostrarEmpresasEnTextArea(empresas);
-        }
-
+        jTextAreaVerVistaEmpresa.setCaretPosition(0);
+    }
+    
+    private String cleanText(String text) {
+        return text == null ? "" : text.replaceAll("[\\t\\n\\r]+", " ").trim();
+    }
+       
+    private void aplicarTextoBlnacoEnCampo(){
+        jLabelTextoTituloVistaEmpresas.setForeground(Color.WHITE);
+        jLabelTextoEacribaNombreEmpresaVistaEmpresas.setForeground(Color.WHITE);
+        jTextFieldEscribaNombreEmpresaVistaEmpresa.setForeground(Color.WHITE);
+        jLabelAnteriorVistaEmpresas.setForeground(Color.WHITE);
+        jLabelSiguienteVistaEmpresa.setForeground(Color.WHITE);
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabelAnteriorVistaEmpresas;
+    private javax.swing.JLabel jLabelImagen;
     private javax.swing.JLabel jLabelSiguienteVistaEmpresa;
     private javax.swing.JLabel jLabelTextoBuscarDatosVistaEmpresa;
     private javax.swing.JLabel jLabelTextoCancelarVistaEmpresa;
     private javax.swing.JLabel jLabelTextoEacribaNombreEmpresaVistaEmpresas;
     private javax.swing.JLabel jLabelTextoTituloVistaEmpresas;
-    private javax.swing.JPanel jPanelCVolverAtrasVistaEmpresas;
+    private javax.swing.JPanel jPanelCancelarVistaEmpresas;
     private javax.swing.JPanel jPanelCargarDatosVerEmpresas;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextArea jTextAreaVerVistaEmpresa;
+    private java.awt.TextArea jTextAreaVerVistaEmpresa;
     private javax.swing.JTextField jTextFieldEscribaNombreEmpresaVistaEmpresa;
     // End of variables declaration//GEN-END:variables
 }

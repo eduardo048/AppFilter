@@ -15,10 +15,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.JLabel;
 
-/**
- *
- * @author PC
- */
+
 public class ConexionBBDD {
     private Connection conexion;
     private Statement sentencia;
@@ -27,12 +24,12 @@ public class ConexionBBDD {
     private boolean conectado;
     
     public ConexionBBDD(){
-        String url = "jdbc:oracle:thin:@//10.147.20.17:1521/XEPDB1";
+        String url = "jdbc:oracle:thin:@//192.168.1.158:1521/XEPDB1";
         String usuario = AppSesion.getUsuario();
         String contraseña = AppSesion.getContraseña();
         try{
             Class.forName("oracle.jdbc.OracleDriver");
-            this.conexion = DriverManager.getConnection(url, usuario, contraseña);
+            this.conexion = DriverManager.getConnection(url +"?useUnicode=true&characterEncoding=UTF-8" , usuario, contraseña);
            
             conectado = true;
         }catch (ClassNotFoundException e){
