@@ -25,6 +25,7 @@ public class PanelEliminar extends javax.swing.JPanel {
         conexionBBDD = new ConexionBBDD();
         initComponents();
         aplicarFlatLafSoloCombosEnContenedir(this);
+        aplicarTextoBlnacoEnCampo();
     }
 
     /**
@@ -491,6 +492,44 @@ public class PanelEliminar extends javax.swing.JPanel {
                 aplicarFlatLafSoloCombosEnContenedir((Container) c);
             }
         }
+    }
+    
+    private void aplicarTextoBlnacoEnCampo(){
+        jTextFieldIdEmpresaEliminar.setForeground(Color.WHITE);
+        jTextFieldNombreEmpresaEliminar.setForeground(Color.WHITE);
+        jTextFieldActividadEliminar.setForeground(Color.WHITE);
+        jTextFieldSectorEliminar.setForeground(Color.WHITE);
+        jTextFieldDireccionEliminar.setForeground(Color.WHITE);
+        jTextFieldCodigoPostalEliminar.setForeground(Color.WHITE);
+        jTextFieldPoblacionEliminar.setForeground(Color.WHITE);
+        jTextFieldTelefonoEliminar.setForeground(Color.WHITE);
+        jTextFieldFaxEliminar.setForeground(Color.WHITE);
+        jTextFieldEmailEliminar.setForeground(Color.WHITE);
+        jTextFieldEmailTestEliminar.setForeground(Color.WHITE);
+        jTextFieldWebEliminar.setForeground(Color.WHITE);
+        jTextFieldComunidadEliminar.setForeground(Color.WHITE);
+        jTextFieldProvinciaEliminar.setForeground(Color.WHITE);
+        
+
+        jLabelTextoTituloEliminar.setForeground(Color.WHITE);
+        jLabelTextoIdEmpresaEliminar.setForeground(Color.WHITE);
+        jLabelTextoNombreEmpresaEliminar.setForeground(Color.WHITE);
+        jLabelTextoActividadEliminar.setForeground(Color.WHITE);
+        jLabelTextoSectorEliminar.setForeground(Color.WHITE);
+        jLabelTextoEmailEliminar.setForeground(Color.WHITE);
+        jLabelTextoFaxEliminar.setForeground(Color.WHITE);
+        jLabelTextoTelefonoEliminar.setForeground(Color.WHITE);
+        jLabelTextoDireccionEliminar.setForeground(Color.WHITE);
+        jLabelTextoCodigoPostalEliminar.setForeground(Color.WHITE);
+        jLabelTextoPoblacionEliminar.setForeground(Color.WHITE);
+        jLabelTextoEmailTestEliminar.setForeground(Color.WHITE);
+        jLabelTextoWebEliminar.setForeground(Color.WHITE);
+        jLabelTextoComunidadEliminar.setForeground(Color.WHITE);
+        jLabelTextoProvinciaEliminar.setForeground(Color.WHITE);
+        
+        jTextFieldEscribaNombreEmpresaEliminar.setForeground(Color.WHITE);
+        jLabelTextoEacribaNombreEmpresaEliminar.setForeground(Color.WHITE);
+        jLabelTextoNombresEncontradosEliminar.setForeground(Color.WHITE);                      
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

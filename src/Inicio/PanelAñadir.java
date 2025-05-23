@@ -22,6 +22,7 @@ public class PanelAñadir extends javax.swing.JPanel {
         initComponents();
         contro.cargarComunidadesEn(jComboBoxComunidadAñadir);
         aplicarFlatLafSoloCombosEnContenedir(this);
+        aplicarTextoBlnacoEnCampo();
     
     }
 
@@ -330,13 +331,13 @@ public class PanelAñadir extends javax.swing.JPanel {
     }//GEN-LAST:event_jLabelTextoIdAleatorioAñadirMouseClicked
 
     private void jLabelTextoIdAleatorioAñadirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoIdAleatorioAñadirMouseEntered
-        jPanelIdAleatorioAñadir.setBackground(Color.WHITE);
-        jLabelTextoIdAleatorioAñadir.setForeground(new Color(51, 51, 51));
+        jPanelIdAleatorioAñadir.setBackground(new Color(51, 51, 51));
+        jLabelTextoIdAleatorioAñadir.setForeground(Color.WHITE);
     }//GEN-LAST:event_jLabelTextoIdAleatorioAñadirMouseEntered
 
     private void jLabelTextoIdAleatorioAñadirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoIdAleatorioAñadirMouseExited
-        jPanelIdAleatorioAñadir.setBackground(new Color(51, 51, 51));
-        jLabelTextoIdAleatorioAñadir.setForeground(Color.WHITE);
+        jPanelIdAleatorioAñadir.setBackground(Color.WHITE);
+        jLabelTextoIdAleatorioAñadir.setForeground(new Color(51, 51, 51));
     }//GEN-LAST:event_jLabelTextoIdAleatorioAñadirMouseExited
 
     private void jLabelTextoAñadirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoAñadirMouseClicked
@@ -424,6 +425,39 @@ public class PanelAñadir extends javax.swing.JPanel {
             conexion.cerrarConexion();
             return nuevoId;
 
+    }
+    
+    private void aplicarTextoBlnacoEnCampo(){
+        jTextFieldIdEmpresaAñadir.setForeground(Color.WHITE);
+        jTextFieldNombreEmpresaAñadir.setForeground(Color.WHITE);
+        jTextFieldActividadAñadir.setForeground(Color.WHITE);
+        jTextFieldSectorAñadir.setForeground(Color.WHITE);
+        jTextFieldDireccionAñadir.setForeground(Color.WHITE);
+        jTextFieldCodigoPostalAñadir.setForeground(Color.WHITE);
+        jTextFieldPoblacionAñadir.setForeground(Color.WHITE);
+        jTextFieldTelefonoAñadir.setForeground(Color.WHITE);
+        jTextFieldFaxAñadir.setForeground(Color.WHITE);
+        jTextFieldEmailAñadir.setForeground(Color.WHITE);
+        jTextFieldEmailTestAñadir.setForeground(Color.WHITE);
+        jTextFieldWebAñadir.setForeground(Color.WHITE);
+        jComboBoxComunidadAñadir.setForeground(Color.WHITE);
+        jComboBoxProvinciaAñadir.setForeground(Color.WHITE);
+        
+        jLabelTextoTituloAñadir.setForeground(Color.WHITE);
+        jLabelTextoIdEmpresaAñadir.setForeground(Color.WHITE);
+        jLabelTextoNombreEmpresaAñadir.setForeground(Color.WHITE);
+        jLabelTextoActividadAñadir.setForeground(Color.WHITE);
+        jLabelTextoSectorAñadir.setForeground(Color.WHITE);
+        jLabelTextoEmailAñadir.setForeground(Color.WHITE);
+        jLabelTextoFaxAñadir.setForeground(Color.WHITE);
+        jLabelTextoTelefonoAñadir.setForeground(Color.WHITE);
+        jLabelTextoDireccionAñadir.setForeground(Color.WHITE);
+        jLabelTextoCodigoPostalAñadir.setForeground(Color.WHITE);
+        jLabelTextoPoblacionAñadir.setForeground(Color.WHITE);
+        jLabelTextoEmailTestAñadir.setForeground(Color.WHITE);
+        jLabelTextoWebAñadir.setForeground(Color.WHITE);
+        jLabelTextoComunidadAñadir.setForeground(Color.WHITE);
+        jLabelTextoProvinciaAñadir.setForeground(Color.WHITE);                       
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
