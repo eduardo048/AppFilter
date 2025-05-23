@@ -228,13 +228,15 @@ public class ConexionBBDD {
         return false;
     }
     
-    public ArrayList<String[]> obtenerTodasLasEmpresasComoArray() {
+    public ArrayList<String[]> obtenerEmpresasPaginado(int offset, int limite) {
         ArrayList<String[]> lista = new ArrayList<>();
-        String sql = "SELECT ID, EMPRESA, ACTIVIDAD, SECTOR, DIRECCION, CP, POBLACION, PROVINCIA, COMUNIDAD, TELEFONO, FAX, EMAIL, EMAIL_TEST, WEB FROM EMPRESAS";
+        String sql = "SELECT * FROM (SELECT e.*, ROWNUM rnum FROM (SELECT * FROM EMPRESAS ORDER BY ID) e WHERE ROWNUM <= ?) WHERE rnum > ?";
 
         try {
-            sentencia = conexion.createStatement();
-            resultado = sentencia.executeQuery(sql);
+            sentenciaPreparada = conexion.prepareStatement(sql);
+            sentenciaPreparada.setInt(1, offset + limite);
+            sentenciaPreparada.setInt(2, offset);
+            resultado = sentenciaPreparada.executeQuery();
 
             while (resultado.next()) {
                 String[] fila = new String[14];
@@ -249,6 +251,7 @@ public class ConexionBBDD {
 
         return lista;
     }
+
     
     public ArrayList<String[]> buscarEmpresasPorNombreParcial(String texto) {
         ArrayList<String[]> lista = new ArrayList<>();
