@@ -37,8 +37,11 @@ public class PanelVerTodasLasEmpresas extends javax.swing.JPanel {
         jLabelTextoCancelarVistaEmpresa = new javax.swing.JLabel();
         jLabelSiguienteVistaEmpresa = new javax.swing.JLabel();
         jLabelAnteriorVistaEmpresas = new javax.swing.JLabel();
-        jTextAreaVerVistaEmpresa = new java.awt.TextArea();
-        jLabelImagen = new javax.swing.JLabel();
+        scrollPane2 = new java.awt.ScrollPane();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTableVerEmpresas = new javax.swing.JTable();
+        jTableVerEmpresas = new javax.swing.JTable();
+        jTableVerEmpresas = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(41, 41, 41));
         setPreferredSize(new java.awt.Dimension(940, 660));
@@ -158,19 +161,55 @@ public class PanelVerTodasLasEmpresas extends javax.swing.JPanel {
         });
         add(jLabelAnteriorVistaEmpresas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
 
-        jTextAreaVerVistaEmpresa.setBackground(new java.awt.Color(41, 41, 41));
-        jTextAreaVerVistaEmpresa.setEditable(false);
-        jTextAreaVerVistaEmpresa.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        jTextAreaVerVistaEmpresa.setForeground(new java.awt.Color(255, 255, 255));
-        add(jTextAreaVerVistaEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 920, 520));
+        jTableVerEmpresas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane5.setViewportView(jTableVerEmpresas);
+        jTableVerEmpresas.getAccessibleContext().setAccessibleParent(scrollPane2);
 
-        jLabelImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ImagenModificar.png"))); // NOI18N
-        add(jLabelImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, 660));
+        scrollPane2.add(jScrollPane5);
+
+        jTableVerEmpresas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane5.setViewportView(jTableVerEmpresas);
+        jTableVerEmpresas.getAccessibleContext().setAccessibleParent(scrollPane2);
+
+        jTableVerEmpresas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane5.setViewportView(jTableVerEmpresas);
+        jTableVerEmpresas.getAccessibleContext().setAccessibleParent(scrollPane2);
+
+        add(scrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 910, 520));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabelTextoCancelarVistaEmpresaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoCancelarVistaEmpresaMouseClicked
-        jTextFieldEscribaNombreEmpresaVistaEmpresa.setText("");
-        jTextAreaVerVistaEmpresa.setText("");                   
+        jTextFieldEscribaNombreEmpresaVistaEmpresa.setText("");                    
         paginaActual = 1;                                       
         cargarPagina(paginaActual);  
     }//GEN-LAST:event_jLabelTextoCancelarVistaEmpresaMouseClicked
@@ -188,24 +227,29 @@ public class PanelVerTodasLasEmpresas extends javax.swing.JPanel {
     private void jLabelTextoBuscarDatosVistaEmpresaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoBuscarDatosVistaEmpresaMouseClicked
         String texto = jTextFieldEscribaNombreEmpresaVistaEmpresa.getText().trim();
 
-        if(texto.isEmpty()){
-            JOptionPane.showMessageDialog(this, "Por favor, escriba el nombre de la empresa a buscar.", 
-                "Campo vacío", JOptionPane.WARNING_MESSAGE);
+        if (texto.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor, escriba el nombre de la empresa a buscar.",
+                    "Campo vacío", JOptionPane.WARNING_MESSAGE);
             return;
         }
+
         String textoNormalizado = normalizarTexto(texto);
-        try{
+        try {
             ArrayList<String[]> empresasFiltradas = conexion.buscarEmpresasPorNombreParcial(textoNormalizado);
-            if(empresasFiltradas == null || empresasFiltradas.isEmpty()){
-                jTextAreaVerVistaEmpresa.setText("No se encontraron resultados para: " + textoNormalizado);
-            }else{
-                mostrarEmpresasEnTextArea(empresasFiltradas);
+
+            if (empresasFiltradas == null || empresasFiltradas.isEmpty()) {
+                // Vaciar tabla si no hay resultados
+                mostrarEmpresasEnJTable(new ArrayList<>());
+                JOptionPane.showMessageDialog(this, "No se encontraron resultados para: " + textoNormalizado,
+                        "Sin resultados", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                mostrarEmpresasEnJTable(empresasFiltradas);
             }
-            jTextAreaVerVistaEmpresa.setCaretPosition(0);
-        }catch(Exception ex){
+
+        } catch (Exception ex) {
             ex.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Error al buscar empresas:\n" + ex.getMessage(), 
-                                          "Error de búsqueda", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Error al buscar empresas:\n" + ex.getMessage(),
+                    "Error de búsqueda", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jLabelTextoBuscarDatosVistaEmpresaMouseClicked
     
@@ -253,67 +297,36 @@ public class PanelVerTodasLasEmpresas extends javax.swing.JPanel {
     private void jLabelAnteriorVistaEmpresasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelAnteriorVistaEmpresasMouseExited
         jLabelAnteriorVistaEmpresas.setBackground(Color.WHITE);
     }//GEN-LAST:event_jLabelAnteriorVistaEmpresasMouseExited
-    private void mostrarEmpresasEnTextArea(java.util.List<String[]> empresas) {
-        StringBuilder sb = new StringBuilder();
-
-        String formatoFila = "%-10s %-50s %-40s %-40s %-50s %-6s %-15s %-15s %-15s %-12s %-12s %-35s %-15s %-40s%n";
-
-        sb.append(String.format(formatoFila,
-                "ID", "EMPRESA", "ACTIVIDAD", "SECTOR", "DIRECCIÓN", "CP", "POBLACIÓN", "PROVINCIA",
-                "COMUNIDAD", "TELÉFONO", "FAX", "EMAIL", "EMAIL_TEST", "WEB"));
-        sb.append("=".repeat(365)).append("\n");
-        
-        
-        for(String[] fila : empresas){
-            if (fila.length < 14) continue;
-            
-            for(int i = 0; i < fila.length; i++){
-                fila[i] = cleanText(fila[i]);
-            }
-            
-            sb.append(String.format(formatoFila,
-                truncate(fila[0], 10),
-                truncate(fila[1], 50),
-                truncate(fila[2], 40),
-                truncate(fila[3], 40),
-                truncate(fila[4], 50),
-                truncate(fila[5], 6),
-                truncate(fila[6], 15),
-                truncate(fila[7], 15),
-                truncate(fila[8], 15),
-                truncate(fila[9], 12),
-                truncate(fila[10], 12),
-                truncate(fila[11], 35),
-                truncate(fila[12], 15),
-                truncate(fila[13], 40))
-            );
-            
-            sb.append("-".repeat(365)).append("\n");
-        }
-
-        jTextAreaVerVistaEmpresa.setFont(new java.awt.Font("Monospaced", java.awt.Font.PLAIN, 12));
-        jTextAreaVerVistaEmpresa.setText(sb.toString());
-    }
     
-    private String truncate(String text, int maxLength) {
-        if(text == null) return "";
-        return text.length() > maxLength ? text.substring(0, maxLength - 3) + "..." : text;
-    }
     
     private void cargarPagina(int pagina) {
         int offset = (pagina - 1) * registrosPorPagina;       
         java.util.List<String[]> empresas = conexion.obtenerEmpresasPaginado(offset, registrosPorPagina);
+
         if(empresas.isEmpty() && pagina > 1){
             paginaActual--;
             return;
         }
-        mostrarEmpresasEnTextArea(empresas);
-        jTextAreaVerVistaEmpresa.setCaretPosition(0);
+
+        mostrarEmpresasEnJTable(empresas);
     }
     
-    private String cleanText(String text) {
-        return text == null ? "" : text.replaceAll("[\\t\\n\\r]+", " ").trim();
+    private void mostrarEmpresasEnJTable(java.util.List<String[]> empresas) {
+        String[] columnas = { "ID", "EMPRESA", "ACTIVIDAD", "SECTOR", "DIRECCIÓN", "CP", "POBLACIÓN", "PROVINCIA", 
+                              "COMUNIDAD", "TELÉFONO", "FAX", "EMAIL", "EMAIL_TEST", "WEB" };
+
+        javax.swing.table.DefaultTableModel modelo = new javax.swing.table.DefaultTableModel(columnas, 0);
+
+        for (String[] fila : empresas) {
+            if (fila.length == columnas.length) {
+                modelo.addRow(fila);
+            }
+        }
+
+        jTableVerEmpresas.setModel(modelo);
+        jTableVerEmpresas.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
     }
+    
        
     private void aplicarTextoBlnacoEnCampo(){
         jLabelTextoTituloVistaEmpresas.setForeground(Color.WHITE);
@@ -326,7 +339,6 @@ public class PanelVerTodasLasEmpresas extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabelAnteriorVistaEmpresas;
-    private javax.swing.JLabel jLabelImagen;
     private javax.swing.JLabel jLabelSiguienteVistaEmpresa;
     private javax.swing.JLabel jLabelTextoBuscarDatosVistaEmpresa;
     private javax.swing.JLabel jLabelTextoCancelarVistaEmpresa;
@@ -334,8 +346,10 @@ public class PanelVerTodasLasEmpresas extends javax.swing.JPanel {
     private javax.swing.JLabel jLabelTextoTituloVistaEmpresas;
     private javax.swing.JPanel jPanelCancelarVistaEmpresas;
     private javax.swing.JPanel jPanelCargarDatosVerEmpresas;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator2;
-    private java.awt.TextArea jTextAreaVerVistaEmpresa;
+    private javax.swing.JTable jTableVerEmpresas;
     private javax.swing.JTextField jTextFieldEscribaNombreEmpresaVistaEmpresa;
+    private java.awt.ScrollPane scrollPane2;
     // End of variables declaration//GEN-END:variables
 }
