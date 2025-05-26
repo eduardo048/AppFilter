@@ -388,28 +388,37 @@ public class PanelModificar extends javax.swing.JPanel {
     // Carga los datos de la empresa seleccionada en los campos del formulario.
     private void jComboBoxNombresEncontradosModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxNombresEncontradosModificarActionPerformed
         String nombreSeleccionado = (String) jComboBoxNombresEncontradosModificar.getSelectedItem();
+    
+    if(nombreSeleccionado != null){
+        HashMap<String, String> datos = conexionBBDD.buscarEmpresaPorNombreEntero(nombreSeleccionado);
         
-        if(nombreSeleccionado != null){
-            HashMap<String, String> datos = conexionBBDD.buscarEmpresaPorNombreEntero(nombreSeleccionado);
-            
-            if(datos != null){
-                jTextFieldIdEmpresaModificar.setText(datos.get("id"));
-                jTextFieldNombreEmpresaModificar.setText(datos.get("nombre"));
-                jTextFieldActividadModificar.setText(datos.get("actividad"));
-                jTextFieldSectorModificar.setText(datos.get("sector"));
-                jTextFieldEmailModificar.setText(datos.get("email"));
-                jTextFieldFaxModificar.setText(datos.get("fax"));
-                jTextFieldTelefonoModificar.setText(datos.get("telefono"));
-                jTextFieldDireccionModificar.setText(datos.get("direccion"));
-                jTextFieldCodigoPostalModificar.setText(datos.get("cp"));
-                jComboBoxComunidadModificar.setSelectedItem(datos.get("comunidad"));
-                contro.cargarProvincias(jComboBoxComunidadModificar, jComboBoxProvinciaModificar);
-                jComboBoxProvinciaModificar.setSelectedItem(datos.get("provincia"));
-                jTextFieldPoblacionModificar.setText(datos.get("poblacion"));
-                jTextFieldEmailTestModificar.setText(datos.get("emailTest"));
-                jTextFieldWebModificar.setText(datos.get("web"));
-            }
+        if(datos != null){
+            jTextFieldIdEmpresaModificar.setText(datos.get("id"));
+            jTextFieldNombreEmpresaModificar.setText(datos.get("nombre"));
+            jTextFieldActividadModificar.setText(datos.get("actividad"));
+            jTextFieldSectorModificar.setText(datos.get("sector"));
+            jTextFieldEmailModificar.setText(datos.get("email"));
+            jTextFieldFaxModificar.setText(datos.get("fax"));
+            jTextFieldTelefonoModificar.setText(datos.get("telefono"));
+            jTextFieldDireccionModificar.setText(datos.get("direccion"));
+            jTextFieldCodigoPostalModificar.setText(datos.get("cp"));
+
+            // ? Normalizar comunidad usando el mapa de equivalencias
+            String comunidadBD = datos.get("comunidad");
+            String comunidadNormalizada = contro.normalizarComunidad(comunidadBD);
+            jComboBoxComunidadModificar.setSelectedItem(comunidadNormalizada);
+
+            // ? Cargar provincias de la comunidad seleccionada
+            contro.cargarProvincias(jComboBoxComunidadModificar, jComboBoxProvinciaModificar);
+
+            // ? Seleccionar la provincia
+            jComboBoxProvinciaModificar.setSelectedItem(datos.get("provincia"));
+
+            jTextFieldPoblacionModificar.setText(datos.get("poblacion"));
+            jTextFieldEmailTestModificar.setText(datos.get("emailTest"));
+            jTextFieldWebModificar.setText(datos.get("web"));
         }
+    }
     }//GEN-LAST:event_jComboBoxNombresEncontradosModificarActionPerformed
 
     // Confirma y ejecuta la modificación de la empresa con los nuevos datos.

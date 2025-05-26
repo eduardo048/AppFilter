@@ -888,6 +888,12 @@ public class PantallaInicio extends javax.swing.JFrame {
         String provinciaClave = provincia.trim().toUpperCase();
         return equivalenciasProvincias.getOrDefault(provinciaClave, provincia);
     }
+    
+    public String normalizarComunidad(String comunidadBD) {
+    if (comunidadBD == null) return "";
+    return equivalenciasComunidades.getOrDefault(comunidadBD.toUpperCase(), comunidadBD);
+}
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel2;
