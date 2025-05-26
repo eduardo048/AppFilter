@@ -270,7 +270,7 @@ public class PantallaInicio extends javax.swing.JFrame {
             .addComponent(jLabelVerEmpresasMenu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        jPanelMenuIzqInicio.add(jPanelVerEmpresasMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, -1, -1));
+        jPanelMenuIzqInicio.add(jPanelVerEmpresasMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, -1, -1));
 
         jPanelMinimizarPantallaInicio.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -375,8 +375,7 @@ public class PantallaInicio extends javax.swing.JFrame {
     private void jPanelArrastrarPantallaMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelArrastrarPantallaMouseDragged
         int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
-        this.setLocation(x - xMouse ,y - yMouse);
-                                    
+        this.setLocation(x - xMouse ,y - yMouse);                                    
     }//GEN-LAST:event_jPanelArrastrarPantallaMouseDragged
 
     //Cambiar estilo del menú "Inicio" al pasar el ratón encima
