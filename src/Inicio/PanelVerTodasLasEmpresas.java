@@ -5,11 +5,7 @@ package Inicio;
 import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import ca.odell.glazedlists.swing.*;
-import ca.odell.glazedlists.*;
-import ca.odell.glazedlists.gui.TableFormat;
-import ca.odell.glazedlists.matchers.*;
-import java.util.List;
+
 
 
 public class PanelVerTodasLasEmpresas extends javax.swing.JPanel {
@@ -17,7 +13,6 @@ public class PanelVerTodasLasEmpresas extends javax.swing.JPanel {
     private final Conexion.ConexionBBDD conexion = new Conexion.ConexionBBDD();
     private int paginaActual = 1;
     private final int registrosPorPagina = 100;
-    private EventList<String[]> listaEmpresas = new BasicEventList<>();
     
     public PanelVerTodasLasEmpresas() {
         initComponents();
@@ -138,6 +133,7 @@ public class PanelVerTodasLasEmpresas extends javax.swing.JPanel {
 
         jLabelSiguienteVistaEmpresa.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         jLabelSiguienteVistaEmpresa.setText("Siguiente");
+        jLabelSiguienteVistaEmpresa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabelSiguienteVistaEmpresa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelSiguienteVistaEmpresaMouseClicked(evt);
@@ -153,6 +149,7 @@ public class PanelVerTodasLasEmpresas extends javax.swing.JPanel {
 
         jLabelAnteriorVistaEmpresas.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         jLabelAnteriorVistaEmpresas.setText("Anterior");
+        jLabelAnteriorVistaEmpresas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabelAnteriorVistaEmpresas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelAnteriorVistaEmpresasMouseClicked(evt);
@@ -177,15 +174,23 @@ public class PanelVerTodasLasEmpresas extends javax.swing.JPanel {
         jTableVerEmpresas.setForeground(new java.awt.Color(255, 255, 255));
         jTableVerEmpresas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {},
-                {},
-                {},
-                {}
+                {null},
+                {null},
+                {null},
+                {null}
             },
             new String [] {
-
+                "null"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jTableVerEmpresas.setGridColor(new java.awt.Color(255, 255, 255));
         jScrollPaneVerEmpresas.setViewportView(jTableVerEmpresas);
 
@@ -298,40 +303,22 @@ public class PanelVerTodasLasEmpresas extends javax.swing.JPanel {
         mostrarEmpresas(empresas);
     }
     
-    private void mostrarEmpresas(ArrayList<String[]> empresas) {
-        listaEmpresas.clear();
-        listaEmpresas.addAll(empresas);
-
+    private void mostrarEmpresas(java.util.List<String[]> empresas) {
         String[] columnas = { "ID", "EMPRESA", "ACTIVIDAD", "SECTOR", "DIRECCIÓN", "CP", "POBLACIÓN", "PROVINCIA", 
                               "COMUNIDAD", "TELÉFONO", "FAX", "EMAIL", "EMAIL_TEST", "WEB" };
 
-        TableFormat<String[]> tableFormat = GlazedLists.tableFormat(String[].class, columnas, columnas);
+        javax.swing.table.DefaultTableModel modelo = new javax.swing.table.DefaultTableModel(columnas, 0);
 
-        TextFilterator<String[]> textFilterator = new TextFilterator<>() {
-            @Override
-            public void getFilterStrings(List<String> baseList, String[] item) {
-                for (String value : item) {
-                    if (value != null) baseList.add(value);
-                }
+        for (String[] fila : empresas) {
+            if (fila.length == columnas.length) {
+                modelo.addRow(fila);
             }
-        };
+        }
 
-        TextComponentMatcherEditor<String[]> matcherEditor =
-            new TextComponentMatcherEditor<>(jTextFieldEscribaNombreEmpresaVistaEmpresa, textFilterator);
-
-        FilterList<String[]> filteredList = new FilterList<>(listaEmpresas, matcherEditor);
-
-        EventTableModel<String[]> tableModel = new EventTableModel<>(filteredList, tableFormat);
-
-        jTableVerEmpresas.setModel(tableModel); // ? Asegúrate de poner esto
-        jScrollPaneVerEmpresas.setViewportView(jTableVerEmpresas);
-
+        jTableVerEmpresas.setModel(modelo);
         jTableVerEmpresas.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         jTableVerEmpresas.setGridColor(Color.WHITE);
-
-        TableComparatorChooser.install(jTableVerEmpresas, filteredList, TableComparatorChooser.MULTIPLE_COLUMN_MOUSE);
     }
-
     
        
     private void aplicarTextoBlancoEnCampo(){
