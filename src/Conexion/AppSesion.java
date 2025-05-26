@@ -1,4 +1,4 @@
-
+//Clase para manejar las credenciales de sesión usuario y contraseña en la aplicación.
 package Conexion;
 
 public class AppSesion {
@@ -24,6 +24,5 @@ public class AppSesion {
 
     public static void setContraseña(String contraseña) {
         AppSesion.contraseña = contraseña;
-    } 
-    
+    }    
 }

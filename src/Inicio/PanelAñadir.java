@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
+// Clase que representa el panel para añadir nuevas empresas a la base de datos.
 package Inicio;
 
 import Conexion.ConexionBBDD;
@@ -14,16 +11,13 @@ import javax.swing.JOptionPane;
 
 public class PanelAñadir extends javax.swing.JPanel {
     private final PantallaInicio contro;
-    private JComboBox<String> comboComunidades = new JComboBox<>();
-    private JComboBox<String> comboProvincias = new JComboBox<>();
     
     public PanelAñadir(PantallaInicio contro) {
         this.contro = contro;
         initComponents();
         contro.cargarComunidadesEn(jComboBoxComunidadAñadir);
         aplicarFlatLafSoloCombosEnContenedir(this);
-        aplicarTextoBlnacoEnCampo();
-    
+        aplicarTextoBlnacoEnCampo();   
     }
 
     /**
@@ -325,21 +319,25 @@ public class PanelAñadir extends javax.swing.JPanel {
         add(jLabelImagenAñadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, 660));
     }// </editor-fold>//GEN-END:initComponents
 
+    // Genera un ID aleatorio al hacer clic en el texto correspondiente.
     private void jLabelTextoIdAleatorioAñadirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoIdAleatorioAñadirMouseClicked
         String idGenerado = generarIdUnico();
         jTextFieldIdEmpresaAñadir.setText(idGenerado);
     }//GEN-LAST:event_jLabelTextoIdAleatorioAñadirMouseClicked
-
+    
+    // Cambia el color del botón "Id aleatorio" al pasar el ratón por encima.
     private void jLabelTextoIdAleatorioAñadirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoIdAleatorioAñadirMouseEntered
         jPanelIdAleatorioAñadir.setBackground(new Color(51, 51, 51));
         jLabelTextoIdAleatorioAñadir.setForeground(Color.WHITE);
     }//GEN-LAST:event_jLabelTextoIdAleatorioAñadirMouseEntered
 
+    // Restaura el color original del botón "Id aleatorio" al quitar el ratón.
     private void jLabelTextoIdAleatorioAñadirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoIdAleatorioAñadirMouseExited
         jPanelIdAleatorioAñadir.setBackground(Color.WHITE);
         jLabelTextoIdAleatorioAñadir.setForeground(new Color(51, 51, 51));
     }//GEN-LAST:event_jLabelTextoIdAleatorioAñadirMouseExited
 
+    // Inserta una nueva empresa en la base de datos con los datos del formulario.
     private void jLabelTextoAñadirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoAñadirMouseClicked
         String id = jTextFieldIdEmpresaAñadir.getText();
         String empresa = jTextFieldNombreEmpresaAñadir.getText();
@@ -391,20 +389,24 @@ public class PanelAñadir extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jLabelTextoAñadirMouseClicked
 
+    // Cambia el color del botón "Añadir" al pasar el ratón por encima.
     private void jLabelTextoAñadirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoAñadirMouseEntered
         jPanelAñadir.setBackground(new Color(51, 51, 51));
         jLabelTextoAñadir.setForeground(Color.WHITE);
     }//GEN-LAST:event_jLabelTextoAñadirMouseEntered
-
+    
+    // Restaura el color original del botón "Añadir" al quitar el ratón.
     private void jLabelTextoAñadirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoAñadirMouseExited
         jPanelAñadir.setBackground(Color.WHITE);
         jLabelTextoAñadir.setForeground(new Color(51, 51, 51));
     }//GEN-LAST:event_jLabelTextoAñadirMouseExited
 
+    // Carga las provincias correspondientes al seleccionar una comunidad.
     private void jComboBoxComunidadAñadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxComunidadAñadirActionPerformed
         contro.cargarProvincias(jComboBoxComunidadAñadir, jComboBoxProvinciaAñadir);
     }//GEN-LAST:event_jComboBoxComunidadAñadirActionPerformed
     
+    // Aplica estilo FlatLaf a todos los JComboBox dentro del contenedor dado.
     private void aplicarFlatLafSoloCombosEnContenedir(Container container){
         for(Component c : container.getComponents()){
             if(c instanceof JComboBox){
@@ -415,6 +417,7 @@ public class PanelAñadir extends javax.swing.JPanel {
         }
     }
     
+    // Genera un ID único con prefijo "ID" seguido de 7 dígitos aleatorios.
     public static String generarIdUnico(){
         ConexionBBDD conexion = new ConexionBBDD();
         String nuevoId;
@@ -426,7 +429,7 @@ public class PanelAñadir extends javax.swing.JPanel {
             return nuevoId;
 
     }
-    
+    // Cambia el color del texto de todos los campos y etiquetas a blanco.
     private void aplicarTextoBlnacoEnCampo(){
         jTextFieldIdEmpresaAñadir.setForeground(Color.WHITE);
         jTextFieldNombreEmpresaAñadir.setForeground(Color.WHITE);

@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
+// Panel para modificar empresas: busca, carga datos y actualiza en BBDD.
 package Inicio;
 
 import Conexion.ConexionBBDD;
@@ -14,10 +11,6 @@ import java.util.HashMap;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author eduar
- */
 public class PanelModificar extends javax.swing.JPanel {
 
     private ConexionBBDD conexionBBDD;
@@ -360,6 +353,7 @@ public class PanelModificar extends javax.swing.JPanel {
         add(jLabelImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, 660));
     }// </editor-fold>//GEN-END:initComponents
 
+    // Busca empresas por nombre parcial y muestra resultados en combo.
     private void jLabelTextoBuscarDatosModificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoBuscarDatosModificarMouseClicked
         String textoBusqueda = jTextFieldEscribaNombreEmpresaModificar.getText().trim();
         
@@ -379,16 +373,19 @@ public class PanelModificar extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jLabelTextoBuscarDatosModificarMouseClicked
 
+    // Cambia color fondo y texto al entrar ratón sobre etiqueta buscar.
     private void jLabelTextoBuscarDatosModificarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoBuscarDatosModificarMouseEntered
         jPanelCargarDatosModificar.setBackground(new Color(51, 51, 51));
         jLabelTextoBuscarDatosModificar.setForeground(Color.WHITE);
     }//GEN-LAST:event_jLabelTextoBuscarDatosModificarMouseEntered
 
+    // Restaura color fondo y texto al salir ratón de etiqueta buscar.
     private void jLabelTextoBuscarDatosModificarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoBuscarDatosModificarMouseExited
         jPanelCargarDatosModificar.setBackground(Color.WHITE);
         jLabelTextoBuscarDatosModificar.setForeground(new Color(51, 51, 51));
     }//GEN-LAST:event_jLabelTextoBuscarDatosModificarMouseExited
 
+    // Carga los datos de la empresa seleccionada en los campos del formulario.
     private void jComboBoxNombresEncontradosModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxNombresEncontradosModificarActionPerformed
         String nombreSeleccionado = (String) jComboBoxNombresEncontradosModificar.getSelectedItem();
         
@@ -406,7 +403,8 @@ public class PanelModificar extends javax.swing.JPanel {
                 jTextFieldDireccionModificar.setText(datos.get("direccion"));
                 jTextFieldCodigoPostalModificar.setText(datos.get("cp"));
                 jComboBoxComunidadModificar.setSelectedItem(datos.get("comunidad"));
-                jComboBoxComunidadModificar.setSelectedItem(datos.get("provincia"));
+                contro.cargarProvincias(jComboBoxComunidadModificar, jComboBoxProvinciaModificar);
+                jComboBoxProvinciaModificar.setSelectedItem(datos.get("provincia"));
                 jTextFieldPoblacionModificar.setText(datos.get("poblacion"));
                 jTextFieldEmailTestModificar.setText(datos.get("emailTest"));
                 jTextFieldWebModificar.setText(datos.get("web"));
@@ -414,12 +412,13 @@ public class PanelModificar extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jComboBoxNombresEncontradosModificarActionPerformed
 
+    // Confirma y ejecuta la modificación de la empresa con los nuevos datos.
     private void jLabelTextoModificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoModificarMouseClicked
         String id = jTextFieldIdEmpresaModificar.getText().trim();
         String nombreOriginal = (String) jComboBoxNombresEncontradosModificar.getSelectedItem();
         String nuevoNombre = jTextFieldNombreEmpresaModificar.getText().trim();
 
-        if (id.isEmpty()) {
+        if(id.isEmpty()){
             JOptionPane.showMessageDialog(null, "Selecciona primero una empresa válida.");
             return;
         }
@@ -428,7 +427,7 @@ public class PanelModificar extends javax.swing.JPanel {
             "¿Estás seguro de que deseas modificar la empresa con ID: " + id + "?",
             "Confirmar modificación", JOptionPane.YES_NO_OPTION);
 
-        if (confirmacion == JOptionPane.YES_OPTION) {
+        if(confirmacion == JOptionPane.YES_OPTION){
             HashMap<String, String> nuevosDatos = new HashMap<>();
 
             nuevosDatos.put("empresa", nuevoNombre);
@@ -451,36 +450,38 @@ public class PanelModificar extends javax.swing.JPanel {
 
             boolean modificado = conexionBBDD.modificarEmpresaPorId(id, nuevosDatos);
 
-            if (modificado) {
+            if(modificado){
                 JOptionPane.showMessageDialog(null, "Empresa modificada correctamente.");
-
-                if (!nuevoNombre.equalsIgnoreCase(nombreOriginal)) {
+                if(!nuevoNombre.equalsIgnoreCase(nombreOriginal)){
                     int indexSeleccionado = jComboBoxNombresEncontradosModificar.getSelectedIndex();
                     jComboBoxNombresEncontradosModificar.insertItemAt(nuevoNombre, indexSeleccionado);
                     jComboBoxNombresEncontradosModificar.removeItemAt(indexSeleccionado + 1);
                     jComboBoxNombresEncontradosModificar.setSelectedIndex(indexSeleccionado);
                 }
-
-            } else {
+            }else{
                 JOptionPane.showMessageDialog(null, "No se pudo modificar la empresa.");
             }
         }
     }//GEN-LAST:event_jLabelTextoModificarMouseClicked
 
+    // Cambia color fondo y texto al entrar ratón sobre etiqueta modificar.
     private void jLabelTextoModificarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoModificarMouseEntered
         jPanelModificar.setBackground(new Color(51, 51, 51));
         jLabelTextoModificar.setForeground(Color.WHITE);
     }//GEN-LAST:event_jLabelTextoModificarMouseEntered
 
+    // Restaura color fondo y texto al salir ratón de etiqueta modificar.
     private void jLabelTextoModificarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoModificarMouseExited
         jPanelModificar.setBackground(Color.WHITE);
         jLabelTextoModificar.setForeground(new Color(51, 51, 51));
     }//GEN-LAST:event_jLabelTextoModificarMouseExited
 
+    // Actualiza las provincias disponibles según comunidad seleccionada.
     private void jComboBoxComunidadModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxComunidadModificarActionPerformed
         contro.cargarProvincias(jComboBoxComunidadModificar, jComboBoxProvinciaModificar);
     }//GEN-LAST:event_jComboBoxComunidadModificarActionPerformed
     
+    // Aplica el estilo FlatLaf solo a los JComboBox del contenedor.
     private void aplicarFlatLafSoloCombosEnContenedir(Container container){
         for(Component c : container.getComponents()){
             if(c instanceof JComboBox){
@@ -491,6 +492,7 @@ public class PanelModificar extends javax.swing.JPanel {
         }
     }
     
+    // Aplica texto color blanco a campos de texto, combos y etiquetas.
     private void aplicarTextoBlnacoEnCampo(){
         jTextFieldIdEmpresaModificar.setForeground(Color.WHITE);
         jTextFieldNombreEmpresaModificar.setForeground(Color.WHITE);
@@ -525,8 +527,7 @@ public class PanelModificar extends javax.swing.JPanel {
         
         jTextFieldEscribaNombreEmpresaModificar.setForeground(Color.WHITE);
         jLabelTextoEacribaNombreEmpresaModificar.setForeground(Color.WHITE);
-        jLabelTextoNombresEncontradosModificar.setForeground(Color.WHITE);
-                      
+        jLabelTextoNombresEncontradosModificar.setForeground(Color.WHITE);                     
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

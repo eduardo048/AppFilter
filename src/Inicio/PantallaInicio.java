@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+// Clase que representa la ventana principal
 package Inicio;
 
 import java.awt.BorderLayout;
@@ -18,16 +15,13 @@ import java.util.HashMap;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 
-/**
- *
- * @author PC
- */
 public class PantallaInicio extends javax.swing.JFrame {
 
     int xMouse, yMouse;
     private final HashMap<String, ArrayList<String>> comunidadesProvincias ;
     private final HashMap<String, String> equivalenciasComunidades = new HashMap<>();
     private final HashMap<String, String> equivalenciasProvincias = new HashMap<>();
+    
     public PantallaInicio() {
         this.comunidadesProvincias = new HashMap<>();
         initComponents();
@@ -67,6 +61,8 @@ public class PantallaInicio extends javax.swing.JFrame {
         jLabelFiltrarEmpresaMenu = new javax.swing.JLabel();
         jPanelVerEmpresasMenu = new PanelRound();
         jLabelVerEmpresasMenu = new javax.swing.JLabel();
+        jPanelMinimizarPantallaInicio = new javax.swing.JPanel();
+        jLabelMinimizarPantallaInicio = new javax.swing.JLabel();
         jPanelArrastrarPantalla = new javax.swing.JPanel();
         jPanelFondoPantallaInicio = new javax.swing.JPanel();
 
@@ -310,6 +306,40 @@ public class PantallaInicio extends javax.swing.JFrame {
 
         jPanelMenuIzqInicio.add(jPanelVerEmpresasMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, -1, -1));
 
+        jPanelMinimizarPantallaInicio.setBackground(new java.awt.Color(51, 51, 51));
+
+        jLabelMinimizarPantallaInicio.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabelMinimizarPantallaInicio.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelMinimizarPantallaInicio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelMinimizarPantallaInicio.setText("-");
+        jLabelMinimizarPantallaInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabelMinimizarPantallaInicio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelMinimizarPantallaInicioMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabelMinimizarPantallaInicioMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabelMinimizarPantallaInicioMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelMinimizarPantallaInicioLayout = new javax.swing.GroupLayout(jPanelMinimizarPantallaInicio);
+        jPanelMinimizarPantallaInicio.setLayout(jPanelMinimizarPantallaInicioLayout);
+        jPanelMinimizarPantallaInicioLayout.setHorizontalGroup(
+            jPanelMinimizarPantallaInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelMinimizarPantallaInicio, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+        );
+        jPanelMinimizarPantallaInicioLayout.setVerticalGroup(
+            jPanelMinimizarPantallaInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelMinimizarPantallaInicioLayout.createSequentialGroup()
+                .addComponent(jLabelMinimizarPantallaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 24, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jPanelMenuIzqInicio.add(jPanelMinimizarPantallaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, -1, 30));
+
         jPanelPrincipalPantallaInicio.add(jPanelMenuIzqInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 690));
 
         jPanelArrastrarPantalla.setBackground(new java.awt.Color(255, 255, 255));
@@ -328,14 +358,14 @@ public class PantallaInicio extends javax.swing.JFrame {
         jPanelArrastrarPantalla.setLayout(jPanelArrastrarPantallaLayout);
         jPanelArrastrarPantallaLayout.setHorizontalGroup(
             jPanelArrastrarPantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1060, Short.MAX_VALUE)
+            .addGap(0, 1030, Short.MAX_VALUE)
         );
         jPanelArrastrarPantallaLayout.setVerticalGroup(
             jPanelArrastrarPantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 30, Short.MAX_VALUE)
         );
 
-        jPanelPrincipalPantallaInicio.add(jPanelArrastrarPantalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 1060, 30));
+        jPanelPrincipalPantallaInicio.add(jPanelArrastrarPantalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 1030, 30));
 
         javax.swing.GroupLayout jPanelFondoPantallaInicioLayout = new javax.swing.GroupLayout(jPanelFondoPantallaInicio);
         jPanelFondoPantallaInicio.setLayout(jPanelFondoPantallaInicioLayout);
@@ -364,15 +394,18 @@ public class PantallaInicio extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // Evento para salir al hacer clic en el JLabel salir
     private void jLabelParaSalirInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelParaSalirInicioMouseClicked
         System.exit(0);
     }//GEN-LAST:event_jLabelParaSalirInicioMouseClicked
 
+    // Eventos para mover la ventana arrastrando un panel
     private void jPanelArrastrarPantallaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelArrastrarPantallaMousePressed
         xMouse = evt.getX();
         yMouse = evt.getY();  
     }//GEN-LAST:event_jPanelArrastrarPantallaMousePressed
 
+    // Guardar posición inicial del ratón para mover la ventana
     private void jPanelArrastrarPantallaMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelArrastrarPantallaMouseDragged
         int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
@@ -380,179 +413,198 @@ public class PantallaInicio extends javax.swing.JFrame {
                                     
     }//GEN-LAST:event_jPanelArrastrarPantallaMouseDragged
 
+    //Cambiar estilo del menú "Inicio" al pasar el ratón encima
     private void jLabelInicioMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelInicioMenuMouseEntered
         jPanelInicioMenu.setBackground(Color.WHITE);
         jLabelInicioMenu.setForeground(new Color(51, 51, 51));
     }//GEN-LAST:event_jLabelInicioMenuMouseEntered
 
+    // Restaurar estilo original del menú "Inicio" al quitar el ratón
     private void jLabelInicioMenuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelInicioMenuMouseExited
         jPanelInicioMenu.setBackground(new Color(51, 51, 51));
         jLabelInicioMenu.setForeground(Color.BLACK);
     }//GEN-LAST:event_jLabelInicioMenuMouseExited
 
+    // Cargar panel Inicio en el panel principal al hacer clic en el menú "Inicio"
     private void jLabelInicioMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelInicioMenuMouseClicked
-        // 1. Crea una instancia del nuevo panel
         PanelInicio panelInicio = new PanelInicio();
 
-        // 2. Limpia el panel central (jPanel5) y agrega el nuevo panel
         jPanelFondoPantallaInicio.removeAll();
-        jPanelFondoPantallaInicio.setLayout(new BorderLayout()); // asegúrate de tener layout correcto
+        jPanelFondoPantallaInicio.setLayout(new BorderLayout());
         jPanelFondoPantallaInicio.add(panelInicio, BorderLayout.CENTER);
 
-        // 3. Refresca visualmente
         jPanelFondoPantallaInicio.revalidate();
         jPanelFondoPantallaInicio.repaint();
     }//GEN-LAST:event_jLabelInicioMenuMouseClicked
 
+    // Cargar panel Añadir en el panel principal al hacer clic en el menú "Añadir"
     private void jLabelAñadirMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelAñadirMenuMouseClicked
-        // 1. Crea una instancia del nuevo panel
         PanelAñadir panelAñadir = new PanelAñadir(this);
 
-        // 2. Limpia el panel central (jPanel5) y agrega el nuevo panel
         jPanelFondoPantallaInicio.removeAll();
-        jPanelFondoPantallaInicio.setLayout(new BorderLayout()); // asegúrate de tener layout correcto
+        jPanelFondoPantallaInicio.setLayout(new BorderLayout());
         jPanelFondoPantallaInicio.add(panelAñadir, BorderLayout.CENTER);
 
-        // 3. Refresca visualmente
         jPanelFondoPantallaInicio.revalidate();
         jPanelFondoPantallaInicio.repaint();
     }//GEN-LAST:event_jLabelAñadirMenuMouseClicked
 
+    // Cambiar estilo del menú "Añadir" al pasar el ratón encima
     private void jLabelAñadirMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelAñadirMenuMouseEntered
         jPanelAñadirMenu.setBackground(Color.WHITE);
         jLabelAñadirMenu.setForeground(new Color(51, 51, 51));
     }//GEN-LAST:event_jLabelAñadirMenuMouseEntered
 
+    // Restaurar estilo original del menú "Añadir" al quitar el ratón
     private void jLabelAñadirMenuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelAñadirMenuMouseExited
         jPanelAñadirMenu.setBackground(new Color(51, 51, 51));
         jLabelAñadirMenu.setForeground(Color.BLACK);
     }//GEN-LAST:event_jLabelAñadirMenuMouseExited
 
+    // Cargar panel Modificar en el panel principal al hacer clic en el menú "Modificar"
     private void jLabelModificarMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelModificarMenuMouseClicked
-        // 1. Crea una instancia del nuevo panel
         PanelModificar panelModificar = new PanelModificar(this);
 
-        // 2. Limpia el panel central (jPanel5) y agrega el nuevo panel
         jPanelFondoPantallaInicio.removeAll();
-        jPanelFondoPantallaInicio.setLayout(new BorderLayout()); // asegúrate de tener layout correcto
+        jPanelFondoPantallaInicio.setLayout(new BorderLayout());
         jPanelFondoPantallaInicio.add(panelModificar, BorderLayout.CENTER);
 
-        // 3. Refresca visualmente
         jPanelFondoPantallaInicio.revalidate();
         jPanelFondoPantallaInicio.repaint();
     }//GEN-LAST:event_jLabelModificarMenuMouseClicked
 
+    // Cambiar estilo del menú "Modificar" al pasar el ratón encima
     private void jLabelModificarMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelModificarMenuMouseEntered
         jPanelModificarMenu.setBackground(Color.WHITE);
         jLabelModificarMenu.setForeground(new Color(51, 51, 51));
     }//GEN-LAST:event_jLabelModificarMenuMouseEntered
 
+    // Restaurar estilo original del menú "Modificar" al quitar el ratón
     private void jLabelModificarMenuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelModificarMenuMouseExited
         jPanelModificarMenu.setBackground(new Color(51, 51, 51));
         jLabelModificarMenu.setForeground(Color.BLACK);
     }//GEN-LAST:event_jLabelModificarMenuMouseExited
-
+   
+    // Cargar panel Eliminar en el panel principal al hacer clic en el menú "Eliminar"
     private void jLabelEliminarMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelEliminarMenuMouseClicked
-        // 1. Crea una instancia del nuevo panel
         PanelEliminar panelEliminar = new PanelEliminar();
 
-        // 2. Limpia el panel central (jPanel5) y agrega el nuevo panel
         jPanelFondoPantallaInicio.removeAll();
-        jPanelFondoPantallaInicio.setLayout(new BorderLayout()); // asegúrate de tener layout correcto
+        jPanelFondoPantallaInicio.setLayout(new BorderLayout());
         jPanelFondoPantallaInicio.add(panelEliminar, BorderLayout.CENTER);
 
-        // 3. Refresca visualmente
         jPanelFondoPantallaInicio.revalidate();
         jPanelFondoPantallaInicio.repaint();
     }//GEN-LAST:event_jLabelEliminarMenuMouseClicked
 
+    // Cambiar estilo del menú "Eliminar" al pasar el ratón encim
     private void jLabelEliminarMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelEliminarMenuMouseEntered
        jPanelEliminarMenu.setBackground(Color.WHITE);
        jLabelEliminarMenu.setForeground(new Color(51, 51, 51));
     }//GEN-LAST:event_jLabelEliminarMenuMouseEntered
 
+    // Restaurar estilo original del menú "Eliminar" al quitar el ratón
     private void jLabelEliminarMenuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelEliminarMenuMouseExited
         jPanelEliminarMenu.setBackground(new Color(51, 51, 51));
         jLabelEliminarMenu.setForeground(Color.BLACK);
     }//GEN-LAST:event_jLabelEliminarMenuMouseExited
 
+    // Cargar panel Filtrar en el panel principal al hacer clic en el menú 
     private void jLabelFiltrarEmpresaMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelFiltrarEmpresaMenuMouseClicked
-        // 1. Crea una instancia del nuevo panel
         PanelFiltrar panelFiltrar = new PanelFiltrar();
-
-        // 2. Limpia el panel central (jPanel5) y agrega el nuevo panel
+       
         jPanelFondoPantallaInicio.removeAll();
-        jPanelFondoPantallaInicio.setLayout(new BorderLayout()); // asegúrate de tener layout correcto
+        jPanelFondoPantallaInicio.setLayout(new BorderLayout());
         jPanelFondoPantallaInicio.add(panelFiltrar, BorderLayout.CENTER);
 
-        // 3. Refresca visualmente
         jPanelFondoPantallaInicio.revalidate();
         jPanelFondoPantallaInicio.repaint();
     }//GEN-LAST:event_jLabelFiltrarEmpresaMenuMouseClicked
 
+    // Cambiar estilo del menú "Filtrar Empresas" al pasar el ratón encima
     private void jLabelFiltrarEmpresaMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelFiltrarEmpresaMenuMouseEntered
         jPanelFiltrarEmpresasMenu.setBackground(Color.WHITE);
         jLabelFiltrarEmpresaMenu.setForeground(new Color(51, 51, 51));
     }//GEN-LAST:event_jLabelFiltrarEmpresaMenuMouseEntered
 
+    // Restaurar estilo original del menú "Filtrar Empresas" al quitar el ratón
     private void jLabelFiltrarEmpresaMenuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelFiltrarEmpresaMenuMouseExited
         jPanelFiltrarEmpresasMenu.setBackground(new Color(51, 51, 51));
         jLabelFiltrarEmpresaMenu.setForeground(Color.BLACK);
     }//GEN-LAST:event_jLabelFiltrarEmpresaMenuMouseExited
 
+    // Cargar panel para ver todas las empresas al hacer clic en el menú "Ver Empresas"
     private void jLabelVerEmpresasMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelVerEmpresasMenuMouseClicked
-        // 1. Crea una instancia del nuevo panel
         PanelVerTodasLasEmpresas panelVerEmpresas = new PanelVerTodasLasEmpresas();
 
-        // 2. Limpia el panel central (jPanel5) y agrega el nuevo panel
         jPanelFondoPantallaInicio.removeAll();
-        jPanelFondoPantallaInicio.setLayout(new BorderLayout()); // asegúrate de tener layout correcto
+        jPanelFondoPantallaInicio.setLayout(new BorderLayout());
         jPanelFondoPantallaInicio.add(panelVerEmpresas, BorderLayout.CENTER);
 
-        // 3. Refresca visualmente
         jPanelFondoPantallaInicio.revalidate();
         jPanelFondoPantallaInicio.repaint();
     }//GEN-LAST:event_jLabelVerEmpresasMenuMouseClicked
 
+    // Cambiar estilo del menú "Ver Empresas" al pasar el ratón encima
     private void jLabelVerEmpresasMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelVerEmpresasMenuMouseEntered
         jPanelVerEmpresasMenu.setBackground(Color.WHITE);
         jLabelVerEmpresasMenu.setForeground(new Color(51, 51, 51));
     }//GEN-LAST:event_jLabelVerEmpresasMenuMouseEntered
 
+    // Restaurar estilo original del menú "Ver Empresas" al quitar el ratón
     private void jLabelVerEmpresasMenuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelVerEmpresasMenuMouseExited
         jPanelVerEmpresasMenu.setBackground(new Color(51, 51, 51));
         jLabelVerEmpresasMenu.setForeground(Color.BLACK);
     }//GEN-LAST:event_jLabelVerEmpresasMenuMouseExited
 
+    // Cambiar el fondo del panel "Salir" a rojo cuando se pasa el ratón
     private void jLabelParaSalirInicioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelParaSalirInicioMouseEntered
-        jPanelParaSalirInicio.setBackground(Color.RED);
-        
+        jPanelParaSalirInicio.setBackground(Color.RED);       
     }//GEN-LAST:event_jLabelParaSalirInicioMouseEntered
 
+    // Restaurar el fondo del panel "Salir" al color original cuando se quita el ratón
     private void jLabelParaSalirInicioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelParaSalirInicioMouseExited
         jPanelParaSalirInicio.setBackground(new Color(51,51,51));
     }//GEN-LAST:event_jLabelParaSalirInicioMouseExited
     
+    // Evento para minimizar al hacer clic en el JLabel minimizar
+    private void jLabelMinimizarPantallaInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelMinimizarPantallaInicioMouseClicked
+        this.setState(javax.swing.JFrame.ICONIFIED);
+    }//GEN-LAST:event_jLabelMinimizarPantallaInicioMouseClicked
+
+    // Cambiar el fondo del panel "minimizar" a gris cuando se pasa el ratón
+    private void jLabelMinimizarPantallaInicioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelMinimizarPantallaInicioMouseEntered
+        jPanelMinimizarPantallaInicio.setBackground(new Color(200, 200, 200));
+    }//GEN-LAST:event_jLabelMinimizarPantallaInicioMouseEntered
+
+    // Restaurar el fondo del panel "minimizar" al color original cuando se quita el ratón
+    private void jLabelMinimizarPantallaInicioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelMinimizarPantallaInicioMouseExited
+        jPanelMinimizarPantallaInicio.setBackground(new Color(51,51,51));
+    }//GEN-LAST:event_jLabelMinimizarPantallaInicioMouseExited
+    
+    // Método para cargar las comunidades en un JComboBox
     public void cargarComunidadesEn(JComboBox<String> combo) {
         combo.removeAllItems();
         combo.addItem("");
-        for (String comunidad : comunidadesProvincias.keySet()) {
+        for(String comunidad : comunidadesProvincias.keySet()){
             combo.addItem(comunidad);
         }
     }
     
+    // Método para cargar las provincias en función de la comunidad seleccionada
     public void cargarProvincias(JComboBox<String> comboComunidad, JComboBox<String> comboProvincias) {
         comboProvincias.removeAllItems();
         String comunidad = (String) comboComunidad.getSelectedItem();
 
-        if (comunidad != null && comunidadesProvincias.containsKey(comunidad)) {
+        if(comunidad != null && comunidadesProvincias.containsKey(comunidad)){
             ArrayList<String> provincias = comunidadesProvincias.get(comunidad);
-            for (String provincia : provincias) {
+            for(String provincia : provincias){
                 comboProvincias.addItem(provincia);
             }
         }
     }
     
+    // Método que rellena el mapa comunidadesProvincias con comunidades y sus provincias
     private void cargarComunidades() {
         comunidadesProvincias.clear();
 
@@ -666,10 +718,13 @@ public class PantallaInicio extends javax.swing.JFrame {
         comunidadesProvincias.put("Melilla", melilla);       
     }
     
+    // Método principal que inicializa todas las equivalencias para comunidades y provincias
     private void inicializarEquivalencias() {
         inicializarEquivalenciasComunidades();
         inicializarEquivalenciasProvincias();
     }
+    
+    // Inicializa el mapa de equivalencias para comunidades autónomas
     private void inicializarEquivalenciasComunidades(){
         
         equivalenciasComunidades.put("ANDALUCIA", "Andalucia");
@@ -726,16 +781,14 @@ public class PantallaInicio extends javax.swing.JFrame {
         equivalenciasComunidades.put("COMUNIDAD VALENCIANA", "Com. Valenciana");
     }
     
-    //Inicializa equivalencias entre variantes de nombres de provincias
+    // Inicializa el mapa de equivalencias para provincias
     private void inicializarEquivalenciasProvincias() {
-       
-        // Comunidad Valenciana
+
         equivalenciasProvincias.put("VALENCIA", "Valencia");
         equivalenciasProvincias.put("CASTELLON", "Castellón");
         equivalenciasProvincias.put("CASTELLÓN", "Castellón");
         equivalenciasProvincias.put("ALICANTE", "Alicante");
 
-        // Cataluña
         equivalenciasProvincias.put("BARCELONA", "Barcelona");
         equivalenciasProvincias.put("TARRAGONA", "Tarragona");
         equivalenciasProvincias.put("LLEIDA", "Lleida");
@@ -743,7 +796,6 @@ public class PantallaInicio extends javax.swing.JFrame {
         equivalenciasProvincias.put("GIRONA", "Girona");
         equivalenciasProvincias.put("GERONA", "Girona");
 
-        // País Vasco
         equivalenciasProvincias.put("ALAVA", "Álava");
         equivalenciasProvincias.put("ÁLAVA", "Álava");
         equivalenciasProvincias.put("GUIPUZCOA", "Guipuzcoa");
@@ -751,7 +803,6 @@ public class PantallaInicio extends javax.swing.JFrame {
         equivalenciasProvincias.put("VIZCAYA", "Vizcaya");
         equivalenciasProvincias.put("BIZKAIA", "Vizcaya");
 
-        // Castilla y León
         equivalenciasProvincias.put("AVILA", "Ávila");
         equivalenciasProvincias.put("ÁVILA", "Ávila");
         equivalenciasProvincias.put("BURGOS", "Burgos");
@@ -763,14 +814,12 @@ public class PantallaInicio extends javax.swing.JFrame {
         equivalenciasProvincias.put("VALLADOLID", "Valladolid");
         equivalenciasProvincias.put("ZAMORA", "Zamora");
 
-        // Castilla-La Mancha
         equivalenciasProvincias.put("ALBACETE", "Albacete");
         equivalenciasProvincias.put("CIUDAD REAL", "Ciudad Real");
         equivalenciasProvincias.put("CUENCA", "Cuenca");
         equivalenciasProvincias.put("GUADALAJARA", "Guadalajara");
         equivalenciasProvincias.put("TOLEDO", "Toledo");
 
-        // Andalucía
         equivalenciasProvincias.put("ALMERIA", "Almería");
         equivalenciasProvincias.put("ALMERÍA", "Almería");
         equivalenciasProvincias.put("CADIZ", "Cádiz");
@@ -785,12 +834,10 @@ public class PantallaInicio extends javax.swing.JFrame {
         equivalenciasProvincias.put("MÁLAGA", "Málaga");
         equivalenciasProvincias.put("SEVILLA", "Sevilla");
 
-        // Aragón
         equivalenciasProvincias.put("HUESCA", "Huesca");
         equivalenciasProvincias.put("TERUEL", "Teruel");
         equivalenciasProvincias.put("ZARAGOZA", "Zaragoza");
 
-        // Galicia
         equivalenciasProvincias.put("A CORUNA", "A Coruña");
         equivalenciasProvincias.put("A CORUÑA", "A Coruña");
         equivalenciasProvincias.put("LUGO", "Lugo");
@@ -798,60 +845,49 @@ public class PantallaInicio extends javax.swing.JFrame {
         equivalenciasProvincias.put("ORENSE", "Ourense");
         equivalenciasProvincias.put("PONTEVEDRA", "Pontevedra");
 
-        // Extremadura
         equivalenciasProvincias.put("BADAJOZ", "Badajoz");
         equivalenciasProvincias.put("CACERES", "Cáceres");
         equivalenciasProvincias.put("CÁCERES", "Cáceres");
 
-        // Madrid
         equivalenciasProvincias.put("MADRID", "Madrid");
 
-        // Murcia
         equivalenciasProvincias.put("MURCIA", "Murcia");
 
-        // Navarra
         equivalenciasProvincias.put("NAVARRA", "Navarra");
 
-        // Asturias
         equivalenciasProvincias.put("ASTURIAS", "Asturias");
 
-        // Cantabria
         equivalenciasProvincias.put("CANTABRIA", "Cantabria");
 
-        // La Rioja
         equivalenciasProvincias.put("LA RIOJA", "La Rioja");
 
-        // Baleares
         equivalenciasProvincias.put("BALEARES", "Islas Baleares");
         equivalenciasProvincias.put("ISLAS BALEARES", "Islas Baleares");
 
-        // Canarias
         equivalenciasProvincias.put("LAS PALMAS", "Las Palmas");
         equivalenciasProvincias.put("SANTA CRUZ DE TENERIFE", "Santa Cruz de Tenerife");
 
-        // Ceuta y Melilla
         equivalenciasProvincias.put("CEUTA", "Ceuta");
         equivalenciasProvincias.put("MELILLA", "Melilla");
     }
     
+    // Método para normalizar nombres de comunidades autónomas
     private String normalizarNombreComunidad(String comunidad) {
-        if (comunidad == null || comunidad.trim().isEmpty()){ 
+        if(comunidad == null || comunidad.trim().isEmpty()){ 
             return "";
         }
         String comunidadClave = comunidad.trim().toUpperCase();
         return equivalenciasComunidades.getOrDefault(comunidadClave, comunidad);
     }
     
-    //Normaliza el nombre de una provincia utilizando las equivalencias definidas
+    // Método para normalizar nombres de provincias
     private String mormalizarNombreProvincia(String provincia) {
-        if (provincia == null || provincia.trim().isEmpty()){
+        if(provincia == null || provincia.trim().isEmpty()){
             return "";
         }
         String provinciaClave = provincia.trim().toUpperCase();
         return equivalenciasProvincias.getOrDefault(provinciaClave, provincia);
     }
-
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel2;
@@ -859,6 +895,7 @@ public class PantallaInicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelEliminarMenu;
     private javax.swing.JLabel jLabelFiltrarEmpresaMenu;
     private javax.swing.JLabel jLabelInicioMenu;
+    private javax.swing.JLabel jLabelMinimizarPantallaInicio;
     private javax.swing.JLabel jLabelModificarMenu;
     private javax.swing.JLabel jLabelParaSalirInicio;
     private javax.swing.JLabel jLabelVerEmpresasMenu;
@@ -869,6 +906,7 @@ public class PantallaInicio extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelFondoPantallaInicio;
     private javax.swing.JPanel jPanelInicioMenu;
     private javax.swing.JPanel jPanelMenuIzqInicio;
+    private javax.swing.JPanel jPanelMinimizarPantallaInicio;
     private javax.swing.JPanel jPanelModificarMenu;
     private javax.swing.JPanel jPanelParaSalirInicio;
     private javax.swing.JPanel jPanelPrincipalPantallaInicio;
@@ -876,7 +914,7 @@ public class PantallaInicio extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 }
 
-// Clase auxiliar agregada directamente al final de Login.java
+// Clase auxiliar para redondear los paneles 
 
 class PanelRound extends JPanel {
 

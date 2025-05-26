@@ -1,9 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+// Clase para gestionar la conexión a la base de datos
 package Conexion;
-
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -15,7 +11,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.JLabel;
 
-
 public class ConexionBBDD {
     private Connection conexion;
     private Statement sentencia;
@@ -23,14 +18,14 @@ public class ConexionBBDD {
     private ResultSet resultado;
     private boolean conectado;
     
+    // Constructor que establece la conexión con la base de datos usando las credenciales de AppSesion.
     public ConexionBBDD(){
         String url = "jdbc:oracle:thin:@//10.147.20.17:1521/XEPDB1";
         String usuario = AppSesion.getUsuario();
         String contraseña = AppSesion.getContraseña();
         try{
             Class.forName("oracle.jdbc.OracleDriver");
-            this.conexion = DriverManager.getConnection(url +"?useUnicode=true&characterEncoding=UTF-8" , usuario, contraseña);
-           
+            this.conexion = DriverManager.getConnection(url +"?useUnicode=true&characterEncoding=UTF-8" , usuario, contraseña);          
             conectado = true;
         }catch (ClassNotFoundException e){
             conectado = false;
@@ -40,10 +35,12 @@ public class ConexionBBDD {
         }
     }
     
+    // Método que devuelve si la conexión a la base de datos está activa.
     public boolean estaConectado(){
         return conectado;
     }
     
+    // Método que cierra todos los recursos abiertos de la conexión y sentencias.
     public void cerrarConexion(){
         try{
            if( resultado != null ) resultado.close(); 
@@ -55,6 +52,7 @@ public class ConexionBBDD {
         }       
     }
     
+    // Método que verifica si una empresa con un ID dado existe en la base de datos.
     public boolean empresaExiste(String id){
         String sql = "SELECT COUNT(*) FROM EMPRESAS WHERE ID = ?";
         try{
@@ -70,6 +68,7 @@ public class ConexionBBDD {
         return true;
     }
     
+    // Método que inserta una nueva empresa en la base de datos con sus datos completos.
     public boolean insertarEmpresa(String id, String empresa, String actividad, String sector,
                                    String direccion, String cp, String poblacion, String provincia,
                                    String comunidad, String telefono, String fax,
@@ -105,6 +104,7 @@ public class ConexionBBDD {
         return false;   
     }
     
+    // Método que busca empresas cuyo nombre contiene parcialmente un texto dado.
     public ArrayList<String> buscarEmpresaPorNombreParcial(String nombrePar){
         ArrayList<String> nombreEmpresas = new ArrayList<>();
         
@@ -128,6 +128,7 @@ public class ConexionBBDD {
         return nombreEmpresas;
     }
     
+    // Método que obtiene todos los datos de una empresa cuyo nombre coincide exactamente.
     public HashMap<String, String> buscarEmpresaPorNombreEntero(String nombre){
         HashMap<String, String> datos = new HashMap<>();
         
@@ -149,8 +150,8 @@ public class ConexionBBDD {
                 datos.put("direccion", resultado.getString("DIRECCION"));
                 datos.put("cp", resultado.getString("CP"));
                 datos.put("poblacion", resultado.getString("POBLACION"));
-                datos.put("provincia", resultado.getString("PROVINCIA"));
                 datos.put("comunidad", resultado.getString("COMUNIDAD"));
+                datos.put("provincia", resultado.getString("PROVINCIA"));               
                 datos.put("telefono", resultado.getString("TELEFONO"));
                 datos.put("fax", resultado.getString("FAX"));
                 datos.put("email", resultado.getString("EMAIL"));
@@ -164,6 +165,7 @@ public class ConexionBBDD {
         return null;
     }
     
+    // Método que elimina una empresa de la base de datos usando su ID.
     public boolean eliminarEmpresaPorId(String id){
         if(conexion == null){
             return false;
@@ -182,8 +184,9 @@ public class ConexionBBDD {
         return false;
     }
     
+    // Método que actualiza los datos de una empresa identificada por su ID con nuevos valores.
     public boolean modificarEmpresaPorId(String id, HashMap<String, String> nuevosDatos) {
-        if (conexion == null || id == null || id.isEmpty()) {
+        if(conexion == null || id == null || id.isEmpty()){
             return false;
         }
 
@@ -191,26 +194,26 @@ public class ConexionBBDD {
         ArrayList<String> campos = new ArrayList<>();
         ArrayList<String> valores = new ArrayList<>();
 
-        for (String clave : nuevosDatos.keySet()) {
+        for(String clave : nuevosDatos.keySet()){
             String valor = nuevosDatos.get(clave);
-            if (valor != null && !valor.isEmpty()) {
+            if(valor != null && !valor.isEmpty()){
                 campos.add(clave.toUpperCase() + " = ?");
                 valores.add(valor);
             }
         }
 
-        if (campos.isEmpty()) {
+        if(campos.isEmpty()){
             return false;
         }
 
         sql.append(String.join(", ", campos));
         sql.append(" WHERE ID = ?");
 
-        try {
+        try{
             sentenciaPreparada = conexion.prepareStatement(sql.toString());
 
             int i = 1;
-            for (String valor : valores) {
+            for(String valor : valores){
                 sentenciaPreparada.setString(i++, valor);
             }
             sentenciaPreparada.setString(i, id);
@@ -218,62 +221,56 @@ public class ConexionBBDD {
             int filas = sentenciaPreparada.executeUpdate();
             return filas > 0;
 
-        } catch (SQLException ex) {
+        }catch(SQLException ex){
             ex.printStackTrace();
         }
-
         return false;
     }
     
+    // Método que obtiene una lista paginada de empresas.
     public ArrayList<String[]> obtenerEmpresasPaginado(int offset, int limite) {
         ArrayList<String[]> lista = new ArrayList<>();
         String sql = "SELECT * FROM (SELECT e.*, ROWNUM rnum FROM (SELECT * FROM EMPRESAS ORDER BY ID) e WHERE ROWNUM <= ?) WHERE rnum > ?";
 
-        try {
+        try{
             sentenciaPreparada = conexion.prepareStatement(sql);
             sentenciaPreparada.setInt(1, offset + limite);
             sentenciaPreparada.setInt(2, offset);
             resultado = sentenciaPreparada.executeQuery();
 
-            while (resultado.next()) {
+            while(resultado.next()){
                 String[] fila = new String[14];
-                for (int i = 0; i < 14; i++) {
+                for(int i = 0; i < 14; i++){
                     fila[i] = resultado.getString(i + 1);
                 }
                 lista.add(fila);
             }
-        } catch (SQLException e) {
+        }catch (SQLException e){
             e.printStackTrace();
         }
-
         return lista;
     }
 
-    
+     // Método que busca y devuelve una lista de empresas cuyos nombres contienen un texto parcial dado.
     public ArrayList<String[]> buscarEmpresasPorNombreParcial(String texto) {
         ArrayList<String[]> lista = new ArrayList<>();
         String sql = "SELECT ID, EMPRESA, ACTIVIDAD, SECTOR, DIRECCION, CP, POBLACION, PROVINCIA, COMUNIDAD, TELEFONO, FAX, EMAIL, EMAIL_TEST, WEB FROM EMPRESAS WHERE UPPER(EMPRESA) LIKE ?";
 
-        try {
+        try{
             sentenciaPreparada = conexion.prepareStatement(sql);
             sentenciaPreparada.setString(1, "%" + texto.toUpperCase() + "%");
             resultado = sentenciaPreparada.executeQuery();
 
-            while (resultado.next()) {
+            while(resultado.next()){
                 String[] fila = new String[14];
-                for (int i = 0; i < 14; i++) {
+                for(int i = 0; i < 14; i++){
                     fila[i] = resultado.getString(i + 1);
                 }
                 lista.add(fila);
             }
-        } catch (SQLException e) {
+        }catch(SQLException e){
             e.printStackTrace();
         }
-
         return lista;
-    }
-
-
-    
-    
+    }   
 }

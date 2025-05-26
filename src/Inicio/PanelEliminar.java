@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
+// Clase que permite buscar y eliminar empresas de la base de datos
 package Inicio;
 
 import Conexion.ConexionBBDD;
@@ -21,6 +18,7 @@ import javax.swing.JOptionPane;
 public class PanelEliminar extends javax.swing.JPanel {
 
     private ConexionBBDD conexionBBDD;
+    
     public PanelEliminar() {
         conexionBBDD = new ConexionBBDD();
         initComponents();
@@ -365,7 +363,8 @@ public class PanelEliminar extends javax.swing.JPanel {
         jLabelImagenEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ImagenEliminar.png"))); // NOI18N
         add(jLabelImagenEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, 660));
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    // Evento al hacer clic en el botón de búsqueda de empresas
     private void jLabelTextoBuscarDatosEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoBuscarDatosEliminarMouseClicked
         String textoBusqueda = jTextFieldEscribaNombreEmpresaEliminar.getText().trim();
         
@@ -385,6 +384,7 @@ public class PanelEliminar extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jLabelTextoBuscarDatosEliminarMouseClicked
 
+    // Evento al seleccionar un nombre del combo: carga los datos de la empresa
     private void jComboBoxNombresEncontradosEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxNombresEncontradosEliminarActionPerformed
         String nombreSeleccionado = (String) jComboBoxNombresEncontradosEliminar.getSelectedItem();
         
@@ -411,16 +411,19 @@ public class PanelEliminar extends javax.swing.JPanel {
 
     }//GEN-LAST:event_jComboBoxNombresEncontradosEliminarActionPerformed
 
+    // Evento al pasar el ratón por encima del botón de buscar: cambia colores
     private void jLabelTextoBuscarDatosEliminarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoBuscarDatosEliminarMouseEntered
         jPanelCargarDatosEliminar.setBackground(new Color(51, 51, 51));
         jLabelTextoBuscarDatosEliminar.setForeground(Color.WHITE);
     }//GEN-LAST:event_jLabelTextoBuscarDatosEliminarMouseEntered
 
+    // Evento al quitar el ratón del botón de buscar: restablece colores
     private void jLabelTextoBuscarDatosEliminarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoBuscarDatosEliminarMouseExited
         jPanelCargarDatosEliminar.setBackground(Color.WHITE);
         jLabelTextoBuscarDatosEliminar.setForeground(new Color(51, 51, 51));
     }//GEN-LAST:event_jLabelTextoBuscarDatosEliminarMouseExited
 
+    // Evento al hacer clic en el botón de eliminar: elimina la empresa seleccionada
     private void jLabelTextoEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoEliminarMouseClicked
         String idEmpresa = jTextFieldIdEmpresaEliminar.getText().trim();
         String nombreSeleccionado = (String) jComboBoxNombresEncontradosEliminar.getSelectedItem(); // nombre para quitar de la combo
@@ -474,16 +477,19 @@ public class PanelEliminar extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jLabelTextoEliminarMouseClicked
 
+    // Evento al pasar el ratón sobre el botón de eliminar: cambia colores
     private void jLabelTextoEliminarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoEliminarMouseEntered
         jPanelEliminar.setBackground(new Color(51, 51, 51));
         jLabelTextoEliminar.setForeground(Color.WHITE);
     }//GEN-LAST:event_jLabelTextoEliminarMouseEntered
 
+    // Evento al quitar el ratón del botón de eliminar: restablece colores
     private void jLabelTextoEliminarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoEliminarMouseExited
         jPanelEliminar.setBackground(Color.WHITE);
         jLabelTextoEliminar.setForeground(new Color(51, 51, 51));
     }//GEN-LAST:event_jLabelTextoEliminarMouseExited
 
+    // Aplica estilo FlatLaf solo a los JComboBox del contenedor
     private void aplicarFlatLafSoloCombosEnContenedir(Container container){
         for(Component c : container.getComponents()){
             if(c instanceof JComboBox){
@@ -494,6 +500,7 @@ public class PanelEliminar extends javax.swing.JPanel {
         }
     }
     
+    // Aplica texto blanco a todos los campos y etiquetas del panel
     private void aplicarTextoBlnacoEnCampo(){
         jTextFieldIdEmpresaEliminar.setForeground(Color.WHITE);
         jTextFieldNombreEmpresaEliminar.setForeground(Color.WHITE);

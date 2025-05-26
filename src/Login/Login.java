@@ -1,4 +1,4 @@
-
+//Clase donde esta el login de aplicacion 
 package Login;
 
 import Conexion.AppSesion;
@@ -18,6 +18,7 @@ import javax.swing.JPanel;
 public class Login extends javax.swing.JFrame {
 
     int xMouse, yMouse;
+    
     public Login() {
         initComponents();
     }
@@ -45,6 +46,8 @@ public class Login extends javax.swing.JFrame {
         jLabelTextoIniciarLogin = new javax.swing.JLabel();
         jPanelSalirLogin = new javax.swing.JPanel();
         jLabelSalirLogin = new javax.swing.JLabel();
+        jPanelMinimizarLogin = new javax.swing.JPanel();
+        jLabelMinimizarLogin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -73,14 +76,14 @@ public class Login extends javax.swing.JFrame {
         jPanelArrastrarLogin.setLayout(jPanelArrastrarLoginLayout);
         jPanelArrastrarLoginLayout.setHorizontalGroup(
             jPanelArrastrarLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 760, Short.MAX_VALUE)
+            .addGap(0, 740, Short.MAX_VALUE)
         );
         jPanelArrastrarLoginLayout.setVerticalGroup(
             jPanelArrastrarLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 30, Short.MAX_VALUE)
         );
 
-        jPanelPrincipalLogin.add(jPanelArrastrarLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 760, 30));
+        jPanelPrincipalLogin.add(jPanelArrastrarLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 740, 30));
 
         jLabelTextoInicialSesionLogin.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabelTextoInicialSesionLogin.setForeground(new java.awt.Color(0, 0, 0));
@@ -162,18 +165,51 @@ public class Login extends javax.swing.JFrame {
         jPanelSalirLogin.setLayout(jPanelSalirLoginLayout);
         jPanelSalirLoginLayout.setHorizontalGroup(
             jPanelSalirLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSalirLoginLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabelSalirLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jLabelSalirLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
         jPanelSalirLoginLayout.setVerticalGroup(
             jPanelSalirLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSalirLoginLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabelSalirLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jLabelSalirLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        jPanelPrincipalLogin.add(jPanelSalirLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jPanelPrincipalLogin.add(jPanelSalirLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 30));
+
+        jPanelMinimizarLogin.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabelMinimizarLogin.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelMinimizarLogin.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabelMinimizarLogin.setForeground(new java.awt.Color(51, 51, 51));
+        jLabelMinimizarLogin.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabelMinimizarLogin.setText("-");
+        jLabelMinimizarLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabelMinimizarLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelMinimizarLoginMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabelMinimizarLoginMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabelMinimizarLoginMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelMinimizarLoginLayout = new javax.swing.GroupLayout(jPanelMinimizarLogin);
+        jPanelMinimizarLogin.setLayout(jPanelMinimizarLoginLayout);
+        jPanelMinimizarLoginLayout.setHorizontalGroup(
+            jPanelMinimizarLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelMinimizarLoginLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabelMinimizarLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE))
+        );
+        jPanelMinimizarLoginLayout.setVerticalGroup(
+            jPanelMinimizarLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelMinimizarLoginLayout.createSequentialGroup()
+                .addComponent(jLabelMinimizarLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 24, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jPanelPrincipalLogin.add(jPanelMinimizarLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 30, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -189,21 +225,25 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // Guarda las coordenadas del ratón al hacer clic para poder mover la ventana.
     private void jPanelArrastrarLoginMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelArrastrarLoginMousePressed
         xMouse = evt.getX();
         yMouse = evt.getY();       
     }//GEN-LAST:event_jPanelArrastrarLoginMousePressed
 
+    // Calcula la nueva posición de la ventana al arrastrarla con el ratón.
     private void jPanelArrastrarLoginMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelArrastrarLoginMouseDragged
         int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
         this.setLocation(x - xMouse ,y - yMouse);
     }//GEN-LAST:event_jPanelArrastrarLoginMouseDragged
 
+    // Cierra completamente la aplicación cuando se hace clic en la "X".
     private void jLabelSalirLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSalirLoginMouseClicked
         System.exit(0);
     }//GEN-LAST:event_jLabelSalirLoginMouseClicked
 
+    // Limpia el campo de texto del usuario si tiene el texto por defecto, y restaura el texto por defecto en la contraseña si está vacía.
     private void jTextFieldIngresaUsuarioLoginMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldIngresaUsuarioLoginMousePressed
         if(jTextFieldIngresaUsuarioLogin.getText().equals("Ingrese su nombre de usuario")){
             jTextFieldIngresaUsuarioLogin.setText("");    
@@ -213,6 +253,7 @@ public class Login extends javax.swing.JFrame {
         }        
     }//GEN-LAST:event_jTextFieldIngresaUsuarioLoginMousePressed
 
+    // Limpia el campo de contraseña si tiene el texto por defecto y muestra el texto por defecto del usuario si está vacío.
     private void jPasswordIngresaContraseñaLoginMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordIngresaContraseñaLoginMousePressed
         
         if(String.valueOf(jPasswordIngresaContraseñaLogin.getPassword()).equals("********")){
@@ -224,6 +265,7 @@ public class Login extends javax.swing.JFrame {
         }       
     }//GEN-LAST:event_jPasswordIngresaContraseñaLoginMousePressed
 
+    // Intenta iniciar sesión con los datos ingresados, conecta a la base de datos y abre la pantalla principal si es exitoso.
     private void jLabelTextoIniciarLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoIniciarLoginMouseClicked
         String usuario = jTextFieldIngresaUsuarioLogin.getText();
         String contraseña = new String(jPasswordIngresaContraseñaLogin.getPassword());
@@ -246,13 +288,30 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jLabelTextoIniciarLoginMouseClicked
 
+    // Cambia el color de fondo del botón de cerrar a rojo al pasar el ratón sobre él.
     private void jLabelSalirLoginMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSalirLoginMouseEntered
         jPanelSalirLogin.setBackground(Color.RED);
     }//GEN-LAST:event_jLabelSalirLoginMouseEntered
 
+    // Restaura el color de fondo del botón de cerrar al color blanco cuando el ratón sale.
     private void jLabelSalirLoginMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSalirLoginMouseExited
         jPanelSalirLogin.setBackground(new Color(255,255,255));
     }//GEN-LAST:event_jLabelSalirLoginMouseExited
+
+    // Evento para minimizar al hacer clic en el JLabel minimizar
+    private void jLabelMinimizarLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelMinimizarLoginMouseClicked
+        this.setState(javax.swing.JFrame.ICONIFIED);
+    }//GEN-LAST:event_jLabelMinimizarLoginMouseClicked
+
+    // Cambiar el fondo del panel "minimizar" a gris cuando se pasa el ratón
+    private void jLabelMinimizarLoginMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelMinimizarLoginMouseEntered
+        jPanelMinimizarLogin.setBackground(new Color(200, 200, 200));
+    }//GEN-LAST:event_jLabelMinimizarLoginMouseEntered
+
+    // Restaurar el fondo del panel "minimizar" al color original cuando se quita el ratón
+    private void jLabelMinimizarLoginMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelMinimizarLoginMouseExited
+        jPanelMinimizarLogin.setBackground(new Color(255, 255, 255));
+    }//GEN-LAST:event_jLabelMinimizarLoginMouseExited
 
     /**
      * @param args the command line arguments
@@ -291,6 +350,7 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabelFotoLogin;
+    private javax.swing.JLabel jLabelMinimizarLogin;
     private javax.swing.JLabel jLabelSalirLogin;
     private javax.swing.JLabel jLabelTextoContraseñaLogin;
     private javax.swing.JLabel jLabelTextoInicialSesionLogin;
@@ -298,6 +358,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelTextoUsuarioLogin;
     private javax.swing.JPanel jPanelArrastrarLogin;
     private javax.swing.JPanel jPanelIniciarSesionLogin;
+    private javax.swing.JPanel jPanelMinimizarLogin;
     private javax.swing.JPanel jPanelPrincipalLogin;
     private javax.swing.JPanel jPanelSalirLogin;
     private javax.swing.JPasswordField jPasswordIngresaContraseñaLogin;
@@ -306,8 +367,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldIngresaUsuarioLogin;
     // End of variables declaration//GEN-END:variables
 }
-// Clase auxiliar agregada directamente al final de Login.java
 
+// Clase auxiliar para redondear los paneles
 class PanelRound extends JPanel {
 
     private int roundTopLeft = 50;
