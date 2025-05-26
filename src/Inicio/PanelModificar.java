@@ -403,15 +403,12 @@ public class PanelModificar extends javax.swing.JPanel {
             jTextFieldDireccionModificar.setText(datos.get("direccion"));
             jTextFieldCodigoPostalModificar.setText(datos.get("cp"));
 
-            // ? Normalizar comunidad usando el mapa de equivalencias
             String comunidadBD = datos.get("comunidad");
             String comunidadNormalizada = contro.normalizarComunidad(comunidadBD);
             jComboBoxComunidadModificar.setSelectedItem(comunidadNormalizada);
 
-            // ? Cargar provincias de la comunidad seleccionada
             contro.cargarProvincias(jComboBoxComunidadModificar, jComboBoxProvinciaModificar);
 
-            // ? Seleccionar la provincia
             String provinciaBD = datos.get("provincia");
             if (provinciaBD != null) {
                 for (int i = 0; i < jComboBoxProvinciaModificar.getItemCount(); i++) {
@@ -422,7 +419,6 @@ public class PanelModificar extends javax.swing.JPanel {
                     }
                 }
             }
-
 
             jTextFieldPoblacionModificar.setText(datos.get("poblacion"));
             jTextFieldEmailTestModificar.setText(datos.get("emailTest"));
