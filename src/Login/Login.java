@@ -57,7 +57,7 @@ public class Login extends javax.swing.JFrame {
         jPanelPrincipalLogin.setBackground(new java.awt.Color(255, 255, 255));
         jPanelPrincipalLogin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelFotoLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ImagenLoginN.png"))); // NOI18N
+        jLabelFotoLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ImagenLogin.png"))); // NOI18N
         jPanelPrincipalLogin.add(jLabelFotoLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, 440, 500));
 
         jPanelArrastrarLogin.setBackground(new java.awt.Color(255, 255, 255));
