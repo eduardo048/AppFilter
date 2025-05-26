@@ -5,17 +5,24 @@ package Inicio;
 import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import ca.odell.glazedlists.swing.*;
+import ca.odell.glazedlists.*;
+import ca.odell.glazedlists.gui.TableFormat;
+import ca.odell.glazedlists.matchers.*;
+import java.util.List;
+
 
 public class PanelVerTodasLasEmpresas extends javax.swing.JPanel {
 
     private final Conexion.ConexionBBDD conexion = new Conexion.ConexionBBDD();
     private int paginaActual = 1;
     private final int registrosPorPagina = 100;
+    private EventList<String[]> listaEmpresas = new BasicEventList<>();
     
     public PanelVerTodasLasEmpresas() {
         initComponents();
         cargarPagina(paginaActual);
-        aplicarTextoBlnacoEnCampo();
+        aplicarTextoBlancoEnCampo();
     }
 
     /**
@@ -37,11 +44,9 @@ public class PanelVerTodasLasEmpresas extends javax.swing.JPanel {
         jLabelTextoCancelarVistaEmpresa = new javax.swing.JLabel();
         jLabelSiguienteVistaEmpresa = new javax.swing.JLabel();
         jLabelAnteriorVistaEmpresas = new javax.swing.JLabel();
-        scrollPane2 = new java.awt.ScrollPane();
-        jScrollPane5 = new javax.swing.JScrollPane();
+        jScrollPaneVerEmpresas = new javax.swing.JScrollPane();
         jTableVerEmpresas = new javax.swing.JTable();
-        jTableVerEmpresas = new javax.swing.JTable();
-        jTableVerEmpresas = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(41, 41, 41));
         setPreferredSize(new java.awt.Dimension(940, 660));
@@ -161,51 +166,33 @@ public class PanelVerTodasLasEmpresas extends javax.swing.JPanel {
         });
         add(jLabelAnteriorVistaEmpresas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
 
+        jScrollPaneVerEmpresas.setBackground(new java.awt.Color(41, 41, 41));
+        jScrollPaneVerEmpresas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jScrollPaneVerEmpresas.setForeground(new java.awt.Color(255, 255, 255));
+        jScrollPaneVerEmpresas.setViewportView(jTableVerEmpresas);
+
+        jTableVerEmpresas.setBackground(new java.awt.Color(41, 41, 41));
+        jTableVerEmpresas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Semibold", 0, 12))); // NOI18N
+        jTableVerEmpresas.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        jTableVerEmpresas.setForeground(new java.awt.Color(255, 255, 255));
         jTableVerEmpresas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
-        jScrollPane5.setViewportView(jTableVerEmpresas);
-        jTableVerEmpresas.getAccessibleContext().setAccessibleParent(scrollPane2);
+        jTableVerEmpresas.setGridColor(new java.awt.Color(255, 255, 255));
+        jScrollPaneVerEmpresas.setViewportView(jTableVerEmpresas);
 
-        scrollPane2.add(jScrollPane5);
+        add(jScrollPaneVerEmpresas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 920, 520));
 
-        jTableVerEmpresas.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane5.setViewportView(jTableVerEmpresas);
-        jTableVerEmpresas.getAccessibleContext().setAccessibleParent(scrollPane2);
-
-        jTableVerEmpresas.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane5.setViewportView(jTableVerEmpresas);
-        jTableVerEmpresas.getAccessibleContext().setAccessibleParent(scrollPane2);
-
-        add(scrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 910, 520));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ImagenVistaEmpresas.png"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, 660));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabelTextoCancelarVistaEmpresaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoCancelarVistaEmpresaMouseClicked
@@ -239,11 +226,11 @@ public class PanelVerTodasLasEmpresas extends javax.swing.JPanel {
 
             if (empresasFiltradas == null || empresasFiltradas.isEmpty()) {
                 // Vaciar tabla si no hay resultados
-                mostrarEmpresasEnJTable(new ArrayList<>());
+                mostrarEmpresas(new ArrayList<>());
                 JOptionPane.showMessageDialog(this, "No se encontraron resultados para: " + textoNormalizado,
                         "Sin resultados", JOptionPane.INFORMATION_MESSAGE);
             } else {
-                mostrarEmpresasEnJTable(empresasFiltradas);
+                mostrarEmpresas(empresasFiltradas);
             }
 
         } catch (Exception ex) {
@@ -308,36 +295,58 @@ public class PanelVerTodasLasEmpresas extends javax.swing.JPanel {
             return;
         }
 
-        mostrarEmpresasEnJTable(empresas);
+        mostrarEmpresas(empresas);
     }
     
-    private void mostrarEmpresasEnJTable(java.util.List<String[]> empresas) {
+    private void mostrarEmpresas(ArrayList<String[]> empresas) {
+        listaEmpresas.clear();
+        listaEmpresas.addAll(empresas);
+
         String[] columnas = { "ID", "EMPRESA", "ACTIVIDAD", "SECTOR", "DIRECCIÓN", "CP", "POBLACIÓN", "PROVINCIA", 
                               "COMUNIDAD", "TELÉFONO", "FAX", "EMAIL", "EMAIL_TEST", "WEB" };
 
-        javax.swing.table.DefaultTableModel modelo = new javax.swing.table.DefaultTableModel(columnas, 0);
+        TableFormat<String[]> tableFormat = GlazedLists.tableFormat(String[].class, columnas, columnas);
 
-        for (String[] fila : empresas) {
-            if (fila.length == columnas.length) {
-                modelo.addRow(fila);
+        TextFilterator<String[]> textFilterator = new TextFilterator<>() {
+            @Override
+            public void getFilterStrings(List<String> baseList, String[] item) {
+                for (String value : item) {
+                    if (value != null) baseList.add(value);
+                }
             }
-        }
+        };
 
-        jTableVerEmpresas.setModel(modelo);
+        TextComponentMatcherEditor<String[]> matcherEditor =
+            new TextComponentMatcherEditor<>(jTextFieldEscribaNombreEmpresaVistaEmpresa, textFilterator);
+
+        FilterList<String[]> filteredList = new FilterList<>(listaEmpresas, matcherEditor);
+
+        EventTableModel<String[]> tableModel = new EventTableModel<>(filteredList, tableFormat);
+
+        jTableVerEmpresas.setModel(tableModel); // ? Asegúrate de poner esto
+        jScrollPaneVerEmpresas.setViewportView(jTableVerEmpresas);
+
         jTableVerEmpresas.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        jTableVerEmpresas.setGridColor(Color.WHITE);
+
+        TableComparatorChooser.install(jTableVerEmpresas, filteredList, TableComparatorChooser.MULTIPLE_COLUMN_MOUSE);
     }
+
     
        
-    private void aplicarTextoBlnacoEnCampo(){
+    private void aplicarTextoBlancoEnCampo(){
         jLabelTextoTituloVistaEmpresas.setForeground(Color.WHITE);
         jLabelTextoEacribaNombreEmpresaVistaEmpresas.setForeground(Color.WHITE);
         jTextFieldEscribaNombreEmpresaVistaEmpresa.setForeground(Color.WHITE);
         jLabelAnteriorVistaEmpresas.setForeground(Color.WHITE);
         jLabelSiguienteVistaEmpresa.setForeground(Color.WHITE);
     }
+    
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelAnteriorVistaEmpresas;
     private javax.swing.JLabel jLabelSiguienteVistaEmpresa;
     private javax.swing.JLabel jLabelTextoBuscarDatosVistaEmpresa;
@@ -346,10 +355,9 @@ public class PanelVerTodasLasEmpresas extends javax.swing.JPanel {
     private javax.swing.JLabel jLabelTextoTituloVistaEmpresas;
     private javax.swing.JPanel jPanelCancelarVistaEmpresas;
     private javax.swing.JPanel jPanelCargarDatosVerEmpresas;
-    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPaneVerEmpresas;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTable jTableVerEmpresas;
     private javax.swing.JTextField jTextFieldEscribaNombreEmpresaVistaEmpresa;
-    private java.awt.ScrollPane scrollPane2;
     // End of variables declaration//GEN-END:variables
 }
