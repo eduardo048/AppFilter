@@ -412,7 +412,17 @@ public class PanelModificar extends javax.swing.JPanel {
             contro.cargarProvincias(jComboBoxComunidadModificar, jComboBoxProvinciaModificar);
 
             // ? Seleccionar la provincia
-            jComboBoxProvinciaModificar.setSelectedItem(datos.get("provincia"));
+            String provinciaBD = datos.get("provincia");
+            if (provinciaBD != null) {
+                for (int i = 0; i < jComboBoxProvinciaModificar.getItemCount(); i++) {
+                    String item = jComboBoxProvinciaModificar.getItemAt(i);
+                    if (item.equalsIgnoreCase(provinciaBD.trim())) {
+                        jComboBoxProvinciaModificar.setSelectedIndex(i);
+                        break;
+                    }
+                }
+            }
+
 
             jTextFieldPoblacionModificar.setText(datos.get("poblacion"));
             jTextFieldEmailTestModificar.setText(datos.get("emailTest"));
