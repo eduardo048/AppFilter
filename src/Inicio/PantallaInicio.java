@@ -57,8 +57,6 @@ public class PantallaInicio extends javax.swing.JFrame {
         jLabelModificarMenu = new javax.swing.JLabel();
         jPanelEliminarMenu = new PanelRound();
         jLabelEliminarMenu = new javax.swing.JLabel();
-        jPanelFiltrarEmpresasMenu = new PanelRound();
-        jLabelFiltrarEmpresaMenu = new javax.swing.JLabel();
         jPanelVerEmpresasMenu = new PanelRound();
         jLabelVerEmpresasMenu = new javax.swing.JLabel();
         jPanelMinimizarPantallaInicio = new javax.swing.JPanel();
@@ -241,38 +239,6 @@ public class PantallaInicio extends javax.swing.JFrame {
         );
 
         jPanelMenuIzqInicio.add(jPanelEliminarMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, -1, -1));
-
-        jPanelFiltrarEmpresasMenu.setBackground(new java.awt.Color(51, 51, 51));
-
-        jLabelFiltrarEmpresaMenu.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        jLabelFiltrarEmpresaMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelFiltrarEmpresaMenu.setText("FILTRAR EMPRESAS");
-        jLabelFiltrarEmpresaMenu.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelFiltrarEmpresaMenuMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabelFiltrarEmpresaMenuMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabelFiltrarEmpresaMenuMouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanelFiltrarEmpresasMenuLayout = new javax.swing.GroupLayout(jPanelFiltrarEmpresasMenu);
-        jPanelFiltrarEmpresasMenu.setLayout(jPanelFiltrarEmpresasMenuLayout);
-        jPanelFiltrarEmpresasMenuLayout.setHorizontalGroup(
-            jPanelFiltrarEmpresasMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelFiltrarEmpresasMenuLayout.createSequentialGroup()
-                .addComponent(jLabelFiltrarEmpresaMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanelFiltrarEmpresasMenuLayout.setVerticalGroup(
-            jPanelFiltrarEmpresasMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelFiltrarEmpresaMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-        );
-
-        jPanelMenuIzqInicio.add(jPanelFiltrarEmpresasMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, -1, -1));
 
         jPanelVerEmpresasMenu.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -508,30 +474,6 @@ public class PantallaInicio extends javax.swing.JFrame {
         jPanelEliminarMenu.setBackground(new Color(51, 51, 51));
         jLabelEliminarMenu.setForeground(Color.BLACK);
     }//GEN-LAST:event_jLabelEliminarMenuMouseExited
-
-    // Cargar panel Filtrar en el panel principal al hacer clic en el menú 
-    private void jLabelFiltrarEmpresaMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelFiltrarEmpresaMenuMouseClicked
-        PanelFiltrar panelFiltrar = new PanelFiltrar();
-       
-        jPanelFondoPantallaInicio.removeAll();
-        jPanelFondoPantallaInicio.setLayout(new BorderLayout());
-        jPanelFondoPantallaInicio.add(panelFiltrar, BorderLayout.CENTER);
-
-        jPanelFondoPantallaInicio.revalidate();
-        jPanelFondoPantallaInicio.repaint();
-    }//GEN-LAST:event_jLabelFiltrarEmpresaMenuMouseClicked
-
-    // Cambiar estilo del menú "Filtrar Empresas" al pasar el ratón encima
-    private void jLabelFiltrarEmpresaMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelFiltrarEmpresaMenuMouseEntered
-        jPanelFiltrarEmpresasMenu.setBackground(Color.WHITE);
-        jLabelFiltrarEmpresaMenu.setForeground(new Color(51, 51, 51));
-    }//GEN-LAST:event_jLabelFiltrarEmpresaMenuMouseEntered
-
-    // Restaurar estilo original del menú "Filtrar Empresas" al quitar el ratón
-    private void jLabelFiltrarEmpresaMenuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelFiltrarEmpresaMenuMouseExited
-        jPanelFiltrarEmpresasMenu.setBackground(new Color(51, 51, 51));
-        jLabelFiltrarEmpresaMenu.setForeground(Color.BLACK);
-    }//GEN-LAST:event_jLabelFiltrarEmpresaMenuMouseExited
 
     // Cargar panel para ver todas las empresas al hacer clic en el menú "Ver Empresas"
     private void jLabelVerEmpresasMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelVerEmpresasMenuMouseClicked
@@ -899,7 +841,6 @@ public class PantallaInicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelAñadirMenu;
     private javax.swing.JLabel jLabelEliminarMenu;
-    private javax.swing.JLabel jLabelFiltrarEmpresaMenu;
     private javax.swing.JLabel jLabelInicioMenu;
     private javax.swing.JLabel jLabelMinimizarPantallaInicio;
     private javax.swing.JLabel jLabelModificarMenu;
@@ -908,7 +849,6 @@ public class PantallaInicio extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelArrastrarPantalla;
     private javax.swing.JPanel jPanelAñadirMenu;
     private javax.swing.JPanel jPanelEliminarMenu;
-    private javax.swing.JPanel jPanelFiltrarEmpresasMenu;
     private javax.swing.JPanel jPanelFondoPantallaInicio;
     private javax.swing.JPanel jPanelInicioMenu;
     private javax.swing.JPanel jPanelMenuIzqInicio;

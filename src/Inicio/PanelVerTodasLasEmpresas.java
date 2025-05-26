@@ -5,6 +5,16 @@ package Inicio;
 import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
+import javax.swing.table.JTableHeader;
+import javax.swing.JPopupMenu;
+import javax.swing.JMenuItem;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.Rectangle;
+import javax.swing.RowFilter;
+
 
 
 
@@ -13,6 +23,8 @@ public class PanelVerTodasLasEmpresas extends javax.swing.JPanel {
     private final Conexion.ConexionBBDD conexion = new Conexion.ConexionBBDD();
     private int paginaActual = 1;
     private final int registrosPorPagina = 100;
+    private TableRowSorter<TableModel> rowSorter;
+
     
     public PanelVerTodasLasEmpresas() {
         initComponents();
@@ -315,7 +327,60 @@ public class PanelVerTodasLasEmpresas extends javax.swing.JPanel {
         jTableVerEmpresas.setModel(modelo);
         jTableVerEmpresas.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         jTableVerEmpresas.setGridColor(Color.WHITE);
+        
+        rowSorter = new TableRowSorter<>(jTableVerEmpresas.getModel());
+        jTableVerEmpresas.setRowSorter(rowSorter);
+
+        jTableVerEmpresas.getTableHeader().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int col = jTableVerEmpresas.columnAtPoint(e.getPoint());
+                mostrarMenuFiltroSimple(col);
+            }
+        });
     }
+    
+    private void mostrarMenuFiltroSimple(int columna) {
+        JPopupMenu menu = new JPopupMenu();
+
+        JMenuItem conItem = new JMenuItem("Con");
+        conItem.addActionListener(e -> {
+            RowFilter<TableModel, Object> filtroCon = new RowFilter<>() {
+                @Override
+                public boolean include(Entry<? extends TableModel, ? extends Object> entry) {
+                    Object valor = entry.getValue(columna);
+                    return valor != null && !valor.toString().trim().isEmpty();
+                }
+            };
+            rowSorter.setRowFilter(filtroCon);
+        });
+
+        JMenuItem sinItem = new JMenuItem("Sin");
+        sinItem.addActionListener(e -> {
+            RowFilter<TableModel, Object> filtroSin = new RowFilter<>() {
+                @Override
+                public boolean include(Entry<? extends TableModel, ? extends Object> entry) {
+                    Object valor = entry.getValue(columna);
+                    return valor == null || valor.toString().trim().isEmpty();
+                }
+            };
+            rowSorter.setRowFilter(filtroSin);
+        });
+
+        JMenuItem todosItem = new JMenuItem("Todos");
+        todosItem.addActionListener(e -> rowSorter.setRowFilter(null));
+
+        menu.add(todosItem);
+        menu.addSeparator();
+        menu.add(conItem);
+        menu.add(sinItem);
+
+        JTableHeader header = jTableVerEmpresas.getTableHeader();
+        Rectangle rect = header.getHeaderRect(columna);
+        menu.show(header, rect.x, rect.height);
+    }
+
+
     
        
     private void aplicarTextoBlancoEnCampo(){
