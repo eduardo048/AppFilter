@@ -428,15 +428,15 @@ public class PanelEliminar extends javax.swing.JPanel {
         String idEmpresa = jTextFieldIdEmpresaEliminar.getText().trim();
         String nombreSeleccionado = (String) jComboBoxNombresEncontradosEliminar.getSelectedItem(); // nombre para quitar de la combo
 
-        if (!idEmpresa.isEmpty() && nombreSeleccionado != null) {
+        if(!idEmpresa.isEmpty() && nombreSeleccionado != null){
             int confirmacion = JOptionPane.showConfirmDialog(null,
                 "¿Estás seguro de que quieres eliminar la empresa con ID: " + idEmpresa + "?",
                 "Confirmar eliminación", JOptionPane.YES_NO_OPTION);
 
-            if (confirmacion == JOptionPane.YES_OPTION) {
+            if(confirmacion == JOptionPane.YES_OPTION){
                 boolean eliminada = conexionBBDD.eliminarEmpresaPorId(idEmpresa);
 
-                if (eliminada) {
+                if(eliminada){
                     JOptionPane.showMessageDialog(null, "Empresa eliminada correctamente.");
 
                     jTextFieldIdEmpresaEliminar.setText("");
@@ -455,24 +455,23 @@ public class PanelEliminar extends javax.swing.JPanel {
                     jTextFieldWebEliminar.setText("");
 
                     String textoBusqueda = jTextFieldEscribaNombreEmpresaEliminar.getText().trim();
-                    if (!textoBusqueda.isEmpty()) {
+                    if(!textoBusqueda.isEmpty()){
                         ArrayList<String> resultados = conexionBBDD.buscarEmpresaPorNombreParcial(textoBusqueda);
                         jComboBoxNombresEncontradosEliminar.removeAllItems();
 
-                        for (String nombre : resultados) {
+                        for(String nombre : resultados){
                             jComboBoxNombresEncontradosEliminar.addItem(nombre);
                         }
 
-                        if (resultados.isEmpty()) {
+                        if(resultados.isEmpty()){
                             JOptionPane.showMessageDialog(null, "No quedan empresas que coincidan con la búsqueda actual.");
                         }
                     }
-
-                } else {
+                }else{
                     JOptionPane.showMessageDialog(null, "No se pudo eliminar la empresa.");
                 }
             }
-        } else {
+        }else{
             JOptionPane.showMessageDialog(null, "Debes seleccionar una empresa válida.");
         }
     }//GEN-LAST:event_jLabelTextoEliminarMouseClicked

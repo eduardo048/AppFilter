@@ -389,8 +389,8 @@ public class PanelModificar extends javax.swing.JPanel {
     private void jComboBoxNombresEncontradosModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxNombresEncontradosModificarActionPerformed
         String nombreSeleccionado = (String) jComboBoxNombresEncontradosModificar.getSelectedItem();
     
-    if(nombreSeleccionado != null){
-        HashMap<String, String> datos = conexionBBDD.buscarEmpresaPorNombreEntero(nombreSeleccionado);
+        if(nombreSeleccionado != null){
+            HashMap<String, String> datos = conexionBBDD.buscarEmpresaPorNombreEntero(nombreSeleccionado);
         
         if(datos != null){
             jTextFieldIdEmpresaModificar.setText(datos.get("id"));
@@ -410,8 +410,8 @@ public class PanelModificar extends javax.swing.JPanel {
             contro.cargarProvincias(jComboBoxComunidadModificar, jComboBoxProvinciaModificar);
 
             String provinciaBD = datos.get("provincia");
-            if (provinciaBD != null) {
-                for (int i = 0; i < jComboBoxProvinciaModificar.getItemCount(); i++) {
+            if(provinciaBD != null){
+                for(int i = 0; i < jComboBoxProvinciaModificar.getItemCount(); i++){
                     String item = jComboBoxProvinciaModificar.getItemAt(i);
                     if (item.equalsIgnoreCase(provinciaBD.trim())) {
                         jComboBoxProvinciaModificar.setSelectedIndex(i);

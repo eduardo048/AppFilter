@@ -1,6 +1,5 @@
-
+//Panel que muestra todas las empresas con funciones de búsqueda, filtrado y paginación.
 package Inicio;
-
 
 import java.awt.Color;
 import java.util.ArrayList;
@@ -14,9 +13,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Rectangle;
 import javax.swing.RowFilter;
-
-
-
 
 public class PanelVerTodasLasEmpresas extends javax.swing.JPanel {
 
@@ -204,26 +200,30 @@ public class PanelVerTodasLasEmpresas extends javax.swing.JPanel {
         add(jLabelVerImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, 660));
     }// </editor-fold>//GEN-END:initComponents
 
+    //Limpia el campo de texto y recarga la primera página.
     private void jLabelTextoCancelarVistaEmpresaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoCancelarVistaEmpresaMouseClicked
         jTextFieldEscribaNombreEmpresaVistaEmpresa.setText("");                    
         paginaActual = 1;                                       
         cargarPagina(paginaActual);  
     }//GEN-LAST:event_jLabelTextoCancelarVistaEmpresaMouseClicked
 
+    //Cambia el color al pasar el ratón sobre el botón cancelar.
     private void jLabelTextoCancelarVistaEmpresaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoCancelarVistaEmpresaMouseEntered
         jPanelCancelarVistaEmpresas.setBackground(new Color(51, 51, 51));
         jLabelTextoCancelarVistaEmpresa.setForeground(Color.WHITE);
     }//GEN-LAST:event_jLabelTextoCancelarVistaEmpresaMouseEntered
 
+    //Restaura el color original al salir el ratón del botón cancelar.
     private void jLabelTextoCancelarVistaEmpresaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoCancelarVistaEmpresaMouseExited
         jPanelCancelarVistaEmpresas.setBackground(Color.WHITE);
         jLabelTextoCancelarVistaEmpresa.setForeground(new Color(51, 51, 51));
     }//GEN-LAST:event_jLabelTextoCancelarVistaEmpresaMouseExited
 
+    //Realiza la búsqueda de empresas por nombre parcial.
     private void jLabelTextoBuscarDatosVistaEmpresaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoBuscarDatosVistaEmpresaMouseClicked
         String texto = jTextFieldEscribaNombreEmpresaVistaEmpresa.getText().trim();
 
-        if (texto.isEmpty()) {
+        if(texto.isEmpty()){
             JOptionPane.showMessageDialog(this, "Por favor, escriba el nombre de la empresa a buscar.",
                     "Campo vacío", JOptionPane.WARNING_MESSAGE);
             return;
@@ -233,68 +233,73 @@ public class PanelVerTodasLasEmpresas extends javax.swing.JPanel {
         try {
             ArrayList<String[]> empresasFiltradas = conexion.buscarEmpresasPorNombreParcial(textoNormalizado);
 
-            if (empresasFiltradas == null || empresasFiltradas.isEmpty()) {
-                // Vaciar tabla si no hay resultados
+            if(empresasFiltradas == null || empresasFiltradas.isEmpty()){
                 mostrarEmpresas(new ArrayList<>());
                 JOptionPane.showMessageDialog(this, "No se encontraron resultados para: " + textoNormalizado,
                         "Sin resultados", JOptionPane.INFORMATION_MESSAGE);
-            } else {
+            }else{
                 mostrarEmpresas(empresasFiltradas);
             }
-
-        } catch (Exception ex) {
+        }catch (Exception ex){
             ex.printStackTrace();
             JOptionPane.showMessageDialog(this, "Error al buscar empresas:\n" + ex.getMessage(),
                     "Error de búsqueda", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jLabelTextoBuscarDatosVistaEmpresaMouseClicked
     
+    //Convierte el texto a mayúsculas y lo limpia de espacios.
     private String normalizarTexto(String input) {
-        if (input == null) return "";
+        if(input == null) return "";
         return input.toUpperCase().trim();
     }
 
+    //Cambia el color al pasar el ratón sobre el botón buscar.
     private void jLabelTextoBuscarDatosVistaEmpresaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoBuscarDatosVistaEmpresaMouseEntered
         jPanelCargarDatosVerEmpresas.setBackground(new Color(51, 51, 51));
         jLabelTextoBuscarDatosVistaEmpresa.setForeground(Color.WHITE);
     }//GEN-LAST:event_jLabelTextoBuscarDatosVistaEmpresaMouseEntered
 
+    //Restaura el color original del botón buscar al salir el ratón.
     private void jLabelTextoBuscarDatosVistaEmpresaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTextoBuscarDatosVistaEmpresaMouseExited
         jPanelCargarDatosVerEmpresas.setBackground(Color.WHITE);
         jLabelTextoBuscarDatosVistaEmpresa.setForeground(new Color(51, 51, 51));
     }//GEN-LAST:event_jLabelTextoBuscarDatosVistaEmpresaMouseExited
 
+    //Avanza a la siguiente página de resultados.
     private void jLabelSiguienteVistaEmpresaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSiguienteVistaEmpresaMouseClicked
         paginaActual++;
         cargarPagina(paginaActual);
     }//GEN-LAST:event_jLabelSiguienteVistaEmpresaMouseClicked
 
+    //Retrocede a la página anterior si no es la primera.
     private void jLabelAnteriorVistaEmpresasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelAnteriorVistaEmpresasMouseClicked
         if(paginaActual > 1){
             paginaActual--;
             cargarPagina(paginaActual);
         }
-    
-
     }//GEN-LAST:event_jLabelAnteriorVistaEmpresasMouseClicked
 
+    //Cambia el color del botón siguiente al pasar el ratón.
     private void jLabelSiguienteVistaEmpresaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSiguienteVistaEmpresaMouseEntered
         jLabelSiguienteVistaEmpresa.setForeground(new Color(14,45,51));
     }//GEN-LAST:event_jLabelSiguienteVistaEmpresaMouseEntered
 
+    //Restaura el color original del botón siguiente.
     private void jLabelSiguienteVistaEmpresaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSiguienteVistaEmpresaMouseExited
         jLabelSiguienteVistaEmpresa.setForeground(Color.WHITE);
     }//GEN-LAST:event_jLabelSiguienteVistaEmpresaMouseExited
 
+    //Cambia el color del botón anterior al pasar el ratón.
     private void jLabelAnteriorVistaEmpresasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelAnteriorVistaEmpresasMouseEntered
         jLabelAnteriorVistaEmpresas.setForeground(new Color(14,45,51));
     }//GEN-LAST:event_jLabelAnteriorVistaEmpresasMouseEntered
 
+    //Restaura el color original del botón anterior.
     private void jLabelAnteriorVistaEmpresasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelAnteriorVistaEmpresasMouseExited
         jLabelAnteriorVistaEmpresas.setForeground(Color.WHITE);
     }//GEN-LAST:event_jLabelAnteriorVistaEmpresasMouseExited
     
-    
+    //Carga los datos de una página específica.
     private void cargarPagina(int pagina) {
         int offset = (pagina - 1) * registrosPorPagina;       
         java.util.List<String[]> empresas = conexion.obtenerEmpresasPaginado(offset, registrosPorPagina);
@@ -303,10 +308,10 @@ public class PanelVerTodasLasEmpresas extends javax.swing.JPanel {
             paginaActual--;
             return;
         }
-
         mostrarEmpresas(empresas);
     }
     
+    //Muestra la lista de empresas en la tabla.
     private void mostrarEmpresas(java.util.List<String[]> empresas) {
         String[] columnas = { "ID", "EMPRESA", "ACTIVIDAD", "SECTOR", "DIRECCIÓN", "CP", "POBLACIÓN", "PROVINCIA", 
                               "COMUNIDAD", "TELÉFONO", "FAX", "EMAIL", "EMAIL_TEST", "WEB" };
@@ -318,8 +323,8 @@ public class PanelVerTodasLasEmpresas extends javax.swing.JPanel {
             }
         };
 
-        for (String[] fila : empresas) {
-            if (fila.length == columnas.length) {
+        for(String[] fila : empresas) {
+            if (fila.length == columnas.length){
                 modelo.addRow(fila);
             }
         }
@@ -331,15 +336,16 @@ public class PanelVerTodasLasEmpresas extends javax.swing.JPanel {
         rowSorter = new TableRowSorter<>(jTableVerEmpresas.getModel());
         jTableVerEmpresas.setRowSorter(rowSorter);
 
-        jTableVerEmpresas.getTableHeader().addMouseListener(new MouseAdapter() {
+        jTableVerEmpresas.getTableHeader().addMouseListener(new MouseAdapter(){
             @Override
-            public void mouseClicked(MouseEvent e) {
+            public void mouseClicked(MouseEvent e){
                 int col = jTableVerEmpresas.columnAtPoint(e.getPoint());
                 mostrarMenuFiltroSimple(col);
             }
         });
     }
     
+    //Muestra un menú de filtro simple para una columna específica.
     private void mostrarMenuFiltroSimple(int columna) {
         JPopupMenu menu = new JPopupMenu();
 
@@ -347,7 +353,7 @@ public class PanelVerTodasLasEmpresas extends javax.swing.JPanel {
         conItem.addActionListener(e -> {
             RowFilter<TableModel, Object> filtroCon = new RowFilter<>() {
                 @Override
-                public boolean include(Entry<? extends TableModel, ? extends Object> entry) {
+                public boolean include(Entry<? extends TableModel, ? extends Object> entry){
                     Object valor = entry.getValue(columna);
                     return valor != null && !valor.toString().trim().isEmpty();
                 }
@@ -357,9 +363,9 @@ public class PanelVerTodasLasEmpresas extends javax.swing.JPanel {
 
         JMenuItem sinItem = new JMenuItem("Sin");
         sinItem.addActionListener(e -> {
-            RowFilter<TableModel, Object> filtroSin = new RowFilter<>() {
+            RowFilter<TableModel, Object> filtroSin = new RowFilter<>(){
                 @Override
-                public boolean include(Entry<? extends TableModel, ? extends Object> entry) {
+                public boolean include(Entry<? extends TableModel, ? extends Object> entry){
                     Object valor = entry.getValue(columna);
                     return valor == null || valor.toString().trim().isEmpty();
                 }
@@ -379,10 +385,8 @@ public class PanelVerTodasLasEmpresas extends javax.swing.JPanel {
         Rectangle rect = header.getHeaderRect(columna);
         menu.show(header, rect.x, rect.height);
     }
-
-
-    
        
+    //Aplica color blanco al texto de varios componentes del panel
     private void aplicarTextoBlancoEnCampo(){
         jLabelTextoTituloVistaEmpresas.setForeground(Color.WHITE);
         jLabelTextoEacribaNombreEmpresaVistaEmpresas.setForeground(Color.WHITE);
